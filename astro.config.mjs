@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import { sanity } from '@sanity/astro';
+import sanity from '@sanity/astro';
 import { fileURLToPath } from 'node:url';
 
 export default defineConfig({
