@@ -1,5 +1,4 @@
 ---
-// デフォルトのコンテンツデータ（日本語）
 const defaultContent = {
   description: "日本のファンに、あなたのお店を届ける。",
   navigation: "ナビゲーション",
@@ -16,8 +15,9 @@ const defaultContent = {
   contactButton: "無料相談はこちら"
 };
 
-// ページから渡されるcontentがない場合は、デフォルトを使用
 const { content = defaultContent } = Astro.props;
+const navLinks = content?.navLinks ?? [];
+const languages = content?.languages ?? [];
 const currentYear = new Date().getFullYear();
 ---
 <footer class="bg-slate-900 text-slate-400">
@@ -30,7 +30,7 @@ const currentYear = new Date().getFullYear();
       <div>
         <h4 class="font-semibold text-slate-200">{content.navigation}</h4>
         <ul class="mt-4 space-y-2 text-sm">
-          {content.navLinks.map(link => (
+          {navLinks.map(link => (
             <li><a href={link.href} class="hover:text-white transition-colors">{link.name}</a></li>
           ))}
         </ul>
@@ -38,12 +38,10 @@ const currentYear = new Date().getFullYear();
       <div>
         <h4 class="font-semibold text-slate-200">{content.supportedLanguages}</h4>
         <ul class="mt-4 space-y-2 text-sm">
-          {content.languages.map(lang => (
-            <li>{lang}</li>
-          ))}
+          {languages.map(lang => (<li>{lang}</li>))}
         </ul>
       </div>
-       <div>
+      <div>
         <h4 class="font-semibold text-slate-200">{content.contact}</h4>
         <a href="#contact" class="mt-4 inline-block bg-indigo-600 text-white font-medium px-6 py-2 rounded-md hover:bg-indigo-500 transition-colors">{content.contactButton}</a>
       </div>
@@ -53,4 +51,3 @@ const currentYear = new Date().getFullYear();
     </div>
   </div>
 </footer>
-
