@@ -1,21 +1,19 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
-import { sanityClient } from '../../../sanity/client';
+import Layout from '../../layouts/Layout.astro';
+import { sanityClient } from 'sanity:client';
+import { sanityPortableText } from '../../sanity/portableText';
 
-const posts = await sanityClient.fetch(`*[_type == "post" && language == "en"]`);
+const { slug } = Astro.params;
+const post = await sanityClient.fetch(`*[_type == "post" && slug.current == $slug][0]`, { slug });
 ---
 
-<Layout title="Blog | Omiseweb" description="Omiseweb Blog">
+<Layout 
+  title={`${post.title} | Omiseweb`}
+  description={post.excerpt}>
   <div class="max-w-4xl mx-auto px-6 py-20">
-    <h1 class="text-4xl font-bold mb-8">Blog</h1>
-    <ul class="space-y-4">
-      {posts.map(post => (
-        <li>
-          <a href={`/en/blog/${post.slug.current}`} class="text-2xl font-semibold text-indigo-600 hover:underline">
-            {post.title}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <h1 class="text-4xl font-bold mb-4">{post.title}</h1>
+    <div class="prose lg:prose-xl mt-8">
+      <Fragment set:html={sanityPortableText(post.body)} />
+    </div>
   </div>
 </Layout>
