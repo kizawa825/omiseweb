@@ -4,7 +4,8 @@ const { pathname } = Astro.url;
 
 // 現在のパスが /en で始まるかチェック
 const isEn = pathname.startsWith('/en');
-const priceLink = isEn ? '/en/works' : '/works';
+// 変数名を分かりやすく変更し、worksページのリンクを生成
+const worksLink = isEn ? '/en/works' : '/works';
 ---
 <section id="works" class="py-20 sm:py-24 bg-slate-50">
   <div class="max-w-7xl mx-auto px-6">
@@ -35,7 +36,8 @@ const priceLink = isEn ? '/en/works' : '/works';
     </div>
 
     <div class="mt-12 text-center">
-      <a href="/works" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+      {/* ここを変更：href属性を固定値から動的な変数に変更 */}
+      <a href={worksLink} class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
         {content.buttonText}
       </a>
     </div>
