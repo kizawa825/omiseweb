@@ -32,6 +32,9 @@ if (pathParts.length > 0 && langCodes.includes(pathParts[0])) {
     currentLangCode = pathParts[0];
 }
 
+// ロゴのリンク先を、現在の言語のトップページに設定します。
+const logoHref = currentLangCode === 'jp' ? '/' : `/${currentLangCode}/`;
+
 // --- STEP 2: 言語部分を除いた「ベースパス」を生成 ---
 let basePath = '';
 if (currentLangCode !== 'jp') {
@@ -80,7 +83,7 @@ const sortedLanguages = [
       
       <!-- ロゴ -->
       <div class="flex-shrink-0">
-        <a href={currentLanguage.href} class="text-2xl font-bold text-indigo-600">Omiseweb</a>
+        <a href={logoHref} class="text-2xl font-bold text-indigo-600">Omiseweb</a>
       </div>
       
       <!-- デスクトップ用ナビゲーション -->
@@ -224,5 +227,4 @@ const sortedLanguages = [
     }
   });
 </script>
-
 
