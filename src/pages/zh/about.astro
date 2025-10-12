@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Cta from '../../components/Cta.astro';
+import content from '../../data/zh.json';
+
+const pageContent = content.aboutPage ?? { title: '关于我们', description: '', sections: [] };
+const headerContent = content.header ?? { navLinks: [] };
+const footerContent = content.footer ?? {};
+---
+<Layout
+  title={`${pageContent.title} | Omiseweb`}
+  description={pageContent.description}
+  headerContent={headerContent}
+  footerContent={footerContent}
+>
+  {/* Main Content */}
+  <section class="bg-slate-50 py-20 sm:py-24">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-900">{pageContent.title}</h1>
+      <p class="mt-4 max-w-3xl mx-auto text-lg text-slate-600">
+        {pageContent.description}
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 sm:py-24">
+    <div class="max-w-3xl mx-auto px-6 space-y-12">
+      {pageContent.sections.map((section) => (
+        <div>
+          <h2 class="text-3xl font-bold text-slate-900">{section.title}</h2>
+          <p class="mt-4 text-lg leading-8 text-slate-600">{section.content}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <Cta content={content.cta} />
+</Layout>
