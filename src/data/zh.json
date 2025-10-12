@@ -1,0 +1,286 @@
+{
+  "header": {
+    "navLinks": [
+      { "name": "关于我们", "href": "/zh/about" },
+      { "name": "成功案例", "href": "/zh/works" },
+      { "name": "价格方案", "href": "/zh/price" }
+    ],
+    "language": "语言"
+  },
+  "footer": {
+    "description": "为在日本努力奋斗的外国店主提供能强力吸引顾客的完全定制化网站制作服务。",
+    "navigation": "导航",
+    "navLinks": [
+      { "name": "关于我们", "href": "/zh/about" },
+      { "name": "成功案例", "href": "/zh/works" },
+      { "name": "价格方案", "href": "/zh/price" }
+    ],
+    "supportedLanguages": "支持语言",
+    "languages": ["日本語", "English", "中文", "ภาษาไทย"],
+    "contact": "联系我们",
+    "contactButton": "免费咨询",
+    "copyright": "© 2025 Omiseweb. All rights reserved."
+  },
+  "hero": {
+    "catchphrase": "将您出色的店铺，呈现给日本的粉丝。",
+    "subcopy": "致在日本努力奋斗的外国餐厅和沙龙老板。\n以惊人的低价，为您打造一个善于吸引顾客的完全定制化网站。",
+    "features": [
+      "不使用模板",
+      "擅长吸引顾客 (SEO/MEO)",
+      "全程母语支持"
+    ],
+    "cta_main": "免费咨询 (用您的母语)",
+    "cta_sub": "查看价格方案"
+  },
+  "problem": {
+    "title": "您是否在网站方面遇到过这些烦恼？",
+    "problems": [
+      { "icon": "language", "text": "担心与日本制作公司的日语沟通..." },
+      { "icon": "users", "text": "店铺的魅力无法传达，新顾客没有增加..." },
+      { "icon": "palette", "text": "不想用模板设计，希望展现店铺的个性..." },
+      { "icon": "money", "text": "专业的网站制作费用太高，难以负担..." },
+      { "icon": "question", "text": "没有网络专业知识，不知从何下手..." }
+    ]
+  },
+  "solution": {
+    "title": "这些烦恼，我们 'Omiseweb' 将全部为您解决！",
+    "subtitle": "引领您事业成功的四大优势",
+    "solutions": [
+      {
+        "title": "我们不使用模板",
+        "subtitle": "低价格，也能实现完全原创设计",
+        "description": "我们专注于中小型及个人店铺，彻底削减不必要的成本。即使价格低廉，我们也会仔细聆听每家店铺的理念和故事，为您打造独一无二的原创网站。",
+        "image": "https://placehold.co/600x400/312e81/ffffff?text=原创设计"
+      },
+      {
+        "title": "能“打动”日本顾客的设计",
+        "subtitle": "由日本人为日本市场量身打造的本地化",
+        "description": "由深谙日本市场、文化及潮流的日本设计师和营销人员负责。我们将您祖国的魅力与日本人的审美相结合，提出最有效的展示方案。",
+        "image": "https://placehold.co/600x400/312e81/ffffff?text=本地化"
+      },
+      {
+        "title": "通过SEO/MEO吸引粉丝",
+        "subtitle": "制作完成并非终点，强化“吸引顾客”的能力",
+        "description": "网站上线后才是吸引顾客的真正开始。我们标配了MEO对策，让顾客能在谷歌地图上找到您的店铺；以及SEO对策，让顾客能通过搜索找到您，从而吸引对您店铺感兴趣的顾客。",
+        "image": "https://placehold.co/600x400/312e81/ffffff?text=强化吸引顾客"
+      },
+      {
+        "title": "零语言压力",
+        "subtitle": "安心的“母语”全程支持",
+        "description": "从初次洽谈、设计确认到上线后的操作说明，我们全部用您的母语（中文、英文、泰文）进行对应。即使是细微的差异，也请您安心与我们商谈。",
+        "image": "https://placehold.co/600x400/312e81/ffffff?text=全程支持"
+      }
+    ]
+  },
+  "works": {
+    "title": "请看我们的设计与成果",
+    "subtitle": "品质与実績，是我们的自信。",
+    "buttonText": "查看更多案例",
+    "cases": [
+      {
+        "name": "中华餐厅“龙的厨房”",
+        "image": "https://placehold.co/800x600/312e81/ffffff?text=Ryuteki+Kitchen",
+        "before": "旧网站无法传达店铺魅力，且只能电话预约。",
+        "after": "通过更新设计和引入网络预约，新顾客和预约数增加到1.5倍！"
+      },
+      {
+        "name": "泰式按摩“Siam Healing”",
+        "image": "https://placehold.co/800x600/312e81/ffffff?text=Siam+Healing",
+        "before": "信息陈旧，在智能手机上难以阅览，难以吸引新顾客。",
+        "after": "通过优化移动端，来自网络的新预约比上个月增加了200%！"
+      },
+      {
+        "name": "韩式咖啡馆“Seoul Cafe”",
+        "image": "https://placehold.co/800x600/312e81/ffffff?text=Seoul+Cafe",
+        "before": "只有Instagram，没有官方网站，缺乏信誉。",
+        "after": "开设官方网站，强化了品牌形象，来自媒体的咨询也增加了！"
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "客户的满意是我们最大的骄傲",
+    "subtitle": "我们珍视与客户之间的信赖关系。",
+    "voices": [
+      {
+        "quote": "能用泰语详细传达我的要求，所以沙龙的氛围完全达到了我的理想。网络预约也增加了，真的非常开心！",
+        "name": "Ariya S.",
+        "role": "泰籍沙龙老板",
+        "image": "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop"
+      },
+      {
+        "quote": "没想到这个价格能做出如此原创的设计。现在还可以通过微信接收咨询，这有助于我们向华人社区进行宣传。",
+        "name": "Li Wei",
+        "role": "中餐厅老板",
+        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop"
+      }
+    ]
+  },
+  "process": {
+    "title": "从咨询到上线，简单快捷",
+    "subtitle": "透明的价格方案，让您安心委托。",
+    "buttonText": "查看详细价格方案",
+    "steps": [
+      { "name": "免费咨询・需求沟通", "description": "用您的母语仔细聆听您的需求" },
+      { "name": "提案・签订合同", "description": "为您提案最合适的方案" },
+      { "name": "原创设计制作", "description": "专属于您店铺的设计" },
+      { "name": "网站上线・开始支持", "description": "强力支持您的顾客吸引" }
+    ],
+    "plans": {
+      "title": "为中小型及个人店铺打造的透明价格方案",
+      "items": [
+        { "name": "入门方案", "price": "15万日元起" },
+        { "name": "标准方案", "price": "30万日元起" },
+        { "name": "高级方案", "price": "50万日元起" }
+      ]
+    }
+  },
+  "faq": {
+    "title": "常见问题",
+    "subtitle": "在这里解决您的疑问与不安。",
+    "faqs": [
+      { "q": "真的没有额外费用吗？", "a": "是的，除了签约时报价单上列明的费用外，不会产生任何其他费用。但是，如果客户因自身原因希望后续增加功能，我们将另行报价。" },
+      { "q": "制作周期是多久？", "a": "根据方案、网站规模以及您提供材料的准备情况而有所不同，但标准方案通常需要大约1到1.5个月。" },
+      { "q": "即使不擅长电脑也能更新吗？", "a": "是的，请放心。对于博客、公告等需要您自己更新的部分，我们会采用像使用智能手机APP一样简单的系统。" },
+      { "q": "网站上线后有支持服务吗？", "a": "是的，所有方案都包含上线后1个月的免费支持服务，包括操作方法的咨询和轻微修改。如果之后您仍希望获得持续支持，我们另外提供维护方案。" }
+    ]
+  },
+  "cta": {
+    "title": "现在，就通过网站将您业务的真正价值\n传达给日本的粉丝吧！",
+    "subtitle": "我们将帮助您跨越语言、文化和数字的障碍。",
+    "buttonText": "立即免费咨询",
+    "notice": "我们将在您咨询后24小时内用您希望的语言与您联系。我们绝不进行强行推销。"
+  },
+  "aboutPage": {
+    "title": "关于我们",
+    "description": "Omiseweb致力于全力支持在日本挑战商业世界的外国店主，帮助他们跨越语言、文化和数字的障碍。",
+    "sections": [
+      {
+        "title": "我们的使命",
+        "content": "我们的使命是，通过数字的力量，引领拥有出色服务或商品但在网络宣传方面遇到困难的外国店主的业务走向成功。我们通过非模板、充满诚意的原创设计网站，将您店铺的真正价值传达给日本的粉丝。"
+      },
+      {
+        "title": "为何选择我们？",
+        "content": "创始人自身也拥有海外业务经验，深刻理解跨文化交流的重要性与难度。因此，我们不仅提供技术支持，更重视用您的母语进行细致的沟通。我们将充分理解您对业务的热情和文化背景，并以最适合日本市场的形式将其展现出来。"
+      }
+    ]
+  },
+  "worksPage": {
+    "title": "成功案例",
+    "description": "这里介绍一部分我们为客户的业务创造的成功案例。请看我们的设计品质及其带来的成果。",
+    "cases": [
+      {
+        "name": "中华餐厅“龙的厨房”",
+        "category": "餐厅网站",
+        "image": "https://placehold.co/800x600/312e81/ffffff?text=Ryuteki+Kitchen",
+        "description": "为了传达融合了传统风味与现代空间的餐厅魅力，我们以高级感的设计和引人食欲的照片为中心进行构建，并引入了在线预约系统。",
+        "before": "旧网站无法传达店铺魅力，且只能电话预约。",
+        "after": "通过更新设计和引入网络预约，20至39岁的新顾客和预约数增加到1.5倍！"
+      },
+      {
+        "name": "泰式按摩“Siam Healing”",
+        "category": "沙龙网站",
+        "image": "https://placehold.co/800x600/312e81/ffffff?text=Siam+Healing",
+        "description": "为了传达治愈的空间和正宗的按摩服务，我们使用了沉稳的色调和令人放松的图片。清晰地介绍了服务菜单，以便顺利引导用户进行网络预约。",
+        "before": "信息陈旧，在智能手机上难以阅览，难以吸引新顾客。",
+        "after": "通过优化移动端，来自网络的新预约比上个月增加了200%！"
+      },
+      {
+        "name": "韩式咖啡馆“Seoul Cafe”",
+        "category": "咖啡馆网站",
+        "image": "https://placehold.co/800x600/312e81/ffffff?text=Seoul+Cafe",
+        "description": "展现了适合在Instagram上分享的菜单和空间的可爱之处。为了吸引年轻女性目标客户，我们采用了流行的设计和视频内容，确立了品牌形象。",
+        "before": "只有Instagram，没有官方网站，缺乏信誉。",
+        "after": "开设官方网站，强化了品牌形象，来自媒体的咨询也增加了！"
+      },
+      {
+        "name": "国际学校",
+        "category": "教育机构网站",
+        "image": "https://placehold.co/800x600/312e81/ffffff?text=Global+Kids",
+        "description": "我们注重向家长清晰地传达教育理念和课程特色。除了多语言支持外，我们还构建了一个可以频繁更新在校生感言和活动信息的系统。",
+        "before": "信息分散，有意向入学的学生难以找到所需信息。",
+        "after": "通过重新整理网站结构和改进咨询表格，入学说明会的申请数量增加了一倍。"
+      }
+    ]
+  },
+  "pricePage": {
+    "title": "价格方案",
+    "description": "为您的业务提供最合适的方案。也可根据您的需求进行定制。",
+    "plans": [
+      {
+        "name": "入门方案",
+        "price": "150,000",
+        "currency": "日元起",
+        "description": "适合希望以低成本拥有官方网站的个人店主。",
+        "features": [
+          "包括主页在内共3页",
+          "响应式设计，适配智能手机",
+          "SEO/MEO基础设置",
+          "新闻更新功能",
+          "咨询表格",
+          "上线后1个月免费支持"
+        ],
+        "recommended": false,
+        "cta": "咨询此方案"
+      },
+      {
+        "name": "标准方案",
+        "price": "300,000",
+        "currency": "日元起",
+        "description": "最适合希望制作能最大限度展现店铺魅力、强于吸引顾客的原创网站的客户。",
+        "features": [
+          "包括主页在内共6页",
+          "完全原创设计",
+          "响应式设计，适配智能手机",
+          "SEO/MEO内部对策",
+          "博客/CMS功能",
+          "网络预约系统对接",
+          "上线后1个月免费支持"
+        ],
+        "recommended": true,
+        "cta": "咨询此方案"
+      },
+      {
+        "name": "高级方案",
+        "price": "500,000",
+        "currency": "日元起",
+        "description": "适合寻求多语言支持、电商功能等高级功能以拓展业务的客户。",
+        "features": [
+          "10页以上的大型网站",
+          "从战略规划开始的全定制服务",
+          "高级SEO/MEO对策",
+          "博客/CMS功能",
+          "多语言支持（日+1语）",
+          "电商网站功能",
+          "上线后2个月免费支持"
+        ],
+        "recommended": false,
+        "cta": "咨询此方案"
+      }
+    ],
+    "featureComparison": {
+      "title": "功能比较表",
+      "headers": ["功能", "入门方案", "标准方案", "高级方案"],
+      "rows": [
+        { "feature": "页面数", "start": "3页", "standard": "6页", "premium": "10页以上" },
+        { "feature": "设计", "start": "高品质模板", "standard": "完全原创", "premium": "战略性原创" },
+        { "feature": "适配手机", "start": "✔", "standard": "✔", "premium": "✔" },
+        { "feature": "SEO/MEO对策", "start": "基础设置", "standard": "内部对策", "premium": "高级对策" },
+        { "feature": "博客功能", "start": "新闻", "standard": "✔", "premium": "✔" },
+        { "feature": "预约对接", "start": "另计", "standard": "✔", "premium": "✔" },
+        { "feature": "多语言支持", "start": "另计", "standard": "另计", "premium": "✔ (日+1语)" },
+        { "feature": "上线后支持", "start": "1个月", "standard": "1个月", "premium": "2个月" }
+      ]
+    },
+    "options": {
+      "title": "可选服务",
+      "description": "您可以通过为每个方案添加以下服务来扩展功能。",
+      "items": [
+        { "name": "标志设计", "description": "设计体现您店铺品牌形象的原创标志。" },
+        { "name": "专业摄影师拍摄", "description": "拍摄能最大限度展现您的菜品、室内环境和员工魅力的照片。" },
+        { "name": "增加语言", "description": "我们可以为您添加所需的语言支持，如英语、中文、泰语等。" },
+        { "name": "增加电商功能", "description": "构建一个带支付功能的电商网站，以便您在线销售商品。" },
+        { "name": "维护与运营支持", "description": "我们可以为您代劳网站上线后的服务器管理、定期备份和更新工作。" }
+      ]
+    }
+  }
+}
