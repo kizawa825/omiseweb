@@ -9,16 +9,17 @@
   },
   "footer": {
     "description": "日本で頑張る外国人オーナー様のための、集客に強い完全オーダーメイドのWebサイト制作サービス。",
+    "navigation": "ナビゲーション",
     "navLinks": [
       { "name": "私たちについて", "href": "/about" },
       { "name": "制作事例", "href": "/works" },
       { "name": "料金プラン", "href": "/price" }
     ],
-     "supportedLanguages": "対応言語",
-  "languages": ["日本語", "English", "中文", "ภาษาไทย"],
-  "contact": "お問い合わせ",
-  "contactButton": "無料相談はこちら"
-},
+    "supportedLanguages": "対応言語",
+    "languages": ["日本語", "English", "中文", "ภาษาไทย"],
+    "contact": "お問い合わせ",
+    "contactButton": "無料相談はこちら"
+  },
     "copyright": "© 2025 Omiseweb. All rights reserved."
   },
   "hero": {
