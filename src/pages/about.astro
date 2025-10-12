@@ -1,9 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Cta from '../components/Cta.astro';
-import content from '../data/en.json';
+import content from '../data/jp.json'; //
 
-const pageContent = content.aboutPage ?? { title: 'About', description: '', sections: [] };
+const pageContent = content.aboutPage ?? { title: '私たちについて', description: '', sections: [] };
 const headerContent = content.header ?? { navLinks: [] };
 const footerContent = content.footer ?? {};
 ---
@@ -13,6 +13,7 @@ const footerContent = content.footer ?? {};
   headerContent={headerContent}
   footerContent={footerContent}
 >
+  <!-- 本文 -->
   <section class="bg-slate-50 py-20 sm:py-24">
     <div class="max-w-7xl mx-auto px-6 text-center">
       <h1 class="text-4xl md:text-5xl font-bold text-slate-900">{pageContent.title}</h1>
@@ -24,7 +25,7 @@ const footerContent = content.footer ?? {};
 
   <section class="py-20 sm:py-24">
     <div class="max-w-3xl mx-auto px-6 space-y-12">
-      {pageContent.sections.map(section => (
+      {pageContent.sections.map((section) => (
         <div>
           <h2 class="text-3xl font-bold text-slate-900">{section.title}</h2>
           <p class="mt-4 text-lg leading-8 text-slate-600">{section.content}</p>
