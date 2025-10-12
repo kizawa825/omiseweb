@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const { slug } = Astro.params;
+// In a real project, you would fetch data from Sanity using this slug.
+// Example: const post = await sanityClient.fetch(`*[_type == "post" && slug.current == $slug][0]`, { slug });
+---
+
+<Layout 
+  title={`ブログ記事: ${slug} | Omiseweb`}
+  description={`これは「${slug}」に関するブログ記事のサンプルページです。`}>
+  <div class="max-w-4xl mx-auto px-6 py-20">
+    <h1 class="text-4xl font-bold mb-4">ブログ記事: {slug}</h1>
+    <div class="prose lg:prose-xl mt-8">
+      <p>このページは動的に生成されています。</p>
+      <p>
+        将来的には、Sanity.ioのようなヘッドレスCMSからコンテンツを取得し、ここに表示します。
+        現在のURLのslugは <strong>{slug}</strong> です。このslugを使ってCMSに問い合わせ、対応する記事データを取得してレンダリングする仕組みになります。
+      </p>
+      <img src="https://placehold.co/800x400/e0e7ff/3730a3?text=Blog+Content" alt="Blog Content Placeholder" class="rounded-lg" />
+      <h2>見出しサンプル</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. 
+      </p>
+    </div>
+  </div>
+</Layout>

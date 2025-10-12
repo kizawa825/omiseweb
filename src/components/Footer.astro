@@ -1,0 +1,56 @@
+---
+// デフォルトのコンテンツデータ（日本語）
+const defaultContent = {
+  description: "日本のファンに、あなたのお店を届ける。",
+  navigation: "ナビゲーション",
+  navLinks: [
+    { name: "トップ", href: "/" },
+    { name: "私たちについて", href: "/about" },
+    { name: "制作事例", href: "/works" },
+    { name: "料金プラン", href: "/price" },
+    { name: "ブログ", href: "/blog" }
+  ],
+  supportedLanguages: "対応言語",
+  languages: ["日本語", "English", "中文", "ภาษาไทย"],
+  contact: "お問い合わせ",
+  contactButton: "無料相談はこちら"
+};
+
+// ページから渡されるcontentがない場合は、デフォルトを使用
+const { content = defaultContent } = Astro.props;
+const currentYear = new Date().getFullYear();
+---
+<footer class="bg-slate-900 text-slate-400">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-lg font-semibold text-white">Omiseweb</h3>
+        <p class="mt-2 text-sm">{content.description}</p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-slate-200">{content.navigation}</h4>
+        <ul class="mt-4 space-y-2 text-sm">
+          {content.navLinks.map(link => (
+            <li><a href={link.href} class="hover:text-white transition-colors">{link.name}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-slate-200">{content.supportedLanguages}</h4>
+        <ul class="mt-4 space-y-2 text-sm">
+          {content.languages.map(lang => (
+            <li>{lang}</li>
+          ))}
+        </ul>
+      </div>
+       <div>
+        <h4 class="font-semibold text-slate-200">{content.contact}</h4>
+        <a href="#contact" class="mt-4 inline-block bg-indigo-600 text-white font-medium px-6 py-2 rounded-md hover:bg-indigo-500 transition-colors">{content.contactButton}</a>
+      </div>
+    </div>
+    <div class="mt-12 border-t border-slate-800 pt-8 text-center text-sm">
+      <p>&copy; {currentYear} Omiseweb. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+

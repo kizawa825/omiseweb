@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Cta from '../components/Cta.astro';
+import content from '../data/jp.json';
+import content from '../data/en.json';
+const pageContent = content.worksPage;
+---
+
+<Layout
+  title={`${pageContent.title} | Omiseweb`}
+  description={pageContent.description}
+  headerContent={content.header}
+  footerContent={content.footer}
+>
+  <!-- Hero Section -->
+  <section class="bg-slate-50 py-20 sm:py-24">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-900">{pageContent.title}</h1>
+      <p class="mt-4 max-w-3xl mx-auto text-lg text-slate-600">
+        {pageContent.description}
+      </p>
+    </div>
+  </section>
+
+  <!-- Works Grid -->
+  <section class="py-20 sm:py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        {pageContent.cases.map(work => (
+          <div class="group">
+            <div class="overflow-hidden rounded-xl shadow-lg">
+              <img src={work.image} alt={work.name} class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+            <div class="p-6 bg-white">
+              <p class="text-sm font-semibold text-indigo-600">{work.category}</p>
+              <h2 class="mt-2 text-2xl font-bold text-slate-900">{work.name}</h2>
+              <p class="mt-3 text-slate-600">{work.description}</p>
+              <div class="mt-6 border-t pt-6">
+                 <p class="text-sm text-slate-600"><strong class="font-semibold text-amber-600">Before:</strong> {work.before}</p>
+                 <p class="mt-2 text-sm text-slate-600"><strong class="font-semibold text-green-600">After:</strong> {work.after}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <Cta content={content.cta} />
+</Layout>

@@ -1,0 +1,103 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import Problem from '../../components/Problem.astro';
+import Solution from '../../components/Solution.astro';
+import Works from '../../components/Works.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import Process from '../../components/Process.astro';
+import Faq from '../../components/Faq.astro';
+import Cta from '../../components/Cta.astro';
+
+// 英語のコンテンツデータをインポート
+import content from '../../data/en.json';
+---
+
+<Layout
+	title="Omiseweb | We deliver your wonderful shop to fans in Japan."
+	description="For foreign restaurant and salon owners working hard in Japan. A fully custom-made website strong in attracting customers, at a surprisingly low price."
+>
+	<Hero content={content.hero} />
+	<Problem content={content.problem} />
+	<Solution content={content.solution} />
+	<Works content={content.works} />
+	<Testimonials content={content.testimonials} />
+	<Process content={content.process} />
+	<Faq content={content.faq} />
+	<Cta id="contact" content={content.cta} />
+</Layout>
+
+<!-- Add Swiper JS and CSS for Carousel -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script is:inline src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Swiper initialization script -->
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    const createSwiper = (selector, options) => {
+      // Avoid re-initializing
+      if (document.querySelector(selector)?.swiper) return;
+      return new Swiper(selector, options);
+    };
+
+    // --- Solution Swiper ---
+    createSwiper('.solution-swiper', {
+      loop: true,
+      slidesPerView: 1.2,
+      spaceBetween: 16,
+      centeredSlides: true,
+      pagination: {
+        el: '.solution-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        768: { slidesPerView: 2, spaceBetween: 32, centeredSlides: false, },
+        1024: { slidesPerView: 4, spaceBetween: 32, loop: false, allowTouchMove: false, centeredSlides: false, }
+      }
+    });
+
+    // --- Works Swiper ---
+    createSwiper('.works-swiper', {
+      loop: true,
+      slidesPerView: 1.3,
+      spaceBetween: 16,
+      centeredSlides: true,
+      pagination: {
+        el: '.works-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        768: { slidesPerView: 2, spaceBetween: 32, centeredSlides: false, },
+        1024: { slidesPerView: 3, spaceBetween: 32, loop: false, allowTouchMove: false, centeredSlides: false, }
+      }
+    });
+    
+    // --- Testimonials Swiper ---
+    createSwiper('.testimonials-swiper', {
+      loop: true,
+      slidesPerView: 1.1,
+      spaceBetween: 16,
+      centeredSlides: true,
+      pagination: {
+        el: '.testimonials-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        768: { slidesPerView: 2, spaceBetween: 32, centeredSlides: false, },
+        1024: { slidesPerView: 2, spaceBetween: 32, loop: false, allowTouchMove: false, centeredSlides: false, }
+      }
+    });
+  });
+</script>
+
+<!-- Same global styles are needed -->
+<style is:global>
+  .swiper-slide { height: auto !important; }
+  .swiper-slide > * { height: 100%; }
+  .swiper-wrapper { align-items: stretch; }
+  .swiper-pagination { position: static !important; margin-top: 2rem !important; }
+  .swiper-pagination-bullet { width: 10px !important; height: 10px !important; background-color: #94a3b8 !important; opacity: 1 !important; transition: all 0.3s; }
+  .swiper-pagination-bullet-active { width: 24px !important; border-radius: 5px !important; background-color: #4f46e5 !important; }
+  @media (min-width: 1024px) { .swiper-pagination { display: none !important; } }
+</style>
+
