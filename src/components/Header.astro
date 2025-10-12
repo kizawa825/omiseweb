@@ -1,5 +1,6 @@
 ---
-// Header Component with language switcher
+const { content } = Astro.props;
+
 const languages = [
     { code: 'jp', name: '日本語', href: '/' },
     { code: 'en', name: 'EN', href: '/en/' },
@@ -16,19 +17,24 @@ const languages = [
         </a>
       </div>
       <nav class="hidden md:flex items-center space-x-8">
-        <a href="/about" class="text-slate-600 hover:text-indigo-600 transition-colors">私たちについて</a>
-        <a href="#works" class="text-slate-600 hover:text-indigo-600 transition-colors">制作事例</a>
-        <a href="#process" class="text-slate-600 hover:text-indigo-600 transition-colors">料金</a>
-        <a href="/blog" class="text-slate-600 hover:text-indigo-600 transition-colors">ブログ</a>
+        {content.navLinks.map(link => (
+          <a href={link.href} class="text-slate-600 hover:text-indigo-600 transition-colors">{link.name}</a>
+        ))}
       </nav>
       <div class="flex items-center space-x-4">
-        <div class="flex items-center space-x-2 text-sm">
-          {languages.map(lang => (
-            <a href={lang.href} class="text-slate-500 hover:text-indigo-600 font-medium transition-colors">{lang.name}</a>
-          ))}
+        <div class="relative group">
+          <button class="flex items-center space-x-1 text-sm text-slate-500 hover:text-indigo-600 font-medium transition-colors">
+            <span>{content.language}</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute right-0 mt-2 w-24 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
+            {languages.map(lang => (
+              <a href={lang.href} class="block px-4 py-2 text-sm text-slate-700 hover:bg-indigo-50">{lang.name}</a>
+            ))}
+          </div>
         </div>
         <a href="#contact" class="hidden sm:inline-block bg-indigo-600 text-white font-semibold px-5 py-2 rounded-full hover:bg-indigo-700 transition-colors">
-          無料で相談する
+          {content.cta}
         </a>
         <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-slate-600 hover:bg-slate-100">
             <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -38,14 +44,12 @@ const languages = [
       </div>
     </div>
   </div>
-  <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200">
     <nav class="flex flex-col p-4 space-y-2">
-      <a href="/about" class="block px-4 py-2 rounded-md text-slate-600 hover:bg-slate-100 hover:text-indigo-600">私たちについて</a>
-      <a href="#works" class="block px-4 py-2 rounded-md text-slate-600 hover:bg-slate-100 hover:text-indigo-600">制作事例</a>
-      <a href="#process" class="block px-4 py-2 rounded-md text-slate-600 hover:bg-slate-100 hover:text-indigo-600">料金</a>
-      <a href="/blog" class="block px-4 py-2 rounded-md text-slate-600 hover:bg-slate-100 hover:text-indigo-600">ブログ</a>
-      <a href="#contact" class="block px-4 py-2 rounded-md bg-indigo-600 text-white text-center font-semibold">無料で相談する</a>
+      {content.navLinks.map(link => (
+          <a href={link.href} class="block px-4 py-2 rounded-md text-slate-600 hover:bg-slate-100 hover:text-indigo-600">{link.name}</a>
+        ))}
+      <a href="#contact" class="block px-4 py-2 rounded-md bg-indigo-600 text-white text-center font-semibold">{content.cta}</a>
     </nav>
   </div>
 </header>
