@@ -1,5 +1,10 @@
 ---
 const { content } = Astro.props;
+const { pathname } = Astro.url;
+
+// 現在のパスが /en で始まるかチェック
+const isEn = pathname.startsWith('/en');
+const priceLink = isEn ? '/en/works' : '/works';
 ---
 <section id="works" class="py-20 sm:py-24 bg-slate-50">
   <div class="max-w-7xl mx-auto px-6">
