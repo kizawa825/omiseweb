@@ -8,7 +8,6 @@ import Testimonials from '../components/Testimonials.astro';
 import Process from '../components/Process.astro';
 import Faq from '../components/Faq.astro';
 import Cta from '../components/Cta.astro';
-
 // 日本語のコンテンツデータをインポート
 import content from '../data/jp.json';
 ---
@@ -16,6 +15,8 @@ import content from '../data/jp.json';
 <Layout
 	title="Omiseweb | あなたの素晴らしいお店を、日本のファンに届けます。"
 	description="日本で頑張る外国人レストラン・サロンオーナー様へ。集客に強い完全オーダーメイドのWebサイトを、驚きの低価格でご提供します。母国語でのフルサポートで言葉の壁もありません。"
+    headerContent={content.header}
+    footerContent={content.footer}
 >
 	<Hero content={content.hero} />
 	<Problem content={content.problem} />
@@ -26,77 +27,3 @@ import content from '../data/jp.json';
 	<Faq content={content.faq} />
 	<Cta id="contact" content={content.cta} />
 </Layout>
-
-<!-- Add Swiper JS and CSS for Carousel -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-<script is:inline src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<!-- Swiper initialization script -->
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', function () {
-    const createSwiper = (selector, options) => {
-      // Avoid re-initializing
-      if (document.querySelector(selector)?.swiper) return;
-      return new Swiper(selector, options);
-    };
-
-    // --- Solution Swiper ---
-    createSwiper('.solution-swiper', {
-      loop: true,
-      slidesPerView: 1.2,
-      spaceBetween: 16,
-      centeredSlides: true,
-      pagination: {
-        el: '.solution-pagination',
-        clickable: true,
-      },
-      breakpoints: {
-        768: { slidesPerView: 2, spaceBetween: 32, centeredSlides: false, },
-        1024: { slidesPerView: 4, spaceBetween: 32, loop: false, allowTouchMove: false, centeredSlides: false, }
-      }
-    });
-
-    // --- Works Swiper ---
-    createSwiper('.works-swiper', {
-      loop: true,
-      slidesPerView: 1.3,
-      spaceBetween: 16,
-      centeredSlides: true,
-      pagination: {
-        el: '.works-pagination',
-        clickable: true,
-      },
-      breakpoints: {
-        768: { slidesPerView: 2, spaceBetween: 32, centeredSlides: false, },
-        1024: { slidesPerView: 3, spaceBetween: 32, loop: false, allowTouchMove: false, centeredSlides: false, }
-      }
-    });
-    
-    // --- Testimonials Swiper ---
-    createSwiper('.testimonials-swiper', {
-      loop: true,
-      slidesPerView: 1.1,
-      spaceBetween: 16,
-      centeredSlides: true,
-      pagination: {
-        el: '.testimonials-pagination',
-        clickable: true,
-      },
-      breakpoints: {
-        768: { slidesPerView: 2, spaceBetween: 32, centeredSlides: false, },
-        1024: { slidesPerView: 2, spaceBetween: 32, loop: false, allowTouchMove: false, centeredSlides: false, }
-      }
-    });
-  });
-</script>
-
-<style is:global>
-  /* Custom Swiper Styles */
-  .swiper-slide { height: auto !important; }
-  .swiper-slide > * { height: 100%; }
-  .swiper-wrapper { align-items: stretch; }
-  .swiper-pagination { position: static !important; margin-top: 2rem !important; }
-  .swiper-pagination-bullet { width: 10px !important; height: 10px !important; background-color: #94a3b8 !important; opacity: 1 !important; transition: all 0.3s; }
-  .swiper-pagination-bullet-active { width: 24px !important; border-radius: 5px !important; background-color: #4f46e5 !important; }
-  @media (min-width: 1024px) { .swiper-pagination { display: none !important; } }
-</style>
