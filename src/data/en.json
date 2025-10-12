@@ -9,11 +9,16 @@
   },
   "footer": {
     "description": "A fully custom-made website creation service strong in attracting customers, for foreign owners working hard in Japan.",
+    "navigation": "Navigation",
     "navLinks": [
       { "name": "About Us", "href": "/en/about" },
       { "name": "Works", "href": "/en/works" },
       { "name": "Price", "href": "/en/price" }
     ],
+    "suppottedLanguages":"Supported Languages",
+    "languages":["日本語","English","中文","ภาษาไทย"],
+    "contact": "Contact",
+    "contactButton": "Contact"
     "copyright": "© 2025 Omiseweb. All rights reserved."
   },
   "hero": {
