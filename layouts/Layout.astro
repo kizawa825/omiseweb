@@ -5,9 +5,11 @@ import Footer from '../components/Footer.astro';
 interface Props {
 	title: string;
     description: string;
+    headerContent: Record<string, any>;
+    footerContent: Record<string, any>;
 }
 
-const { title, description } = Astro.props;
+const { title, description, headerContent, footerContent } = Astro.props;
 ---
 
 <!doctype html>
@@ -24,17 +26,12 @@ const { title, description } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class="bg-white text-slate-800 font-sans">
-        <Header />
+        <Header content={headerContent} />
 		<main>
 			<slot />
 		</main>
-        <Footer />
+        <Footer content={footerContent} />
         <style is:global>
-            /* Tailwind CSS Directives */
-            @tailwind base;
-            @tailwind components;
-            @tailwind utilities;
-
             body {
                 font-family: 'Inter', 'Noto Sans JP', sans-serif;
             }
