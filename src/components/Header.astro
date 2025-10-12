@@ -25,6 +25,11 @@ const languages = [
 
 // 現在の言語オブジェクトを検索
 const currentLanguage = languages.find(lang => lang.code === currentLangCode) || languages[0];
+
+// 表示用に言語リストを並び替えます。現在の言語が一番上に来るようにします。
+const sortedLanguages = [
+  currentLanguage, ...languages.filter(lang => lang.code !== currentLanguage.code)
+];
 ---
 
 {/* ヘッダーコンポーネント
@@ -66,7 +71,7 @@ const currentLanguage = languages.find(lang => lang.code === currentLangCode) ||
           
           <!-- 言語選択メニュー (クリックで表示) -->
           <div id="lang-switcher-menu" class="absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg py-1 z-10 hidden ring-1 ring-black ring-opacity-5" role="menu">
-            {languages.map(lang => (
+            {sortedLanguages.map(lang => (
               <a 
                 href={lang.href} 
                 role="menuitem"
@@ -115,7 +120,7 @@ const currentLanguage = languages.find(lang => lang.code === currentLangCode) ||
       <div class="border-t border-slate-200 pt-4 mt-4">
           <p class="px-4 pb-2 text-sm font-semibold text-slate-500">言語を選択</p>
           <div class="space-y-1">
-             {languages.map(lang => (
+             {sortedLanguages.map(lang => (
               <a 
                 href={lang.href} 
                 class:list={[
@@ -182,3 +187,4 @@ const currentLanguage = languages.find(lang => lang.code === currentLangCode) ||
     }
   });
 </script>
+
