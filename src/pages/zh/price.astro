@@ -1,0 +1,106 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Cta from '../../components/Cta.astro';
+import content from '../../data/zh.json';
+const pageContent = content.pricePage;
+---
+
+<Layout
+  title={`${pageContent.title} | Omiseweb`}
+  description={pageContent.description}
+  headerContent={content.header}
+  footerContent={content.footer}
+>
+  <section class="bg-slate-50 py-20 sm:py-24">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-900">{pageContent.title}</h1>
+      <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">
+        {pageContent.description}
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 sm:py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        {pageContent.plans.map(plan => (
+          <div class={`flex flex-col border rounded-xl p-8 ${plan.recommended ? 'border-indigo-500 ring-2 ring-indigo-500' : 'border-slate-200'}`}>
+            {plan.recommended && (
+              <div class="text-center mb-4">
+                <span class="bg-indigo-100 text-indigo-700 text-sm font-semibold px-4 py-1 rounded-full">人气最高</span>
+              </div>
+            )}
+            <h2 class="text-2xl font-bold text-slate-900">{plan.name}</h2>
+            <p class="mt-2 text-slate-600 text-sm h-12">{plan.description}</p>
+            <div class="mt-6">
+              <span class="text-4xl font-extrabold text-slate-900">{plan.price}</span>
+              <span class="text-lg font-medium text-slate-500 ml-1">{plan.currency}</span>
+            </div>
+            <ul class="mt-8 space-y-4 text-slate-600 flex-grow">
+              {plan.features.map(feature => (
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="mt-8">
+              <a href="#contact" class={`block w-full text-center font-semibold py-3 rounded-lg transition-colors ${plan.recommended ? 'bg-indigo-600 text-white hover:bg-indigo-700' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}>
+                {plan.cta}
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 sm:py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-slate-900">{pageContent.featureComparison.title}</h2>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="w-full min-w-max text-left">
+                <thead>
+                    <tr class="border-b">
+                        <th class="p-4 font-bold">{pageContent.featureComparison.headers[0]}</th>
+                        <th class="p-4 text-center font-bold">{pageContent.featureComparison.headers[1]}</th>
+                        <th class="p-4 text-center font-bold bg-indigo-50 rounded-t-lg">{pageContent.featureComparison.headers[2]}</th>
+                        <th class="p-4 text-center font-bold">{pageContent.featureComparison.headers[3]}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {pageContent.featureComparison.rows.map((item, index) => (
+                        <tr class={`border-b ${index % 2 === 0 ? 'bg-white' : ''}`}>
+                            <td class="p-4 font-semibold">{item.feature}</td>
+                            <td class="p-4 text-center text-slate-600">{item.start}</td>
+                            <td class="p-4 text-center text-slate-800 font-medium bg-indigo-50">{item.standard}</td>
+                            <td class="p-4 text-center text-slate-600">{item.premium}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </section>
+
+  <section class="py-20 sm:py-24">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-slate-900">{pageContent.options.title}</h2>
+        <p class="mt-2 text-slate-600">{pageContent.options.description}</p>
+      </div>
+      <div class="space-y-4">
+        {pageContent.options.items.map(option => (
+            <div class="bg-white border border-slate-200 p-6 rounded-lg">
+                <h3 class="font-semibold text-lg text-slate-800">{option.name}</h3>
+                <p class="mt-1 text-slate-600">{option.description}</p>
+            </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Cta content={content.cta} />
+</Layout>
