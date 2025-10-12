@@ -3,14 +3,15 @@ import Layout from '../layouts/Layout.astro';
 import Cta from '../components/Cta.astro';
 import content from '../data/en.json';
 
-const pageContent = content.aboutPage;
+const pageContent = content.aboutPage ?? { title: 'About', description: '', sections: [] };
+const headerContent = content.header ?? { navLinks: [] };
+const footerContent = content.footer ?? {};
 ---
-
 <Layout
   title={`${pageContent.title} | Omiseweb`}
   description={pageContent.description}
-  headerContent={content.header}
-  footerContent={content.footer}
+  headerContent={headerContent}
+  footerContent={footerContent}
 >
   <section class="bg-slate-50 py-20 sm:py-24">
     <div class="max-w-7xl mx-auto px-6 text-center">
