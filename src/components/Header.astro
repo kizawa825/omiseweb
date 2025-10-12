@@ -12,32 +12,61 @@ const navLinks = content?.navLinks ?? [
 const cta = content?.cta ?? 'お問い合わせ';
 
 // --- Language Configuration ---
+// 基本となる言語情報を定義
 const languages = [
-  { code: 'jp', name: '日本語', href: '/' },
-  { code: 'en', name: 'English', href: '/en/' },
-  { code: 'zh', name: '中文', href: '/zh/' },
-  { code: 'th', name: 'ไทย', href: '/th/' },
+  { code: 'jp', name: '日本語' },
+  { code: 'en', name: 'English' },
+  { code: 'zh', name: '中文' },
+  { code: 'th', name: 'ไทย' },
 ];
 
-// AstroのURLから現在のパス名を取得
 const { pathname } = Astro.url;
+
+// --- STEP 1: 現在の言語をURLから判定 ---
+const pathParts = pathname.split('/').filter(Boolean); // URLを `/` で分割し、空の要素を除外 e.g., /en/about -> ['en', 'about']
+const langCodes = languages.map(l => l.code).filter(c => c !== 'jp'); // 日本語以外の言語コードリスト
 let currentLangCode = 'jp'; // デフォルトは日本語
 
-// URLのパス名に基づいて現在の言語コードを決定
-if (pathname.startsWith('/en')) {
-  currentLangCode = 'en';
-} else if (pathname.startsWith('/zh')) {
-  currentLangCode = 'zh';
-} else if (pathname.startsWith('/th')) {
-  currentLangCode = 'th';
+// URLの最初の部分が言語コードと一致するかチェック
+if (pathParts.length > 0 && langCodes.includes(pathParts[0])) {
+    currentLangCode = pathParts[0];
 }
 
+// --- STEP 2: 言語部分を除いた「ベースパス」を生成 ---
+let basePath = '';
+if (currentLangCode !== 'jp') {
+    // 現在が日本語以外のページの場合、言語コード部分を取り除く e.g., ['en', 'about'] -> '/about'
+    basePath = `/${pathParts.slice(1).join('/')}`;
+} else {
+    // 現在が日本語ページの場合、そのままパスを結合 e.g., ['contact'] -> '/contact'
+    basePath = `/${pathParts.join('/')}`;
+}
+// ルートパス `/` の場合は、basePathが `//` や `/` になってしまうのを補正
+if (basePath === '/') {
+    basePath = '';
+}
+
+// --- STEP 3: 各言語のページへのURLを動的に生成 ---
+const pageLanguages = languages.map(lang => {
+    let newHref = '';
+    if (lang.code === 'jp') {
+        // 日本語ページは、ベースパスのみ。ベースパスが空ならルート `/`
+        newHref = basePath || '/';
+    } else {
+        // 他の言語は、言語コードのプレフィックスとベースパスを結合
+        newHref = `/${lang.code}${basePath}`;
+    }
+    return { ...lang, href: newHref };
+});
+
+
+// --- STEP 4: 表示用に現在の言語を先頭にして並び替え ---
 // 現在の言語オブジェクトを検索
-const currentLanguage = languages.find(lang => lang.code === currentLangCode) || languages[0];
+const currentLanguage = pageLanguages.find(lang => lang.code === currentLangCode) || pageLanguages[0];
 
 // 表示用に言語リストを並び替えます。現在の言語が一番上に来るようにします。
 const sortedLanguages = [
-  currentLanguage, ...languages.filter(lang => lang.code !== currentLanguage.code)
+  currentLanguage, ...pageLanguages.filter(lang => lang.code !== currentLanguage.code)
 ];
 ---
 
@@ -67,7 +96,7 @@ const sortedLanguages = [
         <div class="relative hidden md:block">
           <button id="lang-switcher-button" type="button" class="flex items-center space-x-2 text-sm text-slate-600 hover:text-indigo-600 font-medium transition-colors" aria-haspopup="true" aria-expanded="false" aria-controls="lang-switcher-menu">
             <!-- 地球儀アイコンで、言語切り替え機能であることを分かりやすくします -->
-            <svg class="w-5 h-5" xmlns="http://www.w.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3.75h.008v.008h-.008v-.008z" />
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a8.966 8.966 0 01-5.982-1.555m11.963 0A8.966 8.966 0 0112 21m-9 0h18" />
             </svg>
