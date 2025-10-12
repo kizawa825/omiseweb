@@ -1,8 +1,16 @@
 ---
 const { content } = Astro.props;
+const { pathname } = Astro.url;
+
+// 現在のパスから言語コードを取得
+const lang = pathname.split('/')[1];
+const supportedLangs = ['en', 'th', 'zh'];
+const currentLang = supportedLangs.find(l => l === lang);
+
+// priceページのリンクを生成
+const priceLink = currentLang ? `/${currentLang}/price` : '/price';
 ---
 <section class="relative">
-  <!-- Background Image -->
   <div class="absolute inset-0">
     <img
       src="https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?q=80&w=2070&auto=format&fit=crop"
@@ -11,7 +19,7 @@ const { content } = Astro.props;
     />
     <div class="absolute inset-0 bg-slate-900/60"></div>
   </div>
-  
+
   <div class="relative max-w-7xl mx-auto px-6 py-24 sm:py-32 lg:py-40 text-center text-white">
     <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl whitespace-pre-line">
       {content.catchphrase}
@@ -23,7 +31,7 @@ const { content } = Astro.props;
       <a href="#contact" class="rounded-md bg-indigo-600 px-4 py-3 text-sm font-semibold shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
         {content.cta_main}
       </a>
-      <a href="/price" class="text-sm font-semibold leading-6 hover:text-indigo-200">{content.cta_sub} <span aria-hidden="true">→</span></a>
+      <a href={priceLink} class="text-sm font-semibold leading-6 hover:text-indigo-200">{content.cta_sub} <span aria-hidden="true">→</span></a>
     </div>
     <div class="mt-12 flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm text-slate-300">
       {content.features.map(feature => (
