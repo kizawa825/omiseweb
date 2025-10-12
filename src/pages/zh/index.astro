@@ -1,40 +1,29 @@
 ---
-// This is a placeholder for the Chinese version.
-// The content should be translated.
 import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import Problem from '../../components/Problem.astro';
+import Solution from '../../components/Solution.astro';
+import Works from '../../components/Works.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import Process from '../../components/Process.astro';
+import Faq from '../../components/Faq.astro';
+import Cta from '../../components/Cta.astro';
+// 导入中文内容数据
+import content from '../../data/zh.json';
 ---
 
-<Layout 
-  title="Omiseweb | 为您在日本的业务打造专属网站"
-  description="我们为在日本的外国餐厅和沙龙老板量身定制价格实惠且高效的网站。全程提供母语支持。">
-
-  <!-- Hero Section (Chinese) -->
-  <section class="relative bg-indigo-800 text-white overflow-hidden">
-    <div class="absolute inset-0">
-      <img src="https://placehold.co/1920x1080/1a237e/ffffff?text=Restaurant+Meeting" alt="在充满活力的餐厅开会" class="w-full h-full object-cover opacity-20">
-    </div>
-    <div class="relative max-w-7xl mx-auto px-6 py-24 sm:py-32 lg:py-48 text-center">
-      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">
-        将您出色的店铺，呈现给日本的粉丝。
-      </h1>
-      <p class="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-indigo-200">
-        致在日本努力奋斗的外国餐厅和沙龙老板。<br>
-        以惊人的低价，为您打造一个善于吸引顾客的完全定制化网站。
-      </p>
-      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#contact" class="bg-amber-400 text-indigo-900 font-bold px-8 py-3 rounded-full shadow-lg hover:bg-amber-300 transition-all duration-300 transform hover:scale-105">
-          免费咨询 (用您的母语)
-        </a>
-        <a href="#process" class="bg-transparent border-2 border-white text-white font-bold px-8 py-3 rounded-full hover:bg-white hover:text-indigo-800 transition-colors duration-300">
-          查看价格方案
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <div class="text-center py-20">
-    <h2 class="text-2xl font-bold">其他部分将在此处。</h2>
-    <p class="text-slate-600 mt-2">这是中文版本页面的占位符。</p>
-  </div>
-
+<Layout
+	title="Omiseweb | 将您出色的店铺，呈现给日本的粉丝。"
+	description="为在日本努力奋斗的外国餐厅和沙龙老板。以惊人的低价，为您打造一个善于吸引顾客的完全定制化网站。全程提供母语支持，无语言障碍。"
+    headerContent={content.header}
+    footerContent={content.footer}
+>
+	<Hero content={content.hero} />
+	<Problem content={content.problem} />
+	<Solution content={content.solution} />
+	<Works content={content.works} />
+	<Testimonials content={content.testimonials} />
+	<Process content={content.process} />
+	<Faq content={content.faq} />
+	<Cta id="contact" content={content.cta} />
 </Layout>
