@@ -2,10 +2,13 @@
 const { content } = Astro.props;
 const { pathname } = Astro.url;
 
-// 現在のパスが /en で始まるかチェック
-const isEn = pathname.startsWith('/en');
-// isEnがtrueなら'/en/price'を、falseなら'/price'をセット
-const priceLink = isEn ? '/en/price' : '/price';
+// 現在のパスから言語コードを取得
+const lang = pathname.split('/')[1];
+const supportedLangs = ['en', 'th', 'zh'];
+const currentLang = supportedLangs.find(l => l === lang);
+
+// priceページのリンクを生成
+const priceLink = currentLang ? `/${currentLang}/price` : '/price';
 ---
 <section class="py-20 sm:py-24 bg-slate-50">
   <div class="max-w-7xl mx-auto px-6">
@@ -37,7 +40,6 @@ const priceLink = isEn ? '/en/price' : '/price';
         ))}
       </div>
       <div class="mt-8 text-center">
-        {/* href属性を動的な変数に変更 */}
         <a href={priceLink} class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
           {content.buttonText}
         </a>
