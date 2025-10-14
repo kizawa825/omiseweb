@@ -1,7 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import { sanityClient } from 'sanity:client';
-import { sanityPortableText } from '../../sanity/portableText';
+import { sanityPortableText } from '../../../sanity/portableText';
 
 const { slug } = Astro.params;
 const post = await sanityClient.fetch(`*[_type == "post" && slug.current == $slug][0]`, { slug });
