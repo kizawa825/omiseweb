@@ -1,14 +1,15 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import { sanityIntegration } from '@sanity/astro';
+import sanity from '@sanity/astro';
 import { fileURLToPath } from 'node:url';
 
 export default defineConfig({
   integrations: [
     tailwind(),
-    sanityIntegration({
-      projectId: '4q6dxeoe',
-      dataset: 'production',
+    sanity({
+      // 環境変数から読み込むように変更
+      projectId: process.env.SANITY_PROJECT_ID,
+      dataset: process.env.SANITY_DATASET,
       useCdn: false,
       studioBasePath: '/admin',
     }),
