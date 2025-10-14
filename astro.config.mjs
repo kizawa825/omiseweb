@@ -1,13 +1,14 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-// 'sanity' ではなく 'sanityIntegration' を{}で囲ってインポートします
 import { sanityIntegration } from '@sanity/astro';
 import { fileURLToPath } from 'node:url';
 
 export default defineConfig({
+  // この行を追加します
+  output: 'server',
+  
   integrations: [
     tailwind(),
-    // こちらも 'sanity' から 'sanityIntegration' に変更します
     sanityIntegration({
       projectId: '4q6dxeoe',
       dataset: 'production',
@@ -15,5 +16,16 @@ export default defineConfig({
       studioBasePath: '/admin',
     }),
   ],
-  // ... (viteの設定などは変更なし)
+  vite: {
+    resolve: {
+      alias: {
+        '~': fileURLToPath(new URL('./src', import.meta.url)),
+        '@components': fileURLToPath(
+          new URL('./src/components', import.meta.url)
+        ),
+        '@layouts': fileURLToPath(new URL('./src/layouts', import.meta.url)),
+        '@data': fileURLToPath(new URL('./src/data', import.meta.url)),
+      },
+    },
+  },
 });
