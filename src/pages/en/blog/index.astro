@@ -1,19 +1,22 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import { sanityClient } from 'sanity:client';
-import { sanityPortableText } from '../../../sanity/portableText';
 
-const { slug } = Astro.params;
-const post = await sanityClient.fetch(`*[_type == "post" && slug.current == $slug][0]`, { slug });
+// 英語(en)の記事を全て取得するように修正
+const posts = await sanityClient.fetch(`*[_type == "post" && language == "en"]`);
 ---
 
-<Layout 
-  title={`${post.title} | Omiseweb`}
-  description={post.excerpt}>
+<Layout title="Blog | Omiseweb" description="This is a list of blog posts from Omiseweb.">
   <div class="max-w-4xl mx-auto px-6 py-20">
-    <h1 class="text-4xl font-bold mb-4">{post.title}</h1>
-    <div class="prose lg:prose-xl mt-8">
-      <Fragment set:html={sanityPortableText(post.body)} />
-    </div>
+    <h1 class="text-4xl font-bold mb-8">Blog</h1>
+    <ul class="space-y-4">
+      {posts.map(post => (
+        <li>
+          <a href={`/en/blog/${post.slug.current}`} class="text-2xl font-semibold text-indigo-600 hover:underline">
+            {post.title}
+          </a>
+        </li>
+      ))}
+    </ul>
   </div>
 </Layout>
