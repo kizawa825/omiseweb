@@ -1,12 +1,12 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import { sanityIntegration } from '@sanity/astro';
+import netlify from '@astrojs/netlify'; // Netlifyアダプターをインポート
 import { fileURLToPath } from 'node:url';
 
 export default defineConfig({
-  // この行を追加します
   output: 'server',
-  
+  adapter: netlify(),
   integrations: [
     tailwind(),
     sanityIntegration({
