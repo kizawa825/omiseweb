@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import { sanityIntegration } from '@sanity/astro';
-import netlify from '@astrojs/netlify'; // Netlifyアダプターをインポート
+import netlify from '@astrojs/netlify';
 import { fileURLToPath } from 'node:url';
 
 export default defineConfig({
@@ -13,7 +13,7 @@ export default defineConfig({
       projectId: '4q6dxeoe',
       dataset: 'production',
       useCdn: false,
-      studioBasePath: '/admin',
+      studio: false
     }),
   ],
   vite: {
