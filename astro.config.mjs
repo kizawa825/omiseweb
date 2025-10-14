@@ -1,12 +1,12 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import sanity from '@sanity/astro';
+import { sanityIntegration } from '@sanity/astro';
 import { fileURLToPath } from 'node:url';
 
 export default defineConfig({
   integrations: [
     tailwind(),
-    sanity({
+    sanityIntegration({
       projectId: '4q6dxeoe',
       dataset: 'production',
       useCdn: false,
