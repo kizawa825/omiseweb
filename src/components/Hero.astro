@@ -8,7 +8,8 @@ const supportedLangs = ['en', 'th', 'zh'];
 const currentLang = supportedLangs.find(l => l === lang);
 
 // priceページのリンクを生成
-const priceLink = currentLang ? `/${currentLang}/price` : '/price';
+const priceLink = currentLang ?
+`/${currentLang}/price` : '/price';
 ---
 <section class="relative">
   <div class="absolute inset-0">
@@ -17,26 +18,28 @@ const priceLink = currentLang ? `/${currentLang}/price` : '/price';
       alt="レストランで打ち合わせする人々"
       class="w-full h-full object-cover"
     />
-    <div class="absolute inset-0 bg-slate-900/60"></div>
+    <div class="absolute inset-0 bg-gray-900/70"></div>
   </div>
 
   <div class="relative max-w-7xl mx-auto px-6 py-24 sm:py-32 lg:py-40 text-center text-white">
-    <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl whitespace-pre-line">
+    <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl whitespace-pre-line font-heading">
       {content.catchphrase}
     </h1>
     <p class="mt-6 text-lg max-w-2xl mx-auto leading-8 whitespace-pre-line">
       {content.subcopy}
     </p>
-    <div class="mt-10 flex items-center justify-center gap-x-6">
-      <a href="#contact" class="rounded-md bg-indigo-600 px-4 py-3 text-sm font-semibold shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+    
+ <div class="mt-10 flex items-center justify-center gap-x-6">
+      <a href="#contact" class="rounded-md bg-primary-600 px-4 py-3 text-sm font-semibold shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 transition-all duration-300 ease-in-out transform hover:scale-105">
         {content.cta_main}
       </a>
-      <a href={priceLink} class="text-sm font-semibold leading-6 hover:text-indigo-200">{content.cta_sub} <span aria-hidden="true">→</span></a>
+      <a href={priceLink} class="text-sm font-semibold leading-6 hover:text-primary-100 transition-colors">{content.cta_sub} <span aria-hidden="true">→</span></a>
     </div>
     <div class="mt-12 flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm text-slate-300">
       {content.features.map(feature => (
         <span class="flex items-center">
-          <svg class="w-4 h-4 mr-1.5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <svg class="w-4 h-4 mr-1.5 
+ text-success-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
           </svg>
           {feature}
