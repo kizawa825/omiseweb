@@ -1,24 +1,24 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import { sanityIntegration } from '@sanity/astro';
-// import netlify from '@astrojs/netlify'; // 削除またはコメントアウト
-import cloudflare from '@astrojs/cloudflare'; // 追加
+// import { sanityIntegration } from '@sanity/astro'; // ← 古いimportを削除またはコメントアウト
+import sanity from '@sanity/astro'; // ← 新しい名前でimport
+import cloudflare from '@astrojs/cloudflare';
 import { fileURLToPath } from 'node:url';
 
 export default defineConfig({
-  output: 'server', // または 'hybrid'
-  // adapter: netlify(), // 削除またはコメントアウト
-  adapter: cloudflare(), // 変更
+  output: 'server',
+  adapter: cloudflare(),
   integrations: [
     tailwind(),
-    sanityIntegration({ // sanityIntegration の設定はそのまま
+    // sanityIntegration({...}) // ← 古い記述を削除またはコメントアウト
+    sanity({ // ← 新しい名前でインテグレーションを使用
       projectId: '4q6dxeoe',
       dataset: 'production',
       useCdn: false,
-      studio: false
+      // studioBasePath: '/studio' // 必要であればStudioのパスなども指定
     }),
   ],
-  vite: { // vite の設定もそのまま
+  vite: {
     resolve: {
       alias: {
         '~': fileURLToPath(new URL('./src', import.meta.url)),
