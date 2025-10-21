@@ -6,17 +6,16 @@ const defaultContent = {
   buttonText: "今すぐ無料で相談してみる",
   notice: "お問い合わせ後、24時間以内にご希望の言語でご連絡します。無理な営業は一切いたしません。"
 };
-
 // contentが渡されない場合は、defaultContentを使用するように修正
 const { id, content = defaultContent } = Astro.props;
 ---
-<section id={id} class="bg-indigo-700">
+<section id={id} class="bg-gradient-to-r from-primary-700 to-primary-800">
   <div class="max-w-4xl mx-auto text-center py-16 px-6 sm:py-20">
-    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl whitespace-pre-line">{content.title}</h2>
-    <p class="mt-4 text-lg leading-6 text-indigo-200">{content.subtitle}</p>
-    <a href="#contact" class="mt-8 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-indigo-600 hover:bg-indigo-50 sm:w-auto">
+    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl whitespace-pre-line font-heading">{content.title}</h2>
+    <p class="mt-4 text-lg leading-6 text-primary-200">{content.subtitle}</p>
+    <a href="#contact" class="mt-8 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-primary-600 hover:bg-gray-100 sm:w-auto transition-all duration-300 ease-in-out transform hover:scale-105">
       {content.buttonText}
     </a>
-    <p class="mt-4 text-sm text-indigo-200">{content.notice}</p>
+    <p class="mt-4 text-sm text-primary-200">{content.notice}</p>
   </div>
 </section>
