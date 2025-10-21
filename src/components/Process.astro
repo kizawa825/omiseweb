@@ -8,39 +8,47 @@ const supportedLangs = ['en', 'th', 'zh'];
 const currentLang = supportedLangs.find(l => l === lang);
 
 // priceページのリンクを生成
-const priceLink = currentLang ? `/${currentLang}/price` : '/price';
+const priceLink = currentLang ?
+`/${currentLang}/price` : '/price';
 ---
-<section class="py-20 sm:py-24 bg-slate-50">
+{/*
+  ブラッシュアップ：
+  - セクション背景を `bg-slate-50` -> `bg-white` に変更。
+  - ステップのサークル を `bg-primary-100` と `text-primary-600` に変更し、`shadow-strong` で強調。
+  - プランのインセットカード の背景を `bg-neutral-50` に、プランアイテムを `bg-white` に変更。
+*/}
+<section class="py-20 sm:py-24 bg-white">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center">
-        <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">{content.title}</h2>
-        <p class="mt-4 text-lg leading-8 text-slate-600">{content.subtitle}</p>
+    <div class="text-center max-w-2xl mx-auto">
+        <p class="text-base font-semibold leading-7 text-primary-600">{content.eyebrow}</p>
+        <h2 class="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">{content.title}</h2>
+        <p class="mt-4 text-lg leading-8 text-neutral-600">{content.subtitle}</p>
     </div>
     
     <div class="mt-16 grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-10 text-center">
       {content.steps.map((step, index) => (
         <div class="flex flex-col items-center">
-          <div class="flex items-center justify-center w-16 h-16 bg-white rounded-full shadow-md ring-2 ring-indigo-100">
-            <span class="text-2xl font-bold text-indigo-600">{index + 1}</span>
+          <div class="flex items-center justify-center w-20 h-20 bg-primary-100 rounded-full shadow-strong ring-4 ring-white">
+            <span class="text-3xl font-bold text-primary-600">{index + 1}</span>
           </div>
-          <h3 class="mt-4 text-lg font-semibold text-slate-800">{step.name}</h3>
-          <p class="mt-1 text-sm text-slate-600">{step.description}</p>
+          <h3 class="mt-5 text-lg font-semibold text-neutral-800">{step.name}</h3>
+          <p class="mt-1 text-base text-neutral-600">{step.description}</p>
         </div>
       ))}
     </div>
 
-    <div class="mt-20 max-w-2xl mx-auto rounded-2xl bg-white p-8 shadow-lg">
-      <h3 class="text-xl font-bold text-center text-slate-900">{content.plans.title}</h3>
-      <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-4">
+    <div class="mt-20 max-w-3xl mx-auto rounded-2xl bg-neutral-50 p-8 sm:p-10 shadow-strong border border-neutral-100">
+      <h3 class="text-2xl font-bold text-center text-neutral-900">{content.plans.title}</h3>
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
         {content.plans.items.map(plan => (
-          <div class="text-center rounded-lg bg-indigo-50 p-4">
-            <p class="font-semibold text-indigo-800">{plan.name}</p>
-            <p class="text-sm text-indigo-600">{plan.price}</p>
+          <div class="text-center rounded-lg bg-white p-6 shadow-subtle border border-neutral-200">
+            <p class="text-lg font-semibold text-primary-700">{plan.name}</p>
+            <p class="mt-1 text-base text-neutral-600">{plan.price}</p>
           </div>
         ))}
       </div>
-      <div class="mt-8 text-center">
-        <a href={priceLink} class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+      <div class="mt-10 text-center">
+        <a href={priceLink} class="rounded-full bg-primary-600 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-primary-700 transition-all duration-300 ease-in-out transform hover:scale-105">
           {content.buttonText}
         </a>
       </div>
