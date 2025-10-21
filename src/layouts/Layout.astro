@@ -6,7 +6,7 @@ interface Props {
   title: string;
   description?: string;
   headerContent?: Record<string, any>;
-footerContent?: Record<string, any>;
+  footerContent?: Record<string, any>;
 }
 
 const {
@@ -36,10 +36,9 @@ const {
     </main>
     <Footer content={footerContent} />
    
- <style is:global>
-      /* Tailwindの 'font-body' を優先するため、こちらの指定は削除またはコメントアウト */
+   <style is:global>
+      /* Tailwindの 'font-body' を優先するため、こちらの指定は不要 */
       /* body { font-family: 'Inter', 'Noto Sans JP', sans-serif; } */
-}
     </style>
   </body>
 </html>
