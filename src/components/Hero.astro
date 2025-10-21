@@ -12,24 +12,24 @@ const priceLink = currentLang ?
 `/${currentLang}/price` : '/price';
 ---
 
-<!-- 2025年最新のヒーローセクション：権威性とプロフェッショナル感を演出 -->
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-neutral-50 via-white to-primary-50/30">
+<!-- 2025年最新のヒーローセクション：DaisyUI統合で高級感を演出 -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-base-100 via-primary/5 to-secondary/5">
   
-  <!-- 背景装飾：2025年トレンドの幾何学的パターン -->
+  <!-- 背景装飾：DaisyUI統合の幾何学的パターン -->
   <div class="absolute inset-0 overflow-hidden">
     <!-- メインの幾何学パターン -->
     <div class="absolute top-0 right-0 w-96 h-96 lg:w-[600px] lg:h-[600px] transform translate-x-1/2 -translate-y-1/2">
-      <div class="w-full h-full bg-gradient-primary rounded-full opacity-5 animate-pulse-slow"></div>
+      <div class="w-full h-full luxury-gradient rounded-full opacity-10 animate-pulse-slow"></div>
     </div>
     
     <!-- セカンダリパターン -->
     <div class="absolute bottom-0 left-0 w-64 h-64 lg:w-96 lg:h-96 transform -translate-x-1/2 translate-y-1/2">
-      <div class="w-full h-full bg-gradient-secondary rounded-full opacity-5 animate-pulse-slow" style="animation-delay: 1.5s;"></div>
+      <div class="w-full h-full bg-gradient-to-br from-secondary to-accent rounded-full opacity-10 animate-pulse-slow" style="animation-delay: 1.5s;"></div>
     </div>
     
     <!-- アクセントパターン -->
     <div class="absolute top-1/2 left-1/2 w-32 h-32 lg:w-48 lg:h-48 transform -translate-x-1/2 -translate-y-1/2">
-      <div class="w-full h-full bg-gradient-accent rounded-full opacity-10 animate-float"></div>
+      <div class="w-full h-full bg-gradient-to-br from-accent to-primary rounded-full opacity-15 animate-float"></div>
     </div>
   </div>
 
@@ -45,7 +45,7 @@ const priceLink = currentLang ?
             <span class="gradient-text">{content.catchphrase}</span>
           </h1>
           
-          <p class="text-lg sm:text-xl lg:text-2xl text-neutral-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+          <p class="text-lg sm:text-xl lg:text-2xl text-base-content/80 leading-relaxed max-w-2xl mx-auto lg:mx-0">
             {content.subcopy}
           </p>
         </div>
@@ -54,7 +54,7 @@ const priceLink = currentLang ?
         <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6">
           <a 
             href="#contact" 
-            class="btn btn-primary text-lg px-8 py-4 rounded-2xl shadow-lg hover:shadow-glow hover:scale-105 transform transition-all duration-300 w-full sm:w-auto"
+            class="btn btn-primary btn-lg px-8 py-4 rounded-2xl shadow-lg hover:shadow-glow hover:scale-105 transform transition-all duration-300 w-full sm:w-auto"
           >
             <span>{content.cta_main}</span>
             <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -64,7 +64,7 @@ const priceLink = currentLang ?
           
           <a 
             href={priceLink} 
-            class="btn btn-outline text-lg px-8 py-4 rounded-2xl w-full sm:w-auto"
+            class="btn btn-outline btn-lg px-8 py-4 rounded-2xl w-full sm:w-auto"
           >
             <span>{content.cta_sub}</span>
             <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -74,10 +74,10 @@ const priceLink = currentLang ?
         </div>
 
         <!-- 特徴リスト -->
-        <div class="flex flex-wrap justify-center lg:justify-start items-center gap-4 sm:gap-6 text-sm sm:text-base text-neutral-600">
+        <div class="flex flex-wrap justify-center lg:justify-start items-center gap-4 sm:gap-6 text-sm sm:text-base text-base-content/70">
           {content.features.map(feature => (
-            <div class="flex items-center space-x-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-subtle">
-              <div class="w-2 h-2 bg-gradient-accent rounded-full animate-pulse"></div>
+            <div class="badge badge-primary badge-lg glass-effect">
+              <div class="w-2 h-2 bg-accent rounded-full animate-pulse mr-2"></div>
               <span class="font-medium">{feature}</span>
             </div>
           ))}
@@ -88,12 +88,10 @@ const priceLink = currentLang ?
       <div class="relative">
         
         <!-- メインビジュアルカード -->
-        <div class="relative group">
-          <div class="absolute -inset-4 bg-gradient-primary rounded-3xl opacity-20 group-hover:opacity-30 transition-opacity duration-500 blur-xl"></div>
-          
-          <div class="relative bg-white rounded-3xl shadow-intense overflow-hidden transform group-hover:scale-105 transition-all duration-500">
+        <div class="card premium-shadow group">
+          <div class="card-body p-0">
             <!-- 画像エリア -->
-            <div class="aspect-[4/3] lg:aspect-[3/2] relative overflow-hidden">
+            <figure class="aspect-[4/3] lg:aspect-[3/2] relative overflow-hidden">
               <img 
                 src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop" 
                 alt="プロフェッショナルなWeb制作サービスのイメージ"
@@ -101,36 +99,34 @@ const priceLink = currentLang ?
               />
               
               <!-- オーバーレイグラデーション -->
-              <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-base-content/30 via-transparent to-transparent"></div>
               
               <!-- フローティングバッジ -->
-              <div class="absolute top-6 right-6 bg-white/90 backdrop-blur-sm rounded-2xl px-4 py-2 shadow-lg">
-                <div class="flex items-center space-x-2">
-                  <div class="w-2 h-2 bg-gradient-accent rounded-full animate-pulse"></div>
-                  <span class="text-sm font-semibold text-neutral-700">実績多数</span>
-                </div>
+              <div class="absolute top-6 right-6 badge badge-accent badge-lg glass-effect">
+                <div class="w-2 h-2 bg-success rounded-full animate-pulse mr-2"></div>
+                <span class="font-semibold">実績多数</span>
               </div>
-            </div>
+            </figure>
             
             <!-- コンテンツエリア -->
-            <div class="p-6 lg:p-8">
+            <div class="card-body p-6 lg:p-8">
               <div class="space-y-4">
-                <h3 class="text-xl lg:text-2xl font-bold text-neutral-900">
+                <h3 class="card-title text-xl lg:text-2xl">
                   完全オーダーメイド
                 </h3>
-                <p class="text-neutral-600 leading-relaxed">
+                <p class="text-base-content/70 leading-relaxed">
                   テンプレートを使わない、あなたのお店だけのオリジナルデザインを制作します。
                 </p>
                 
                 <!-- 統計情報 -->
-                <div class="grid grid-cols-2 gap-4 pt-4">
-                  <div class="text-center">
-                    <div class="text-2xl lg:text-3xl font-bold gradient-text">100+</div>
-                    <div class="text-sm text-neutral-500">制作実績</div>
+                <div class="stats stats-horizontal shadow-sm">
+                  <div class="stat">
+                    <div class="stat-value text-primary">100+</div>
+                    <div class="stat-desc">制作実績</div>
                   </div>
-                  <div class="text-center">
-                    <div class="text-2xl lg:text-3xl font-bold gradient-text">98%</div>
-                    <div class="text-sm text-neutral-500">満足度</div>
+                  <div class="stat">
+                    <div class="stat-value text-secondary">98%</div>
+                    <div class="stat-desc">満足度</div>
                   </div>
                 </div>
               </div>
@@ -139,16 +135,16 @@ const priceLink = currentLang ?
         </div>
 
         <!-- フローティング要素 -->
-        <div class="absolute -top-4 -left-4 w-16 h-16 bg-gradient-secondary rounded-2xl shadow-lg animate-float opacity-80"></div>
-        <div class="absolute -bottom-4 -right-4 w-12 h-12 bg-gradient-accent rounded-xl shadow-lg animate-float opacity-80" style="animation-delay: 2s;"></div>
+        <div class="absolute -top-4 -left-4 w-16 h-16 bg-gradient-to-br from-secondary to-primary rounded-2xl shadow-lg animate-float opacity-80"></div>
+        <div class="absolute -bottom-4 -right-4 w-12 h-12 bg-gradient-to-br from-accent to-secondary rounded-xl shadow-lg animate-float opacity-80" style="animation-delay: 2s;"></div>
       </div>
     </div>
   </div>
 
   <!-- スクロールインジケーター -->
   <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-    <div class="w-6 h-10 border-2 border-neutral-300 rounded-full flex justify-center">
-      <div class="w-1 h-3 bg-gradient-primary rounded-full mt-2 animate-pulse"></div>
+    <div class="w-6 h-10 border-2 border-primary/30 rounded-full flex justify-center">
+      <div class="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse"></div>
     </div>
   </div>
 </section>

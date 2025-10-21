@@ -11,31 +11,31 @@ const icons = {
 };
 ---
 
-<!-- 2025年最新のProblemセクション：権威性とプロフェッショナル感を演出 -->
-<section class="relative py-20 lg:py-32 bg-gradient-to-br from-white via-neutral-50/50 to-primary-50/20 overflow-hidden">
+<!-- 2025年最新のProblemセクション：DaisyUI統合で高級感を演出 -->
+<section class="relative py-20 lg:py-32 bg-gradient-to-br from-base-100 via-base-200/50 to-primary/10 overflow-hidden">
   
   <!-- 背景装飾 -->
   <div class="absolute inset-0 overflow-hidden">
-    <div class="absolute top-0 left-1/4 w-72 h-72 bg-gradient-secondary rounded-full opacity-5 animate-pulse-slow"></div>
-    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-accent rounded-full opacity-5 animate-pulse-slow" style="animation-delay: 2s;"></div>
+    <div class="absolute top-0 left-1/4 w-72 h-72 bg-gradient-to-br from-secondary to-primary rounded-full opacity-10 animate-pulse-slow"></div>
+    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-br from-accent to-secondary rounded-full opacity-10 animate-pulse-slow" style="animation-delay: 2s;"></div>
   </div>
 
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- セクションヘッダー -->
     <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
-      <div class="inline-flex items-center px-4 py-2 bg-gradient-primary/10 rounded-full text-sm font-semibold text-primary-700 mb-6">
+      <div class="badge badge-warning badge-lg mb-6">
         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
         </svg>
         よくある課題
       </div>
       
-      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 mb-6">
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-base-content mb-6">
         <span class="gradient-text">{content.title}</span>
       </h2>
       
-      <p class="text-lg sm:text-xl text-neutral-600 leading-relaxed">
+      <p class="text-lg sm:text-xl text-base-content/70 leading-relaxed">
         多くの外国人オーナー様が抱える共通の課題を、私たちは深く理解しています。
       </p>
     </div>
@@ -43,32 +43,25 @@ const icons = {
     <!-- 問題カードグリッド -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
       {content.problems.map((problem, index) => (
-        <div class="group relative">
-          <!-- カード背景のグロー効果 -->
-          <div class="absolute -inset-1 bg-gradient-primary rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-sm"></div>
-          
-          <!-- メインカード -->
-          <div class="relative bg-white/80 backdrop-blur-sm p-6 lg:p-8 rounded-2xl shadow-normal hover:shadow-strong transition-all duration-500 transform group-hover:-translate-y-2">
+        <div class="card glass-effect premium-shadow group hover:scale-105 transition-all duration-500">
+          <div class="card-body p-6 lg:p-8">
             
             <!-- アイコンエリア -->
-            <div class="flex items-center justify-center w-16 h-16 mx-auto mb-6 bg-gradient-primary/10 rounded-2xl group-hover:bg-gradient-primary/20 transition-all duration-300">
-              <svg class="w-8 h-8 text-primary-600 group-hover:scale-110 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" set:html={icons[problem.icon]} />
+            <div class="flex items-center justify-center w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl group-hover:from-primary/30 group-hover:to-secondary/30 transition-all duration-300">
+              <svg class="w-8 h-8 text-primary group-hover:scale-110 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" set:html={icons[problem.icon]} />
             </div>
             
             <!-- コンテンツエリア -->
             <div class="text-center space-y-4">
-              <h3 class="text-lg lg:text-xl font-semibold text-neutral-900 leading-tight">
+              <h3 class="card-title text-lg lg:text-xl leading-tight justify-center">
                 {problem.text}
               </h3>
               
               <!-- 装飾的な要素 -->
               <div class="flex justify-center">
-                <div class="w-12 h-0.5 bg-gradient-primary rounded-full"></div>
+                <div class="w-12 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
               </div>
             </div>
-            
-            <!-- ホバー時のアクセント -->
-            <div class="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-primary-200 transition-all duration-300"></div>
           </div>
         </div>
       ))}
@@ -76,7 +69,7 @@ const icons = {
 
     <!-- ボトムCTA -->
     <div class="text-center mt-16 lg:mt-20">
-      <div class="inline-flex items-center px-6 py-3 bg-gradient-primary/10 rounded-full text-primary-700 font-medium">
+      <div class="badge badge-primary badge-lg glass-effect">
         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
         </svg>
@@ -106,7 +99,7 @@ const icons = {
     }, observerOptions);
 
     // カード要素を監視
-    const cards = document.querySelectorAll('.group');
+    const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
       card.classList.add('animate-on-scroll');
       observer.observe(card);

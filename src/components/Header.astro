@@ -58,150 +58,120 @@ const sortedLanguages = [
 ];
 ---
 
-<!-- 2025年最新のヘッダーデザイン：権威性とプロフェッショナル感を演出 -->
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-neutral-200/50 shadow-subtle">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center h-16 lg:h-20">
-      
-      <!-- ロゴ：2025年トレンドのモダンなデザイン -->
-      <div class="flex-shrink-0">
-        <a href={logoHref} class="flex items-center space-x-3 group">
-          <div class="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-primary rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-glow transition-all duration-300">
-            <svg class="w-5 h-5 lg:w-6 lg:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
-          </div>
-          <span class="text-xl lg:text-2xl font-bold gradient-text font-heading">Omiseweb</span>
-        </a>
+<!-- 2025年最新のヘッダーデザイン：DaisyUI統合で高級感を演出 -->
+<header class="navbar fixed top-0 left-0 right-0 z-50 glass-effect border-b border-base-300/50">
+  <div class="navbar-start">
+    <!-- ロゴ：DaisyUI統合のモダンなデザイン -->
+    <a href={logoHref} class="btn btn-ghost text-xl font-bold">
+      <div class="w-10 h-10 luxury-gradient rounded-xl flex items-center justify-center shadow-lg">
+        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
       </div>
-      
-      <!-- デスクトップナビゲーション -->
-      <nav class="hidden lg:flex items-center space-x-8">
-        {navLinks.map(link => (
+      <span class="gradient-text font-heading ml-2">Omiseweb</span>
+    </a>
+  </div>
+  
+  <!-- デスクトップナビゲーション -->
+  <div class="navbar-center hidden lg:flex">
+    <ul class="menu menu-horizontal px-1">
+      {navLinks.map(link => (
+        <li>
           <a 
             href={link.href} 
-            class="relative text-neutral-700 hover:text-primary-600 font-medium transition-all duration-300 group"
+            class="text-base-content hover:text-primary hover:bg-primary/10 rounded-xl transition-all duration-300"
           >
             {link.name}
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full"></span>
           </a>
-        ))}
-      </nav>
-
-      <!-- 右側のアクションエリア -->
-      <div class="flex items-center space-x-4">
-        
-        <!-- 言語スイッチャー：2025年トレンドのドロップダウン -->
-        <div class="relative hidden md:block">
-          <button 
-            id="lang-switcher-button" 
-            type="button" 
-            class="flex items-center space-x-2 text-sm text-neutral-600 hover:text-primary-600 font-medium transition-all duration-300 rounded-xl p-2 hover:bg-neutral-100/50 group" 
-            aria-haspopup="true" 
-            aria-expanded="false" 
-            aria-controls="lang-switcher-menu"
-          >
-            <svg class="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
-            </svg>
-            <span>{currentLanguage.name}</span>
-            <svg id="lang-switcher-chevron" class="w-3 h-3 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          
-          <div 
-            id="lang-switcher-menu" 
-            class="absolute right-0 mt-3 w-40 bg-white rounded-2xl shadow-strong py-2 z-10 hidden ring-1 ring-neutral-200/50 backdrop-blur-xl" 
-            role="menu"
-          >
-            {sortedLanguages.map(lang => (
-              <a 
-                href={lang.href} 
-                role="menuitem"
-                class:list={[
-                  "block px-4 py-3 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 transition-all duration-200",
-                  { "bg-primary-50 font-semibold text-primary-600": lang.code === currentLangCode }
-                ]}
-              >
-                {lang.name}
-              </a>
-            ))}
-          </div>
-        </div>
-        
-        <!-- CTAボタン：2025年トレンドのグラデーション -->
-        <a 
-          href="#contact" 
-          class="hidden sm:inline-flex items-center px-6 py-3 bg-gradient-primary text-white font-semibold rounded-xl hover:shadow-glow hover:scale-105 transition-all duration-300 transform focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
-        >
-          <span>{cta}</span>
-          <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-          </svg>
-        </a>
-
-        <!-- モバイルメニューボタン：2025年トレンドのアニメーション -->
-        <button 
-          id="mobile-menu-button" 
-          class="lg:hidden p-2 rounded-xl text-neutral-600 hover:bg-neutral-100/50 hover:text-primary-600 transition-all duration-300 group" 
-          aria-label="Toggle menu" 
-          aria-controls="mobile-menu" 
-          aria-expanded="false"
-        >
-          <svg class="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" id="mobile-menu-open-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
-          <svg class="w-6 h-6 hidden group-hover:rotate-90 transition-transform duration-300" id="mobile-menu-close-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-    </div>
+        </li>
+      ))}
+    </ul>
   </div>
 
-  <!-- モバイルメニュー：2025年トレンドのスライドダウン -->
-  <div id="mobile-menu" class="hidden lg:hidden bg-white/95 backdrop-blur-xl border-t border-neutral-200/50 shadow-strong">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-      <nav class="flex flex-col space-y-4">
-        <!-- ナビゲーションリンク -->
-        <div class="space-y-2">
-          {navLinks.map(link => (
+  <!-- 右側のアクションエリア -->
+  <div class="navbar-end">
+    
+    <!-- 言語スイッチャー：DaisyUI統合のドロップダウン -->
+    <div class="dropdown dropdown-end hidden md:block">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-sm">
+        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+        </svg>
+        <span class="ml-1">{currentLanguage.name}</span>
+        <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-40 p-2 shadow-lg border border-base-300">
+        {sortedLanguages.map(lang => (
+          <li>
             <a 
-              href={link.href} 
-              class="block px-4 py-3 rounded-xl text-base text-neutral-700 hover:bg-primary-50 hover:text-primary-600 font-medium transition-all duration-300"
+              href={lang.href} 
+              class:list={[
+                "text-sm",
+                { "bg-primary text-primary-content": lang.code === currentLangCode }
+              ]}
             >
+              {lang.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    
+    <!-- CTAボタン：DaisyUI統合のグラデーション -->
+    <a 
+      href="#contact" 
+      class="btn btn-primary hidden sm:inline-flex"
+    >
+      <span>{cta}</span>
+      <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+      </svg>
+    </a>
+
+    <!-- モバイルメニューボタン：DaisyUI統合 -->
+    <div class="dropdown dropdown-end lg:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost">
+        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </div>
+      <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow-lg border border-base-300">
+        <!-- ナビゲーションリンク -->
+        {navLinks.map(link => (
+          <li>
+            <a href={link.href} class="text-base-content hover:text-primary hover:bg-primary/10">
               {link.name}
             </a>
-          ))}
-        </div>
+          </li>
+        ))}
         
         <!-- CTAボタン（モバイル） -->
-        <a 
-          href="#contact" 
-          class="block px-4 py-3 bg-gradient-primary text-white text-center font-semibold rounded-xl hover:shadow-glow transition-all duration-300"
-        >
-          {cta}
-        </a>
+        <li>
+          <a href="#contact" class="btn btn-primary btn-sm mt-2">
+            {cta}
+          </a>
+        </li>
         
         <!-- 言語選択 -->
-        <div class="border-t border-neutral-200/50 pt-4">
-          <p class="px-4 pb-3 text-sm font-semibold text-neutral-500">言語を選択</p>
-          <div class="space-y-1">
-            {sortedLanguages.map(lang => (
-              <a 
-                href={lang.href} 
-                class:list={[
-                  "block px-4 py-2 rounded-xl text-neutral-700 hover:bg-primary-50 hover:text-primary-600 transition-all duration-300",
-                  { "bg-primary-50 font-semibold text-primary-600": lang.code === currentLangCode }
-                ]}
-              >
-                {lang.name}
-              </a>
-            ))}
-          </div>
-        </div>
-      </nav>
+        <li class="menu-title">
+          <span>言語を選択</span>
+        </li>
+        {sortedLanguages.map(lang => (
+          <li>
+            <a 
+              href={lang.href} 
+              class:list={[
+                "text-sm",
+                { "bg-primary text-primary-content": lang.code === currentLangCode }
+              ]}
+            >
+              {lang.name}
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   </div>
 </header>
@@ -213,50 +183,6 @@ const sortedLanguages = [
   // DOMの読み込みが完了してからスクリプトを実行
   document.addEventListener('DOMContentLoaded', () => {
     
-    // --- モバイルメニューの開閉処理 ---
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const openIcon = document.getElementById('mobile-menu-open-icon');
-    const closeIcon = document.getElementById('mobile-menu-close-icon');
-
-    if (mobileMenuButton && mobileMenu && openIcon && closeIcon) {
-      mobileMenuButton.addEventListener('click', () => {
-        const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-        mobileMenu.classList.toggle('hidden');
-        openIcon.classList.toggle('hidden');
-        closeIcon.classList.toggle('hidden');
-        mobileMenuButton.setAttribute('aria-expanded', String(!isExpanded));
-      });
-    }
-
-    // --- 言語スイッチャーの開閉処理 ---
-    const langButton = document.getElementById('lang-switcher-button');
-    const langMenu = document.getElementById('lang-switcher-menu');
-    const langChevron = document.getElementById('lang-switcher-chevron');
-
-    if (langButton && langMenu && langChevron) {
-      // ボタンをクリックした時にメニューを開閉
-      langButton.addEventListener('click', (event) => {
-        event.stopPropagation(); 
-        const isExpanded = langButton.getAttribute('aria-expanded') === 'true';
-        langMenu.classList.toggle('hidden');
-        langChevron.classList.toggle('rotate-180');
-        langButton.setAttribute('aria-expanded', String(!isExpanded));
-      });
-
-      // メニューの外側をクリックした時にメニューを閉じる
-      document.addEventListener('click', (event) => {
-        const isClickInside = langButton.contains(event.target) || langMenu.contains(event.target);
-        const isExpanded = langButton.getAttribute('aria-expanded') === 'true';
-        
-        if (!isClickInside && isExpanded) {
-            langMenu.classList.add('hidden');
-            langChevron.classList.remove('rotate-180');
-            langButton.setAttribute('aria-expanded', 'false');
-        }
-      });
-    }
-
     // --- スクロール時のヘッダーエフェクト ---
     let lastScrollTop = 0;
     const header = document.querySelector('header');

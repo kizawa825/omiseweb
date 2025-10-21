@@ -22,49 +22,49 @@ const languages = Array.isArray(content?.languages) ? content.languages : [];
 const currentYear = new Date().getFullYear();
 ---
 
-<!-- 2025年最新のフッターデザイン：権威性とプロフェッショナル感を演出 -->
-<footer class="relative bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950 text-neutral-300 overflow-hidden">
+<!-- 2025年最新のフッターデザイン：DaisyUI統合で高級感を演出 -->
+<footer class="footer footer-center p-10 bg-base-200 text-base-content relative overflow-hidden">
   
   <!-- 背景装飾 -->
   <div class="absolute inset-0 overflow-hidden">
-    <div class="absolute top-0 left-1/4 w-96 h-96 bg-gradient-primary rounded-full opacity-5 animate-pulse-slow"></div>
-    <div class="absolute bottom-0 right-1/4 w-72 h-72 bg-gradient-secondary rounded-full opacity-5 animate-pulse-slow" style="animation-delay: 2s;"></div>
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full opacity-50 animate-pulse-slow"></div>
+    <div class="absolute bottom-0 right-1/4 w-72 h-72 bg-gradient-to-br from-accent/10 to-primary/10 rounded-full opacity-50 animate-pulse-slow" style="animation-delay: 2s;"></div>
   </div>
 
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+  <div class="relative z-10 max-w-7xl mx-auto">
     
     <!-- メインコンテンツエリア -->
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-16">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-16 mb-12">
       
       <!-- ブランドエリア -->
       <div class="lg:col-span-2 space-y-6">
         <!-- ロゴとブランド -->
         <div class="flex items-center space-x-3">
-          <div class="w-10 h-10 bg-gradient-primary rounded-xl flex items-center justify-center shadow-lg">
+          <div class="w-10 h-10 luxury-gradient rounded-xl flex items-center justify-center shadow-lg">
             <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
             </svg>
           </div>
-          <span class="text-2xl font-bold text-white font-heading">Omiseweb</span>
+          <span class="text-2xl font-bold text-base-content font-heading">Omiseweb</span>
         </div>
         
         <!-- 説明文 -->
-        <p class="text-lg text-neutral-400 leading-relaxed max-w-md">
+        <p class="text-lg text-base-content/70 leading-relaxed max-w-md">
           {content.description}
         </p>
         
         <!-- 特徴バッジ -->
         <div class="flex flex-wrap gap-3">
-          <div class="inline-flex items-center px-3 py-1 bg-gradient-primary/20 rounded-full text-sm font-medium text-primary-300">
-            <div class="w-2 h-2 bg-gradient-accent rounded-full mr-2 animate-pulse"></div>
+          <div class="badge badge-primary badge-lg glass-effect">
+            <div class="w-2 h-2 bg-accent rounded-full mr-2 animate-pulse"></div>
             完全オーダーメイド
           </div>
-          <div class="inline-flex items-center px-3 py-1 bg-gradient-secondary/20 rounded-full text-sm font-medium text-secondary-300">
-            <div class="w-2 h-2 bg-gradient-accent rounded-full mr-2 animate-pulse"></div>
+          <div class="badge badge-secondary badge-lg glass-effect">
+            <div class="w-2 h-2 bg-accent rounded-full mr-2 animate-pulse"></div>
             多言語対応
           </div>
-          <div class="inline-flex items-center px-3 py-1 bg-gradient-accent/20 rounded-full text-sm font-medium text-accent-300">
-            <div class="w-2 h-2 bg-gradient-accent rounded-full mr-2 animate-pulse"></div>
+          <div class="badge badge-accent badge-lg glass-effect">
+            <div class="w-2 h-2 bg-success rounded-full mr-2 animate-pulse"></div>
             SEO/MEO対策
           </div>
         </div>
@@ -72,13 +72,13 @@ const currentYear = new Date().getFullYear();
       
       <!-- ナビゲーション -->
       <div class="space-y-6">
-        <h4 class="text-lg font-semibold text-white">{content.navigation}</h4>
+        <h4 class="footer-title text-lg font-semibold text-base-content">{content.navigation}</h4>
         <ul class="space-y-3">
           {navLinks.map((item) => (
             <li>
               <a 
                 href={item.href} 
-                class="text-neutral-400 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block"
+                class="link link-hover text-base-content/70 hover:text-primary hover:translate-x-1 transition-all duration-300"
               >
                 {item.name}
               </a>
@@ -89,10 +89,10 @@ const currentYear = new Date().getFullYear();
       
       <!-- 言語とコンタクト -->
       <div class="space-y-6">
-        <h4 class="text-lg font-semibold text-white">{content.supportedLanguages}</h4>
+        <h4 class="footer-title text-lg font-semibold text-base-content">{content.supportedLanguages}</h4>
         <ul class="space-y-3">
           {languages.map((lang) => (
-            <li class="text-neutral-400">{lang}</li>
+            <li class="text-base-content/70">{lang}</li>
           ))}
         </ul>
         
@@ -100,7 +100,7 @@ const currentYear = new Date().getFullYear();
         <div class="pt-4">
           <a 
             href="#contact" 
-            class="inline-flex items-center px-6 py-3 bg-gradient-primary text-white font-semibold rounded-xl hover:shadow-glow hover:scale-105 transition-all duration-300 transform"
+            class="btn btn-primary btn-lg"
           >
             <span>{content.contactButton}</span>
             <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -112,27 +112,26 @@ const currentYear = new Date().getFullYear();
     </div>
     
     <!-- ボトムエリア -->
-    <div class="mt-16 lg:mt-20 pt-8 border-t border-neutral-800">
-      <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-        
-        <!-- コピーライト -->
-        <p class="text-sm text-neutral-500">
-          &copy; {currentYear} Omiseweb. All rights reserved.
-        </p>
-        
-        <!-- ソーシャルリンク（将来の拡張用） -->
-        <div class="flex items-center space-x-4">
-          <div class="text-sm text-neutral-500">
-            お問い合わせ: 
-            <a href="mailto:info@omiseweb.com" class="text-primary-400 hover:text-primary-300 transition-colors">
-              info@omiseweb.com
-            </a>
-          </div>
+    <div class="divider"></div>
+    <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+      
+      <!-- コピーライト -->
+      <p class="text-sm text-base-content/50">
+        &copy; {currentYear} Omiseweb. All rights reserved.
+      </p>
+      
+      <!-- コンタクト情報 -->
+      <div class="flex items-center space-x-4">
+        <div class="text-sm text-base-content/50">
+          お問い合わせ: 
+          <a href="mailto:info@omiseweb.com" class="link link-primary">
+            info@omiseweb.com
+          </a>
         </div>
       </div>
     </div>
   </div>
   
   <!-- 装飾的な要素 -->
-  <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-primary"></div>
+  <div class="absolute bottom-0 left-0 w-full h-1 luxury-gradient"></div>
 </footer>

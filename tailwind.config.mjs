@@ -221,5 +221,26 @@ export default {
       },
     },
 	},
-	plugins: [],
+	plugins: [require('daisyui')],
+	daisyui: {
+		themes: [
+			{
+				omiseweb: {
+					"primary": "#6366f1",
+					"secondary": "#a855f7", 
+					"accent": "#10b981",
+					"neutral": "#171717",
+					"base-100": "#ffffff",
+					"base-200": "#f5f5f5",
+					"base-300": "#e5e5e5",
+					"info": "#3b82f6",
+					"success": "#10b981",
+					"warning": "#f59e0b",
+					"error": "#ef4444",
+				},
+			},
+			"light",
+			"dark",
+		],
+	},
 }

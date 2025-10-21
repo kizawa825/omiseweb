@@ -17,7 +17,7 @@ const {
 } = Astro.props;
 ---
 <!doctype html>
-<html lang="ja" class="scroll-smooth">
+<html lang="ja" class="scroll-smooth" data-theme="omiseweb">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -35,7 +35,7 @@ const {
     
     <title>{title}</title>
   </head>
-  <body class="bg-neutral-50 text-neutral-900 font-body antialiased selection:bg-primary-100 selection:text-primary-900">
+  <body class="bg-base-100 text-base-content font-body antialiased selection:bg-primary/20 selection:text-primary">
     <!-- 2025年トレンドのスムーズスクロールとアクセシビリティ -->
     <div id="app" class="min-h-screen flex flex-col">
       <Header content={headerContent} />
@@ -46,7 +46,7 @@ const {
     </div>
    
    <style is:global>
-      /* 2025年最新のデザインシステム */
+      /* 2025年最新のデザインシステム - DaisyUI統合 */
       
       /* スムーズスクロール */
       html {
@@ -87,26 +87,26 @@ const {
         @apply transition-all duration-300 ease-in-out;
       }
       
-      /* ボタンのベーススタイル */
+      /* DaisyUI統合ボタンスタイル */
       .btn {
         @apply inline-flex items-center justify-center px-6 py-3 text-base font-semibold rounded-xl transition-all duration-300 ease-in-out transform focus:outline-none focus:ring-2 focus:ring-offset-2;
       }
       
       .btn-primary {
-        @apply bg-gradient-primary text-white shadow-lg hover:shadow-glow hover:scale-105 focus:ring-primary-500;
+        @apply bg-gradient-primary text-white shadow-lg hover:shadow-glow hover:scale-105 focus:ring-primary;
       }
       
       .btn-secondary {
-        @apply bg-gradient-secondary text-white shadow-lg hover:shadow-glow-secondary hover:scale-105 focus:ring-secondary-500;
+        @apply bg-gradient-secondary text-white shadow-lg hover:shadow-glow-secondary hover:scale-105 focus:ring-secondary;
       }
       
       .btn-outline {
-        @apply border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white focus:ring-primary-500;
+        @apply border-2 border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary;
       }
       
-      /* カードのベーススタイル */
+      /* DaisyUI統合カードスタイル */
       .card {
-        @apply bg-white rounded-2xl shadow-normal hover:shadow-strong transition-all duration-300 ease-in-out;
+        @apply bg-base-100 rounded-2xl shadow-normal hover:shadow-strong transition-all duration-300 ease-in-out;
       }
       
       /* グラデーションテキスト */
@@ -129,31 +129,31 @@ const {
       }
       
       ::-webkit-scrollbar-track {
-        @apply bg-neutral-100;
+        @apply bg-base-200;
       }
       
       ::-webkit-scrollbar-thumb {
-        @apply bg-neutral-300 rounded-full;
+        @apply bg-base-300 rounded-full;
       }
       
       ::-webkit-scrollbar-thumb:hover {
-        @apply bg-neutral-400;
+        @apply bg-primary/50;
       }
       
       /* フォーカス表示の改善 */
       *:focus {
-        @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+        @apply outline-none ring-2 ring-primary ring-offset-2;
       }
       
       /* 選択時のスタイル */
       ::selection {
-        @apply bg-primary-100 text-primary-900;
+        @apply bg-primary/20 text-primary;
       }
       
       /* ダークモード対応の準備 */
       @media (prefers-color-scheme: dark) {
         .dark-mode {
-          @apply bg-neutral-900 text-neutral-100;
+          @apply bg-base-300 text-base-content;
         }
       }
       
@@ -168,6 +168,19 @@ const {
         h3 {
           @apply text-xl;
         }
+      }
+      
+      /* DaisyUI統合の高級感エフェクト */
+      .glass-effect {
+        @apply bg-base-100/80 backdrop-blur-xl border border-base-300/50;
+      }
+      
+      .premium-shadow {
+        @apply shadow-2xl shadow-primary/10;
+      }
+      
+      .luxury-gradient {
+        @apply bg-gradient-to-br from-primary via-secondary to-accent;
       }
     </style>
   </body>
