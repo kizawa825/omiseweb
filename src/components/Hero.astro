@@ -11,74 +11,166 @@ const currentLang = supportedLangs.find(l => l === lang);
 const priceLink = currentLang ?
 `/${currentLang}/price` : '/price';
 ---
-{/*
-  ヒーローセクションのデザインを大幅に刷新：
-  - 従来の「背景画像 + テキストオーバーレイ」 は、コントラストや可読性（ユーザーファースト）の観点から課題がありました。
-  - 2025年のUI/UXトレンドと信頼性を考慮し、「テキスト（左）」と「ビジュアル（右）」を明確に分けるスプリットレイアウトに変更します。
-  - これにより、キャッチコピーが即座に目に入り、権威性のあるビジュアル（実績など）を右側に配置できます。
-*/}
-<section class="relative bg-white overflow-hidden">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="relative z-10 pb-16 pt-24 sm:pb-20 sm:pt-28 lg:pb-28 lg:pt-32 w-full">
-      <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+
+<!-- 2025年最新のヒーローセクション：権威性とプロフェッショナル感を演出 -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-neutral-50 via-white to-primary-50/30">
+  
+  <!-- 背景装飾：2025年トレンドの幾何学的パターン -->
+  <div class="absolute inset-0 overflow-hidden">
+    <!-- メインの幾何学パターン -->
+    <div class="absolute top-0 right-0 w-96 h-96 lg:w-[600px] lg:h-[600px] transform translate-x-1/2 -translate-y-1/2">
+      <div class="w-full h-full bg-gradient-primary rounded-full opacity-5 animate-pulse-slow"></div>
+    </div>
+    
+    <!-- セカンダリパターン -->
+    <div class="absolute bottom-0 left-0 w-64 h-64 lg:w-96 lg:h-96 transform -translate-x-1/2 translate-y-1/2">
+      <div class="w-full h-full bg-gradient-secondary rounded-full opacity-5 animate-pulse-slow" style="animation-delay: 1.5s;"></div>
+    </div>
+    
+    <!-- アクセントパターン -->
+    <div class="absolute top-1/2 left-1/2 w-32 h-32 lg:w-48 lg:h-48 transform -translate-x-1/2 -translate-y-1/2">
+      <div class="w-full h-full bg-gradient-accent rounded-full opacity-10 animate-float"></div>
+    </div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      
+      <!-- 左側：コンテンツエリア -->
+      <div class="text-center lg:text-left space-y-8">
         
-        <div class="max-w-xl text-center lg:text-left">
-          <h1 class="text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl md:text-6xl whitespace-pre-line">
-            {content.catchphrase}
+        <!-- メインキャッチコピー -->
+        <div class="space-y-6">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+            <span class="gradient-text">{content.catchphrase}</span>
           </h1>
-          <p class="mt-6 text-lg max-w-2xl mx-auto lg:mx-0 leading-8 text-neutral-600 whitespace-pre-line">
+          
+          <p class="text-lg sm:text-xl lg:text-2xl text-neutral-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
             {content.subcopy}
           </p>
-          <div class="mt-10 flex items-center justify-center lg:justify-start gap-x-6">
-            <a href="#contact" class="rounded-full bg-primary-600 px-6 py-3.5 text-base font-semibold text-white shadow-lg hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 transition-all duration-300 ease-in-out transform hover:scale-105">
-              {content.cta_main}
-            </a>
-            <a href={priceLink} class="text-base font-semibold leading-6 text-neutral-700 hover:text-neutral-900 transition-colors">{content.cta_sub} <span aria-hidden="true">→</span></a>
-          </div>
-          <div class="mt-12 flex flex-wrap justify-center lg:justify-start items-center gap-x-6 gap-y-3 text-sm text-neutral-500">
-            {content.features.map(feature => (
-              <span class="flex items-center">
-                <svg class="w-5 h-5 mr-1.5 text-success-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-                {feature}
-              </span>
-            ))}
+        </div>
+
+        <!-- CTAボタン群 -->
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6">
+          <a 
+            href="#contact" 
+            class="btn btn-primary text-lg px-8 py-4 rounded-2xl shadow-lg hover:shadow-glow hover:scale-105 transform transition-all duration-300 w-full sm:w-auto"
+          >
+            <span>{content.cta_main}</span>
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </a>
+          
+          <a 
+            href={priceLink} 
+            class="btn btn-outline text-lg px-8 py-4 rounded-2xl w-full sm:w-auto"
+          >
+            <span>{content.cta_sub}</span>
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- 特徴リスト -->
+        <div class="flex flex-wrap justify-center lg:justify-start items-center gap-4 sm:gap-6 text-sm sm:text-base text-neutral-600">
+          {content.features.map(feature => (
+            <div class="flex items-center space-x-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-subtle">
+              <div class="w-2 h-2 bg-gradient-accent rounded-full animate-pulse"></div>
+              <span class="font-medium">{feature}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- 右側：ビジュアルエリア -->
+      <div class="relative">
+        
+        <!-- メインビジュアルカード -->
+        <div class="relative group">
+          <div class="absolute -inset-4 bg-gradient-primary rounded-3xl opacity-20 group-hover:opacity-30 transition-opacity duration-500 blur-xl"></div>
+          
+          <div class="relative bg-white rounded-3xl shadow-intense overflow-hidden transform group-hover:scale-105 transition-all duration-500">
+            <!-- 画像エリア -->
+            <div class="aspect-[4/3] lg:aspect-[3/2] relative overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop" 
+                alt="プロフェッショナルなWeb制作サービスのイメージ"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              
+              <!-- オーバーレイグラデーション -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+              
+              <!-- フローティングバッジ -->
+              <div class="absolute top-6 right-6 bg-white/90 backdrop-blur-sm rounded-2xl px-4 py-2 shadow-lg">
+                <div class="flex items-center space-x-2">
+                  <div class="w-2 h-2 bg-gradient-accent rounded-full animate-pulse"></div>
+                  <span class="text-sm font-semibold text-neutral-700">実績多数</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- コンテンツエリア -->
+            <div class="p-6 lg:p-8">
+              <div class="space-y-4">
+                <h3 class="text-xl lg:text-2xl font-bold text-neutral-900">
+                  完全オーダーメイド
+                </h3>
+                <p class="text-neutral-600 leading-relaxed">
+                  テンプレートを使わない、あなたのお店だけのオリジナルデザインを制作します。
+                </p>
+                
+                <!-- 統計情報 -->
+                <div class="grid grid-cols-2 gap-4 pt-4">
+                  <div class="text-center">
+                    <div class="text-2xl lg:text-3xl font-bold gradient-text">100+</div>
+                    <div class="text-sm text-neutral-500">制作実績</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="text-2xl lg:text-3xl font-bold gradient-text">98%</div>
+                    <div class="text-sm text-neutral-500">満足度</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="mt-12 lg:mt-0 lg:col-start-2">
-          <div class="relative w-full h-80 lg:h-[500px] rounded-3xl shadow-xl overflow-hidden">
-            {/* TODO: 
-              ここに、権威性・信頼性のある高品質なビジュアルを配置してください。
-              例：
-              - 制作実績のウェブサイトが動作している様子のモンタージュ動画
-              - プロフェッショナルなチームの写真
-              - サービスの独自性を示す抽象的な3Dグラフィック
-            */}
-            <img 
-              src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop" 
-              alt="プロフェッショナルなWeb制作サービスのイメージ"
-              class="w-full h-full object-cover"
-            />
-             <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
-          </div>
-        </div>
-
+        <!-- フローティング要素 -->
+        <div class="absolute -top-4 -left-4 w-16 h-16 bg-gradient-secondary rounded-2xl shadow-lg animate-float opacity-80"></div>
+        <div class="absolute -bottom-4 -right-4 w-12 h-12 bg-gradient-accent rounded-xl shadow-lg animate-float opacity-80" style="animation-delay: 2s;"></div>
       </div>
     </div>
   </div>
-  
-  {/* 装飾：右側に幾何学的なパターンを追加 */}
-  <div class="absolute inset-y-0 right-0 hidden lg:block lg:w-1/2">
-    <svg class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/4 w-[64rem] h-[64rem] text-neutral-100/50" fill="currentColor" viewBox="0 0 100 100">
-      <defs>
-        <pattern id="geometric-pattern" patternUnits="userSpaceOnUse" width="40" height="40">
-          <rect width="10" height="10" class="text-neutral-200/50" fill="currentColor"></rect>
-          <rect x="20" y="20" width="10" height="10" class="text-neutral-200/50" fill="currentColor"></rect>
-        </pattern>
-      </defs>
-      <rect fill="url(#geometric-pattern)" width="100" height="100"></rect>
-    </svg>
+
+  <!-- スクロールインジケーター -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <div class="w-6 h-10 border-2 border-neutral-300 rounded-full flex justify-center">
+      <div class="w-1 h-3 bg-gradient-primary rounded-full mt-2 animate-pulse"></div>
+    </div>
   </div>
 </section>
+
+<script>
+  // スクロールアニメーション
+  document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in-up');
+        }
+      });
+    }, observerOptions);
+
+    // アニメーション対象の要素を監視
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    animatedElements.forEach(el => observer.observe(el));
+  });
+</script>

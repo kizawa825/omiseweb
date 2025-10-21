@@ -1,7 +1,7 @@
 ---
 const { content } = Astro.props;
 
-// アイコンは現状維持
+// 2025年トレンドのアイコンシステム
 const icons = {
   language: `<path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502" />`,
   users: `<path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-4.663M12 3.375c-3.418 0-6.167 2.749-6.167 6.167s2.749 6.167 6.167 6.167 6.167-2.749 6.167-6.167S15.418 3.375 12 3.375z" />`,
@@ -10,35 +10,106 @@ const icons = {
   question: `<path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />`,
 };
 ---
-{/*
-  ブラッシュアップ：
-  - セクション背景を `bg-white` -> `bg-neutral-50` に変更。
-  - 各項目を単なるテキストから、`bg-white` のカードに変更し、`shadow-subtle` を適用。
-  - アイコンの背景を `bg-indigo-50` -> `bg-primary-100`、色を `text-indigo-600` -> `text-primary-600` に変更。
-*/}
-<section class="bg-neutral-50 py-20 sm:py-24">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center max-w-2xl mx-auto">
-      <p class="text-base font-semibold leading-7 text-primary-600">{content.eyebrow}</p>
-      <h2 class="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">{content.title}</h2>
-      <p class="mt-4 text-lg leading-8 text-neutral-600">{content.subtitle}</p>
+
+<!-- 2025年最新のProblemセクション：権威性とプロフェッショナル感を演出 -->
+<section class="relative py-20 lg:py-32 bg-gradient-to-br from-white via-neutral-50/50 to-primary-50/20 overflow-hidden">
+  
+  <!-- 背景装飾 -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute top-0 left-1/4 w-72 h-72 bg-gradient-secondary rounded-full opacity-5 animate-pulse-slow"></div>
+    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-accent rounded-full opacity-5 animate-pulse-slow" style="animation-delay: 2s;"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- セクションヘッダー -->
+    <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+      <div class="inline-flex items-center px-4 py-2 bg-gradient-primary/10 rounded-full text-sm font-semibold text-primary-700 mb-6">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+        </svg>
+        よくある課題
+      </div>
+      
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 mb-6">
+        <span class="gradient-text">{content.title}</span>
+      </h2>
+      
+      <p class="text-lg sm:text-xl text-neutral-600 leading-relaxed">
+        多くの外国人オーナー様が抱える共通の課題を、私たちは深く理解しています。
+      </p>
     </div>
-    <div class="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      {content.problems.map(problem => (
-        <div class="bg-white p-6 rounded-xl shadow-subtle transition-all duration-300 hover:shadow-lg">
-          <div class="flex items-start gap-x-4">
-            <div class="flex-shrink-0">
-              <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary-100">
-                <svg class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" set:html={icons[problem.icon]} />
+
+    <!-- 問題カードグリッド -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {content.problems.map((problem, index) => (
+        <div class="group relative">
+          <!-- カード背景のグロー効果 -->
+          <div class="absolute -inset-1 bg-gradient-primary rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-sm"></div>
+          
+          <!-- メインカード -->
+          <div class="relative bg-white/80 backdrop-blur-sm p-6 lg:p-8 rounded-2xl shadow-normal hover:shadow-strong transition-all duration-500 transform group-hover:-translate-y-2">
+            
+            <!-- アイコンエリア -->
+            <div class="flex items-center justify-center w-16 h-16 mx-auto mb-6 bg-gradient-primary/10 rounded-2xl group-hover:bg-gradient-primary/20 transition-all duration-300">
+              <svg class="w-8 h-8 text-primary-600 group-hover:scale-110 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" set:html={icons[problem.icon]} />
+            </div>
+            
+            <!-- コンテンツエリア -->
+            <div class="text-center space-y-4">
+              <h3 class="text-lg lg:text-xl font-semibold text-neutral-900 leading-tight">
+                {problem.text}
+              </h3>
+              
+              <!-- 装飾的な要素 -->
+              <div class="flex justify-center">
+                <div class="w-12 h-0.5 bg-gradient-primary rounded-full"></div>
               </div>
             </div>
-            <div>
-              <h3 class="text-lg font-semibold leading-7 text-neutral-900">{problem.title}</h3>
-              <p class="mt-1 text-base leading-7 text-neutral-600">{problem.text}</p>
-            </div>
+            
+            <!-- ホバー時のアクセント -->
+            <div class="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-primary-200 transition-all duration-300"></div>
           </div>
         </div>
       ))}
     </div>
+
+    <!-- ボトムCTA -->
+    <div class="text-center mt-16 lg:mt-20">
+      <div class="inline-flex items-center px-6 py-3 bg-gradient-primary/10 rounded-full text-primary-700 font-medium">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+        これらの課題、すべて解決できます
+      </div>
+    </div>
   </div>
 </section>
+
+<script>
+  // スクロールアニメーション
+  document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          // 遅延アニメーションで順次表示
+          setTimeout(() => {
+            entry.target.classList.add('animate-fade-in-up');
+          }, index * 100);
+        }
+      });
+    }, observerOptions);
+
+    // カード要素を監視
+    const cards = document.querySelectorAll('.group');
+    cards.forEach(card => {
+      card.classList.add('animate-on-scroll');
+      observer.observe(card);
+    });
+  });
+</script>
