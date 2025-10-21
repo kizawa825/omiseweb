@@ -1,24 +1,26 @@
 ---
 const { content } = Astro.props;
 ---
-<section class="py-20 sm:py-24">
+<section class="py-24 sm:py-32 bg-gray-50">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center">
-      <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">{content.title}</h2>
-      <p class="mt-4 text-lg leading-8 text-slate-600">{content.subtitle}</p>
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-heading">{content.title}</h2>
+      <p class="mt-4 text-lg leading-8 text-gray-600">{content.subtitle}</p>
     </div>
 
     <div class="swiper solution-swiper mt-16">
       <div class="swiper-wrapper py-4">
         {content.solutions.map(solution => (
-          <div class="swiper-slide">
-            <div class="bg-slate-50 rounded-xl p-8 h-full shadow-sm">
+          <div class="swiper-slide h-full">
+            <div class="bg-white rounded-xl p-8 h-full shadow-lg transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-xl">
+    
               <img src={solution.image} alt={solution.title} class="w-full h-40 object-cover rounded-lg mb-6" />
-              <h3 class="text-lg font-semibold leading-7 text-indigo-600">{solution.subtitle}</h3>
-              <p class="mt-2 text-xl font-bold tracking-tight text-slate-900">{solution.title}</p>
-              <p class="mt-4 text-base leading-7 text-slate-600">{solution.description}</p>
+              <h3 class="text-lg font-semibold leading-7 text-primary-600">{solution.subtitle}</h3>
+              <p class="mt-2 text-xl font-bold tracking-tight text-gray-900 font-heading">{solution.title}</p>
+              <p class="mt-4 text-base leading-7 text-gray-600">{solution.description}</p>
             </div>
           </div>
+     
         ))}
       </div>
       <div class="swiper-pagination solution-pagination"></div>
