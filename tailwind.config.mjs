@@ -19,6 +19,7 @@ export default {
       colors: {
         // プライマリカラー：信頼性と権威性を表現する深いブルー
         primary: {
+          DEFAULT: '#6366f1',
           50: '#f0f4ff',
           100: '#e0e7ff',
           200: '#c7d2fe',
@@ -33,6 +34,7 @@ export default {
         },
         // セカンダリカラー：活気と革新性を表現するバイオレット
         secondary: {
+          DEFAULT: '#a855f7',
           50: '#faf5ff',
           100: '#f3e8ff',
           200: '#e9d5ff',
@@ -47,6 +49,7 @@ export default {
         },
         // アクセントカラー：成功と成長を表現するエメラルド
         accent: {
+          DEFAULT: '#10b981',
           50: '#ecfdf5',
           100: '#d1fae5',
           200: '#a7f3d0',
@@ -61,6 +64,7 @@ export default {
         },
         // ニュートラルカラー：洗練されたグレースケール
         neutral: {
+          DEFAULT: '#171717',
           50: '#fafafa',
           100: '#f5f5f5',
           200: '#e5e5e5',
@@ -75,6 +79,7 @@ export default {
         },
         // 成功・警告・エラーカラー
         success: {
+          DEFAULT: '#22c55e',
           50: '#f0fdf4',
           100: '#dcfce7',
           200: '#bbf7d0',
@@ -88,6 +93,7 @@ export default {
           950: '#052e16',
         },
         warning: {
+          DEFAULT: '#f59e0b',
           50: '#fffbeb',
           100: '#fef3c7',
           200: '#fde68a',
@@ -101,6 +107,7 @@ export default {
           950: '#451a03',
         },
         error: {
+          DEFAULT: '#ef4444',
           50: '#fef2f2',
           100: '#fee2e2',
           200: '#fecaca',
