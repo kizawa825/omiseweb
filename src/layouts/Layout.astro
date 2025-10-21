@@ -29,7 +29,7 @@ const {
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
     <title>{title}</title>
   </head>
-  <body class="bg-white text-gray-900 font-body">
+  <body class="bg-neutral-50 text-neutral-900 font-body antialiased">
     <Header content={headerContent} />
     <main>
       <slot />
@@ -37,8 +37,13 @@ const {
     <Footer content={footerContent} />
    
    <style is:global>
-      /* Tailwindの 'font-body' を優先するため、こちらの指定は不要 */
-      /* body { font-family: 'Inter', 'Noto Sans JP', sans-serif; } */
+      /* デザインブラッシュアップ：
+        権威性とデザインの一貫性のため、h1-h6タグに自動的に見出し用フォントを適用します。
+        Tailwindの 'font-heading' ユーティリティクラスを適用。
+      */
+      h1, h2, h3, h4, h5, h6 {
+        @apply font-heading;
+      }
     </style>
   </body>
 </html>
