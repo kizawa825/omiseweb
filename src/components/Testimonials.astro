@@ -1,26 +1,38 @@
 ---
 const { content } = Astro.props;
 ---
-<section class="py-20 sm:py-24">
+{/*
+  ブラッシュアップ：
+  - セクション背景を `bg-neutral-50` に変更。
+  - 証言カード を `bg-white shadow-lg` に変更し、`relative overflow-hidden` を追加。
+  - 権威性・信頼性のため、装飾的な「引用符」SVGをカードの背景に薄く配置。
+*/}
+<section class="py-20 sm:py-24 bg-neutral-50">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center">
-        <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">{content.title}</h2>
-        <p class="mt-4 text-lg leading-8 text-slate-600">{content.subtitle}</p>
+    <div class="text-center max-w-2xl mx-auto">
+        <p class="text-base font-semibold leading-7 text-primary-600">{content.eyebrow}</p>
+        <h2 class="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">{content.title}</h2>
+        <p class="mt-4 text-lg leading-8 text-neutral-600">{content.subtitle}</p>
     </div>
 
     <div class="swiper testimonials-swiper mt-12">
         <div class="swiper-wrapper py-4">
             {content.voices.map(testimonial => (
-                <div class="swiper-slide">
-                    <figure class="rounded-2xl bg-slate-50 p-8 text-sm leading-6 h-full shadow-sm">
-                        <blockquote class="text-slate-900">
+                <div class="swiper-slide h-full">
+                    <figure class="rounded-2xl bg-white p-8 text-base leading-7 h-full shadow-lg relative overflow-hidden border border-neutral-100">
+                        {/* Decorative Quote */}
+                        <svg class="absolute top-4 left-4 w-20 h-20 text-neutral-100 opacity-75" fill="currentColor" viewBox="0 0 32 32">
+                          <path d="M10.75 4.75a3 3 0 00-3 3v11.5a3 3 0 003 3h7.5a3 3 0 003-3v-6.5a.75.75 0 011.5 0v6.5a4.5 4.5 0 01-4.5 4.5h-7.5a4.5 4.5 0 01-4.5-4.5v-11.5a4.5 4.5 0 014.5-4.5h7.5a.75.75 0 010 1.5h-7.5zM24.25 4.75a3 3 0 00-3 3v11.5a3 3 0 003 3h7.5a3 3 0 003-3v-6.5a.75.75 0 011.5 0v6.5a4.5 4.5 0 01-4.5 4.5h-7.5a4.5 4.5 0 01-4.5-4.5v-11.5a4.5 4.5 0 014.5-4.5h7.5a.75.75 0 010 1.5h-7.5z" />
+                        </svg>
+                        <blockquote class="text-neutral-700 relative z-10">
                             <p>“{testimonial.quote}”</p>
                         </blockquote>
-                        <figcaption class="mt-6 flex items-center gap-x-4">
-                            <img class="h-10 w-10 rounded-full bg-slate-50 object-cover" src={testimonial.image} alt={testimonial.name}>
+                        <figcaption class="mt-6 flex items-center gap-x-4 relative z-10">
+                            {/* TODO: プレースホルダー画像を差し替えてください */}
+                            <img class="h-12 w-12 rounded-full bg-neutral-100 object-cover shadow-sm" src={testimonial.image} alt={testimonial.name}>
                             <div>
-                                <div class="font-semibold text-slate-900">{testimonial.name}</div>
-                                <div class="text-slate-600">{testimonial.role}</div>
+                                <div class="font-semibold text-neutral-900">{testimonial.name}</div>
+                                <div class="text-neutral-600">{testimonial.role}</div>
                             </div>
                         </figcaption>
                     </figure>
