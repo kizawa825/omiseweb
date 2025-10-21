@@ -35,7 +35,7 @@ const {
     
     <title>{title}</title>
   </head>
-  <body class="bg-base-100 text-base-content font-body antialiased selection:bg-primary/20 selection:text-primary">
+  <body class="bg-base-100 text-base-content font-body antialiased selection:bg-primary-500/20 selection:text-primary-600">
     <!-- 2025年トレンドのスムーズスクロールとアクセシビリティ -->
     <div id="app" class="min-h-screen flex flex-col">
       <Header content={headerContent} />
@@ -137,7 +137,7 @@ const {
       }
       
       ::-webkit-scrollbar-thumb:hover {
-        @apply bg-primary/50;
+        @apply bg-primary-500/50;
       }
       
       /* フォーカス表示の改善 */
@@ -147,7 +147,7 @@ const {
       
       /* 選択時のスタイル */
       ::selection {
-        @apply bg-primary/20 text-primary;
+        @apply bg-primary-500/20 text-primary-600;
       }
       
       /* ダークモード対応の準備 */
