@@ -1,6 +1,7 @@
 ---
 // --- Props ---
 const { content = {} } = Astro.props;
+
 // --- Content Configuration ---
 // Astro.propsから渡されるコンテンツ、またはデフォルト値を設定
 const navLinks = content?.navLinks ??
@@ -12,9 +13,64 @@ const navLinks = content?.navLinks ??
 const cta = content?.cta ?? 'お問い合わせ';
 
 // --- Language Configuration ---
-// (中略: 言語設定ロジックは変更なし)
+// 基本となる言語情報を定義
+const languages = [
+  { code: 'jp', name: '日本語' },
+  { code: 'en', name: 'English' },
+  { code: 'zh', name: '中文' },
+  { code: 'th', name: 'ไทย' },
+];
 const { pathname } = Astro.url;
-// ... (STEP 1〜4 は変更なし)
+
+// --- STEP 1: 現在の言語をURLから判定 ---
+const pathParts = pathname.split('/').filter(Boolean);
+// URLを `/` で分割し、空の要素を除外 e.g., /en/about -> ['en', 'about']
+const langCodes = languages.map(l => l.code).filter(c => c !== 'jp');
+// 日本語以外の言語コードリスト
+let currentLangCode = 'jp'; // デフォルトは日本語
+
+// URLの最初の部分が言語コードと一致するかチェック
+if (pathParts.length > 0 && langCodes.includes(pathParts[0])) {
+    currentLangCode = pathParts[0];
+}
+
+// ロゴのリンク先を、現在の言語のトップページに設定します。
+const logoHref = currentLangCode === 'jp' ? '/' : `/${currentLangCode}/`;
+
+// --- STEP 2: 言語部分を除いた「ベースパス」を生成 ---
+let basePath = '';
+if (currentLangCode !== 'jp') {
+    // 現在が日本語以外のページの場合、言語コード部分を取り除く e.g., ['en', 'about'] -> '/about'
+    basePath = `/${pathParts.slice(1).join('/')}`;
+} else {
+    // 現在が日本語ページの場合、そのままパスを結合 e.g., ['contact'] -> '/contact'
+    basePath = `/${pathParts.join('/')}`;
+}
+// ルートパス `/` の場合は、basePathが `//` や `/` になってしまうのを補正
+if (basePath === '/') {
+    basePath = '';
+}
+
+// --- STEP 3: 各言語のページへのURLを動的に生成 ---
+const pageLanguages = languages.map(lang => {
+    let newHref = '';
+    if (lang.code === 'jp') {
+        // 日本語ページは、ベースパスのみ。ベースパスが空ならルート `/`
+        newHref = basePath || '/';
+    } else {
+        // 他の言語は、言語コードのプレフィックスとベースパスを結合
+        newHref = `/${lang.code}${basePath}`;
+    }
+    return { ...lang, href: newHref };
+});
+
+// --- STEP 4: 表示用に現在の言語を先頭にして並び替え ---
+// 現在の言語オブジェクトを検索
+const currentLanguage = pageLanguages.find(lang => lang.code === currentLangCode) || pageLanguages[0];
+// 表示用に言語リストを並び替えます。現在の言語が一番上に来るようにします。
+const sortedLanguages = [
+  currentLanguage, ...pageLanguages.filter(lang => lang.code !== currentLanguage.code)
+];
 ---
 
 {/* ヘッダーコンポーネント
@@ -31,7 +87,7 @@ const { pathname } = Astro.url;
       
       <nav class="hidden md:flex items-center space-x-8">
        
- {navLinks.map(link => (
+         {navLinks.map(link => (
           <a href={link.href} class="font-medium text-gray-600 hover:text-primary-600 transition-colors">{link.name}</a>
         ))}
       </nav>
@@ -41,29 +97,29 @@ const { pathname } = Astro.url;
         <div class="relative hidden md:block">
           <button id="lang-switcher-button" type="button" class="flex items-center space-x-2 text-sm text-gray-600 hover:text-primary-600 font-medium transition-colors" aria-haspopup="true" aria-expanded="false" aria-controls="lang-switcher-menu">
         
-    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 
-12c0-1.605.42-3.113 1.157-4.418" />
+ 12c0-1.605.42-3.113 1.157-4.418" />
             </svg>
             <span>{currentLanguage.name}</span>
             <svg id="lang-switcher-chevron" class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
       
-    </button>
+          </button>
           
           <div id="lang-switcher-menu" class="absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg py-1 z-10 hidden ring-1 ring-black ring-opacity-5" role="menu">
             {sortedLanguages.map(lang => (
               <a 
                 href={lang.href} 
   
-              role="menuitem"
+                role="menuitem"
                 class:list={[
                   "block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50",
                   // 現在選択中の言語をハイライト表示
                   { "bg-primary-50 font-semibold text-primary-600": lang.code === currentLangCode }
    
-             ]}
+                ]}
               >
                 {lang.name}
               </a>
@@ -72,19 +128,19 @@ const { pathname } = Astro.url;
         </div>
         
      
-   <a href="#contact" class="hidden sm:inline-block bg-primary-600 text-white font-semibold px-5 py-2 rounded-full hover:bg-primary-700 transition-all duration-300 ease-in-out transform hover:scale-105">
+        <a href="#contact" class="hidden sm:inline-block bg-primary-600 text-white font-semibold px-5 py-2 rounded-full hover:bg-primary-700 transition-all duration-300 ease-in-out transform hover:scale-105">
           {cta}
         </a>
 
         <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:bg-gray-100" aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false">
             <svg class="w-6 h-6" id="mobile-menu-open-icon" 
-xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+ xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
              <svg class="w-6 h-6 hidden" id="mobile-menu-close-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
            
- </svg>
+   </svg>
         </button>
       </div>
     </div>
@@ -97,7 +153,7 @@ xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width=
           <a href={link.href} class="block px-4 py-2 rounded-md text-gray-600 hover:bg-gray-100 hover:text-primary-600">{link.name}</a>
         ))}
         <a href="#contact" class="block px-4 py-2 rounded-md bg-primary-600 text-white 
-text-center font-semibold">{cta}</a>
+ text-center font-semibold">{cta}</a>
       </div>
       
       <div class="border-t border-gray-200 pt-4 mt-4">
@@ -106,14 +162,14 @@ text-center font-semibold">{cta}</a>
              {sortedLanguages.map(lang => (
               <a 
              
-   href={lang.href} 
+     href={lang.href} 
                 class:list={[
                   "block px-4 py-2 rounded-md text-gray-600 hover:bg-gray-100 hover:text-primary-600",
                   { "bg-gray-100 font-semibold text-primary-600": lang.code === currentLangCode }
                 ]}
               >
  
-               {lang.name}
+                 {lang.name}
               </a>
             ))}
           </div>
@@ -123,5 +179,53 @@ text-center font-semibold">{cta}</a>
 </header>
 
 <script>
-// ... (中略)
+  // DOMの読み込みが完了してからスクリプトを実行
+  document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- モバイルメニューの開閉処理 ---
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+ const mobileMenu = document.getElementById('mobile-menu');
+    const openIcon = document.getElementById('mobile-menu-open-icon');
+    const closeIcon = document.getElementById('mobile-menu-close-icon');
+
+ if (mobileMenuButton && mobileMenu && openIcon && closeIcon) {
+      mobileMenuButton.addEventListener('click', () => {
+        const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+        mobileMenu.classList.toggle('hidden');
+        openIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+        mobileMenuButton.setAttribute('aria-expanded', String(!isExpanded));
+      });
+ }
+
+    // --- 言語スイッチャーの開閉処理 ---
+    const langButton = document.getElementById('lang-switcher-button');
+    const langMenu = document.getElementById('lang-switcher-menu');
+ const langChevron = document.getElementById('lang-switcher-chevron');
+
+    if (langButton && langMenu && langChevron) {
+      // ボタンをクリックした時にメニューを開閉
+      langButton.addEventListener('click', (event) => {
+        // イベントの伝播を停止し、下のdocumentクリックイベントが即座に発火するのを防ぐ
+        event.stopPropagation(); 
+        const isExpanded = langButton.getAttribute('aria-expanded') === 'true';
+        langMenu.classList.toggle('hidden');
+        langChevron.classList.toggle('rotate-180');
+        langButton.setAttribute('aria-expanded', String(!isExpanded));
+      });
+
+ // メニューの外側をクリックした時にメニューを閉じる
+      document.addEventListener('click', (event) => {
+        const isClickInside = langButton.contains(event.target) || langMenu.contains(event.target);
+        const isExpanded = langButton.getAttribute('aria-expanded') === 'true';
+        
+        if (!isClickInside && isExpanded) {
+            langMenu.classList.add('hidden');
+            langChevron.classList.remove('rotate-180');
+            langButton.setAttribute('aria-expanded', 'false');
+       
+   }
+      });
+    }
+  });
 </script>
