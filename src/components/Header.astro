@@ -67,7 +67,10 @@ const sortedLanguages = [
             OW
           </span>
           <div class="flex flex-col leading-tight">
-            <span class="font-heading text-lg font-semibold tracking-tight text-base-content sm:text-xl">
+            <span
+              class="font-heading text-lg font-semibold tracking-tight text-base-content sm:text-xl"
+              data-header-brand-text
+            >
               Omiseweb Studio
             </span>
             <span class="text-xs font-medium uppercase tracking-[0.28em] text-primary-500/80">
@@ -81,6 +84,7 @@ const sortedLanguages = [
             <a
               href={link.href}
               class="relative rounded-full px-4 py-2 text-sm font-medium text-base-content/75 transition duration-300 hover:text-primary-600"
+              data-header-nav-link
             >
               <span class="absolute inset-0 rounded-full bg-gradient-to-r from-primary/10 via-primary/5 to-secondary/10 opacity-0 transition duration-300 group-hover:opacity-70"></span>
               <span class="relative">{link.name}</span>
@@ -111,8 +115,8 @@ const sortedLanguages = [
                 d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
               ></path>
             </svg>
-            <span>{languageLabel}</span>
-            <span class="text-xs tracking-[0.2em] text-base-content/50">
+            <span data-header-language-label>{languageLabel}</span>
+            <span class="text-xs tracking-[0.2em] text-base-content/50" data-header-language-current>
               {currentLanguage.name}
             </span>
           </button>
@@ -278,11 +282,64 @@ const sortedLanguages = [
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const shell = document.querySelector('[data-header-shell]');
+    const headerRoot = document.querySelector('[data-header]');
+    if (headerRoot && !headerRoot.dataset.tone) {
+      headerRoot.dataset.tone = 'light';
+    }
     const languageTrigger = document.querySelector('[data-language-trigger]');
     const languagePanel = document.querySelector('[data-language-panel]');
     const mobileTrigger = document.querySelector('[data-mobile-trigger]');
     const mobilePanel = document.querySelector('[data-mobile-panel]');
     const mobileOverlay = document.querySelector('[data-mobile-overlay]');
+    const brandText = shell?.querySelector('[data-header-brand-text]') ?? null;
+    const navLinks = shell ? Array.from(shell.querySelectorAll('[data-header-nav-link]')) : [];
+    const languageCurrent = languageTrigger?.querySelector('[data-header-language-current]') ?? null;
+    const darkSections = Array.from(document.querySelectorAll('[data-dark-section]'));
+    let isHeaderOnDark = false;
+
+    const applyHeaderTone = (onDark) => {
+      if (headerRoot) {
+        headerRoot.dataset.tone = onDark ? 'dark' : 'light';
+      }
+
+      brandText?.classList.toggle('text-base-content', !onDark);
+      brandText?.classList.toggle('text-white', onDark);
+
+      navLinks.forEach((link) => {
+        link.classList.toggle('text-base-content/75', !onDark);
+        link.classList.toggle('hover:text-primary-600', !onDark);
+        link.classList.toggle('text-white/90', onDark);
+        link.classList.toggle('hover:text-primary-200', onDark);
+      });
+
+      languageTrigger?.classList.toggle('text-base-content/80', !onDark);
+      languageTrigger?.classList.toggle('hover:text-primary-600', !onDark);
+      languageTrigger?.classList.toggle('text-white/90', onDark);
+      languageTrigger?.classList.toggle('hover:text-primary-200', onDark);
+
+      languageCurrent?.classList.toggle('text-base-content/50', !onDark);
+      languageCurrent?.classList.toggle('text-white/60', onDark);
+
+      mobileTrigger?.classList.toggle('text-base-content', !onDark);
+      mobileTrigger?.classList.toggle('hover:text-primary-600', !onDark);
+      mobileTrigger?.classList.toggle('text-white', onDark);
+      mobileTrigger?.classList.toggle('hover:text-primary-200', onDark);
+    };
+
+    const updateHeaderTone = () => {
+      if (!shell) return;
+      const headerHeight = shell.getBoundingClientRect().height || 0;
+      const onDark =
+        darkSections.length > 0 &&
+        darkSections.some((section) => {
+          const rect = section.getBoundingClientRect();
+          return rect.top < headerHeight && rect.bottom > 0;
+        });
+
+      if (onDark === isHeaderOnDark) return;
+      isHeaderOnDark = onDark;
+      applyHeaderTone(onDark);
+    };
 
     const setHeaderElevation = () => {
       if (!shell) return;
@@ -293,6 +350,7 @@ const sortedLanguages = [
       shell.classList.toggle('bg-base-100/85', scrolled);
       shell.classList.toggle('shadow-subtle', !scrolled);
       shell.classList.toggle('shadow-strong', scrolled);
+      updateHeaderTone();
     };
 
     const closeLanguage = () => {
@@ -390,6 +448,7 @@ const sortedLanguages = [
         closeMobile();
         closeLanguage();
       }
+      updateHeaderTone();
     });
 
     closeLanguage();
