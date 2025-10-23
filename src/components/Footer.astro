@@ -18,7 +18,66 @@ const defaultContent = {
 
 const { content = defaultContent } = Astro.props;
 const navLinks = Array.isArray(content?.navLinks) ? content.navLinks : [];
-const languages = Array.isArray(content?.languages) ? content.languages : [];
+const languageEntries = Array.isArray(content?.languages) ? content.languages : [];
+
+const languageOptions = [
+  { code: 'jp', name: '日本語' },
+  { code: 'en', name: 'English' },
+  { code: 'zh', name: '中文' },
+  { code: 'th', name: 'ภาษาไทย' },
+];
+
+const { pathname } = Astro.url;
+const pathSegments = pathname.split('/').filter(Boolean);
+const nonDefaultLangs = languageOptions.map((lang) => lang.code).filter((code) => code !== 'jp');
+
+let currentLangCode = 'jp';
+if (pathSegments.length > 0 && nonDefaultLangs.includes(pathSegments[0])) {
+  currentLangCode = pathSegments[0];
+}
+
+let basePath = '';
+if (currentLangCode !== 'jp') {
+  basePath = `/${pathSegments.slice(1).join('/')}`;
+} else {
+  basePath = `/${pathSegments.join('/')}`;
+}
+
+if (basePath === '/') {
+  basePath = '';
+}
+
+const pageLanguages = languageOptions.map((lang) => {
+  const href = lang.code === 'jp' ? basePath || '/' : `/${lang.code}${basePath}`;
+  return { ...lang, href };
+});
+
+const normalizeLanguageEntry = (entry) => {
+  if (typeof entry === 'string') {
+    return pageLanguages.find((lang) => lang.name === entry || lang.code === entry) ?? null;
+  }
+  if (entry && typeof entry === 'object') {
+    if ('code' in entry && typeof entry.code === 'string') {
+      return pageLanguages.find((lang) => lang.code === entry.code) ?? null;
+    }
+    if ('name' in entry && typeof entry.name === 'string') {
+      return pageLanguages.find((lang) => lang.name === entry.name) ?? null;
+    }
+  }
+  return null;
+};
+
+const footerLanguages = (languageEntries.length > 0
+  ? languageEntries.map((entry) => normalizeLanguageEntry(entry)).filter(Boolean)
+  : pageLanguages);
+
+const uniqueFooterLanguages = footerLanguages.filter(
+  (lang, index, self) => self.findIndex((item) => item.code === lang.code) === index
+);
+
+const sortedFooterLanguages =
+  uniqueFooterLanguages.length > 0 ? uniqueFooterLanguages : pageLanguages;
+
 const currentYear = new Date().getFullYear();
 ---
 
@@ -93,10 +152,22 @@ const currentYear = new Date().getFullYear();
             {content.supportedLanguages}
           </p>
           <div class="mt-4 flex flex-wrap gap-3">
-            {languages.map((lang) => (
-              <span class="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm text-white/80">
-                {lang}
-              </span>
+            {sortedFooterLanguages.map((lang) => (
+              <a
+                href={lang.href}
+                hreflang={lang.code === 'jp' ? 'ja' : lang.code}
+                aria-current={lang.code === currentLangCode ? 'true' : undefined}
+                class:list={[
+                  'rounded-full border px-4 py-2 text-sm transition duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900',
+                  {
+                    'border-primary/40 bg-primary/20 text-white shadow-subtle': lang.code === currentLangCode,
+                    'border-white/15 bg-white/10 text-white/80 hover:border-primary/40 hover:bg-primary/10 hover:text-white':
+                      lang.code !== currentLangCode,
+                  },
+                ]}
+              >
+                {lang.name}
+              </a>
             ))}
           </div>
         </div>
