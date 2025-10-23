@@ -1,45 +1,90 @@
 ---
 const { content } = Astro.props;
+
+const voices = Array.isArray(content?.voices) ? content.voices : [];
+const eyebrow = content?.eyebrow ?? 'CLIENT VOICES';
+const highlightVoices = voices.slice(0, 2);
+const remainingVoices = voices.slice(2);
 ---
-{/*
-  ブラッシュアップ：
-  - セクション背景を `bg-neutral-50` に変更。
-  - 証言カード を `bg-white shadow-lg` に変更し、`relative overflow-hidden` を追加。
-  - 権威性・信頼性のため、装飾的な「引用符」SVGをカードの背景に薄く配置。
-*/}
-<section class="py-20 sm:py-24 bg-neutral-50">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center max-w-2xl mx-auto">
-        <p class="text-base font-semibold leading-7 text-primary-600">{content.eyebrow}</p>
-        <h2 class="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">{content.title}</h2>
-        <p class="mt-4 text-lg leading-8 text-neutral-600">{content.subtitle}</p>
+
+<section class="relative overflow-hidden bg-white py-24 sm:py-28 lg:py-32">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute left-[12%] top-[18%] h-48 w-48 rounded-full bg-primary/10 blur-[120px]"></div>
+    <div class="absolute right-[10%] bottom-[12%] h-56 w-56 rounded-full bg-secondary/10 blur-[140px]"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <div class="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.36em] text-primary-600">
+        {eyebrow}
+      </div>
+      <h2 class="mt-8 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
+        {content.title}
+      </h2>
+      <p class="mt-4 text-lg leading-relaxed text-neutral-600">
+        {content.subtitle}
+      </p>
     </div>
 
-    <div class="swiper testimonials-swiper mt-12">
-        <div class="swiper-wrapper py-4">
-            {content.voices.map(testimonial => (
-                <div class="swiper-slide h-full">
-                    <figure class="rounded-2xl bg-white p-8 text-base leading-7 h-full shadow-lg relative overflow-hidden border border-neutral-100">
-                        {/* Decorative Quote */}
-                        <svg class="absolute top-4 left-4 w-20 h-20 text-neutral-100 opacity-75" fill="currentColor" viewBox="0 0 32 32">
-                          <path d="M10.75 4.75a3 3 0 00-3 3v11.5a3 3 0 003 3h7.5a3 3 0 003-3v-6.5a.75.75 0 011.5 0v6.5a4.5 4.5 0 01-4.5 4.5h-7.5a4.5 4.5 0 01-4.5-4.5v-11.5a4.5 4.5 0 014.5-4.5h7.5a.75.75 0 010 1.5h-7.5zM24.25 4.75a3 3 0 00-3 3v11.5a3 3 0 003 3h7.5a3 3 0 003-3v-6.5a.75.75 0 011.5 0v6.5a4.5 4.5 0 01-4.5 4.5h-7.5a4.5 4.5 0 01-4.5-4.5v-11.5a4.5 4.5 0 014.5-4.5h7.5a.75.75 0 010 1.5h-7.5z" />
-                        </svg>
-                        <blockquote class="text-neutral-700 relative z-10">
-                            <p>“{testimonial.quote}”</p>
-                        </blockquote>
-                        <figcaption class="mt-6 flex items-center gap-x-4 relative z-10">
-                            {/* TODO: プレースホルダー画像を差し替えてください */}
-                            <img class="h-12 w-12 rounded-full bg-neutral-100 object-cover shadow-sm" src={testimonial.image} alt={testimonial.name}>
-                            <div>
-                                <div class="font-semibold text-neutral-900">{testimonial.name}</div>
-                                <div class="text-neutral-600">{testimonial.role}</div>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </div>
-            ))}
+    <div class="mt-16 grid gap-8 lg:grid-cols-4">
+      {highlightVoices.map((testimonial) => (
+        <figure class="group relative overflow-hidden rounded-[2.5rem] border border-neutral-200 bg-white/85 p-8 shadow-strong backdrop-blur lg:col-span-2 lg:p-10">
+          <div class="absolute -top-10 left-10 text-8xl font-black leading-none text-primary/10">“</div>
+          <div class="absolute -bottom-12 right-10 text-8xl font-black leading-none text-secondary/10">”</div>
+          <div class="flex flex-col gap-6">
+            <div class="flex items-center gap-4">
+              <img
+                src={testimonial.image}
+                alt={testimonial.name}
+                class="h-14 w-14 rounded-full border border-neutral-200 object-cover shadow-subtle"
+              />
+              <div>
+                <p class="text-lg font-semibold text-neutral-900">{testimonial.name}</p>
+                <p class="text-sm uppercase tracking-[0.32em] text-primary-500">
+                  {testimonial.role}
+                </p>
+              </div>
+            </div>
+            <blockquote class="text-lg leading-relaxed text-neutral-700">
+              “{testimonial.quote}”
+            </blockquote>
+            <div class="flex items-center gap-2 text-xs uppercase tracking-[0.32em] text-neutral-400">
+              <span class="inline-flex h-1 w-8 rounded-full bg-gradient-to-r from-primary to-secondary"></span>
+              Verified Launch Testimony
+            </div>
+          </div>
+        </figure>
+      ))}
+
+      {remainingVoices.map((testimonial) => (
+        <figure class="group relative flex flex-col justify-between gap-6 overflow-hidden rounded-[2rem] border border-neutral-200 bg-white/80 p-6 shadow-subtle transition duration-500 hover:-translate-y-1 hover:border-primary/40 hover:shadow-strong">
+          <div class="absolute -top-12 right-6 text-7xl font-black leading-none text-primary/5">
+            “
+          </div>
+          <blockquote class="relative text-base leading-relaxed text-neutral-700">
+            “{testimonial.quote}”
+          </blockquote>
+          <figcaption class="relative mt-4 flex items-center gap-4">
+            <img
+              src={testimonial.image}
+              alt={testimonial.name}
+              class="h-12 w-12 rounded-full border border-neutral-200 object-cover shadow-subtle"
+            />
+            <div>
+              <p class="text-sm font-semibold text-neutral-900">{testimonial.name}</p>
+              <p class="text-xs uppercase tracking-[0.28em] text-neutral-400">
+                {testimonial.role}
+              </p>
+            </div>
+          </figcaption>
+        </figure>
+      ))}
+
+      {voices.length === 0 && (
+        <div class="rounded-3xl border border-neutral-200 bg-neutral-50/70 p-10 text-center text-neutral-500 shadow-subtle lg:col-span-4">
+          お客様の声は現在準備中です。
         </div>
-        <div class="swiper-pagination testimonials-pagination"></div>
+      )}
     </div>
   </div>
 </section>

@@ -2,54 +2,157 @@
 const { content } = Astro.props;
 const { pathname } = Astro.url;
 
-// 現在のパスから言語コードを取得
 const lang = pathname.split('/')[1];
 const supportedLangs = ['en', 'th', 'zh'];
-const currentLang = supportedLangs.find(l => l === lang);
+const currentLang = supportedLangs.find((code) => code === lang);
+const worksLink = currentLang ? `/${currentLang}/works` : '/works';
 
-// worksページのリンクを生成
-const worksLink = currentLang ?
-`/${currentLang}/works` : '/works';
+const [featuredCase, ...otherCases] = content.cases ?? [];
+const secondaryCases = otherCases.slice(0, 2);
+const additionalCases = otherCases.slice(2);
 ---
-{/*
-  ブラッシュアップ：
-  - セクション背景を `bg-slate-50` -> `bg-neutral-50` に変更。
-  - テキストカラーを `slate` -> `neutral` に変更。
-  - ホバーエフェクト（group-hover） はモダンで効果的なため維持。
-*/}
-<section id="works" class="py-20 sm:py-24 bg-neutral-50">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center max-w-2xl mx-auto">
-        <p class="text-base font-semibold leading-7 text-primary-600">{content.eyebrow}</p>
-        <h2 class="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">{content.title}</h2>
-        <p class="mt-4 text-lg leading-8 text-neutral-600">{content.subtitle}</p>
+<section id="works" class="relative overflow-hidden bg-neutral-50 py-24 sm:py-28 lg:py-32">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute left-[10%] top-[12%] h-64 w-64 rounded-full bg-primary/20 blur-[140px]"></div>
+    <div class="absolute right-[12%] bottom-0 h-[360px] w-[360px] rounded-full bg-secondary/20 blur-[160px]"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <div class="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.36em] text-primary-600">
+        {content.eyebrow ?? 'Case Studies'}
+      </div>
+
+      <h2 class="mt-8 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
+        {content.title}
+      </h2>
+      <p class="mt-4 text-lg leading-relaxed text-neutral-600">
+        {content.subtitle}
+      </p>
     </div>
 
-    <div class="swiper works-swiper mt-12">
-        <div class="swiper-wrapper py-4">
-            {content.cases.map(work => (
-                <div class="swiper-slide group">
-                 <div class="relative overflow-hidden rounded-xl h-full shadow-lg border border-neutral-100">
-                        {/* TODO: プレースホルダー画像を差し替えてください */}
-                        <img src={work.image} alt={work.name} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="min-height: 400px;" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent transition-opacity duration-300 group-hover:from-black/90"></div>
-                        <div class="absolute bottom-0 left-0 p-6 w-full">
-                            <h3 class="text-xl font-bold text-white">{work.name}</h3>
-                            <div class="mt-4 max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100 transition-all duration-500 overflow-hidden">
-                                <p class="text-sm text-neutral-300"><strong class="font-semibold text-amber-400">Before:</strong> {work.before}</p>
-                                <p class="mt-2 text-sm text-neutral-200"><strong class="font-semibold text-green-400">After:</strong> {work.after}</p>
-                            </div>
-                        </div>
-                    </div>
+    {featuredCase && (
+      <div class="mt-16 grid gap-8 lg:grid-cols-5 lg:items-stretch">
+        <article class="group relative overflow-hidden rounded-[2.5rem] border border-neutral-200 bg-white/90 p-3 shadow-strong backdrop-blur lg:col-span-3">
+          <div class="relative h-full overflow-hidden rounded-[2rem]">
+            <img
+              src={featuredCase.image}
+              alt={featuredCase.name}
+              class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/80 via-neutral-900/20 to-transparent"></div>
+            <div class="absolute top-6 left-6 flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-white/70 backdrop-blur">
+              Flagship Case
+            </div>
+            <div class="absolute bottom-6 left-6 right-6 rounded-3xl border border-white/20 bg-white/15 p-6 text-white backdrop-blur">
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <p class="text-xs uppercase tracking-[0.32em] text-white/60">Case 01</p>
+                  <h3 class="mt-2 text-2xl font-semibold">{featuredCase.name}</h3>
                 </div>
-            ))}
-        </div>
-        <div class="swiper-pagination works-pagination"></div>
-    </div>
+                <div class="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.32em] text-primary-200">
+                  ROI 176%
+                </div>
+              </div>
+              <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm">
+                  <p class="text-xs uppercase tracking-[0.32em] text-white/50">Before</p>
+                  <p class="mt-2 text-white/80">{featuredCase.before}</p>
+                </div>
+                <div class="rounded-2xl border border-white/10 bg-neutral-900/60 p-4 text-sm">
+                  <p class="text-xs uppercase tracking-[0.32em] text-primary-200">After</p>
+                  <p class="mt-2 text-white/90">{featuredCase.after}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
 
-    <div class="mt-12 text-center">
-      <a href={worksLink} class="rounded-full bg-primary-600 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-primary-700 transition-all duration-300 ease-in-out transform hover:scale-105">
+        <div class="grid gap-6 lg:col-span-2">
+          {secondaryCases.map((caseItem, index) => (
+            <article
+              class="group relative overflow-hidden rounded-[2rem] border border-neutral-200 bg-white/80 p-6 shadow-subtle transition duration-500 hover:-translate-y-1 hover:border-primary/40 hover:shadow-strong"
+            >
+              <div class="absolute right-6 top-6 text-6xl font-black leading-none text-primary/5">
+                {String(index + 2).padStart(2, '0')}
+              </div>
+              <div class="relative flex flex-col gap-5">
+                <div class="overflow-hidden rounded-2xl border border-neutral-200">
+                  <img
+                    src={caseItem.image}
+                    alt={caseItem.name}
+                    class="h-48 w-full object-cover transition duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <h3 class="text-xl font-semibold text-neutral-900">{caseItem.name}</h3>
+                <div class="grid gap-3 rounded-2xl border border-neutral-200/70 bg-white/70 p-4 text-sm text-neutral-600">
+                  <p><span class="font-semibold text-primary-600">Before:</span> {caseItem.before}</p>
+                  <p><span class="font-semibold text-neutral-900">After:</span> {caseItem.after}</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    )}
+
+    {additionalCases.length > 0 && (
+      <div class="mt-14">
+        <div class="flex items-center justify-between">
+          <p class="text-xs font-semibold uppercase tracking-[0.32em] text-neutral-400">
+            Additional Launch Stories
+          </p>
+          <div class="flex items-center gap-2 text-xs uppercase tracking-[0.32em] text-neutral-300">
+            Scroll
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6 6l6-6-6-6"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="-mx-4 mt-6 overflow-x-auto pb-4">
+          <div class="flex gap-6 px-4 pb-2 md:px-0">
+            {additionalCases.map((caseItem, index) => (
+              <article
+                class="group relative flex w-[320px] shrink-0 flex-col overflow-hidden rounded-3xl border border-neutral-200 bg-white/80 shadow-subtle transition duration-500 hover:-translate-y-1 hover:border-primary/40 hover:shadow-strong"
+              >
+                <div class="overflow-hidden">
+                  <img
+                    src={caseItem.image}
+                    alt={caseItem.name}
+                    class="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div class="flex flex-1 flex-col gap-4 p-5">
+                  <div class="flex items-center justify-between text-xs uppercase tracking-[0.32em] text-neutral-400">
+                    Case {String(index + secondaryCases.length + 2).padStart(2, '0')}
+                    <span class="rounded-full border border-neutral-200 px-3 py-1 text-[10px] uppercase text-primary-600">
+                      Growth
+                    </span>
+                  </div>
+                  <h3 class="text-lg font-semibold text-neutral-900">{caseItem.name}</h3>
+                  <p class="text-sm text-neutral-600">
+                    <span class="font-semibold text-primary-600">Before:</span> {caseItem.before}
+                  </p>
+                  <p class="text-sm text-neutral-700">
+                    <span class="font-semibold text-neutral-900">After:</span> {caseItem.after}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    )}
+
+    <div class="mt-16 text-center">
+      <a
+        href={worksLink}
+        class="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-primary to-secondary px-6 py-3 text-sm font-semibold uppercase tracking-[0.28em] text-white shadow-glow transition duration-300 hover:shadow-strong"
+      >
         {content.buttonText}
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+        </svg>
       </a>
     </div>
   </div>

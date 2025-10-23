@@ -2,56 +2,100 @@
 const { content } = Astro.props;
 const { pathname } = Astro.url;
 
-// 現在のパスから言語コードを取得
 const lang = pathname.split('/')[1];
 const supportedLangs = ['en', 'th', 'zh'];
-const currentLang = supportedLangs.find(l => l === lang);
-
-// priceページのリンクを生成
-const priceLink = currentLang ?
-`/${currentLang}/price` : '/price';
+const currentLang = supportedLangs.find((code) => code === lang);
+const priceLink = currentLang ? `/${currentLang}/price` : '/price';
+const eyebrow = content?.eyebrow ?? 'Process';
 ---
-{/*
-  ブラッシュアップ：
-  - セクション背景を `bg-slate-50` -> `bg-white` に変更。
-  - ステップのサークル を `bg-primary-100` と `text-primary-600` に変更し、`shadow-strong` で強調。
-  - プランのインセットカード の背景を `bg-neutral-50` に、プランアイテムを `bg-white` に変更。
-*/}
-<section class="py-20 sm:py-24 bg-white">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center max-w-2xl mx-auto">
-        <p class="text-base font-semibold leading-7 text-primary-600">{content.eyebrow}</p>
-        <h2 class="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">{content.title}</h2>
-        <p class="mt-4 text-lg leading-8 text-neutral-600">{content.subtitle}</p>
-    </div>
-    
-    <div class="mt-16 grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-10 text-center">
-      {content.steps.map((step, index) => (
-        <div class="flex flex-col items-center">
-          <div class="flex items-center justify-center w-20 h-20 bg-primary-100 rounded-full shadow-strong ring-4 ring-white">
-            <span class="text-3xl font-bold text-primary-600">{index + 1}</span>
-          </div>
-          <h3 class="mt-5 text-lg font-semibold text-neutral-800">{step.name}</h3>
-          <p class="mt-1 text-base text-neutral-600">{step.description}</p>
-        </div>
-      ))}
+
+<section class="relative overflow-hidden bg-neutral-950 py-24 sm:py-28 lg:py-32 text-base-100">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute left-[8%] top-[10%] h-64 w-64 rounded-full bg-primary/30 blur-[140px]"></div>
+    <div class="absolute right-[12%] bottom-[8%] h-72 w-72 rounded-full bg-secondary/30 blur-[160px]"></div>
+    <div class="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-neutral-950 via-transparent to-transparent"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <div class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.36em] text-primary-200">
+        {eyebrow}
+      </div>
+      <h2 class="mt-8 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+        {content.title}
+      </h2>
+      <p class="mt-4 text-lg leading-relaxed text-white/70">
+        {content.subtitle}
+      </p>
     </div>
 
-    <div class="mt-20 max-w-3xl mx-auto rounded-2xl bg-neutral-50 p-8 sm:p-10 shadow-strong border border-neutral-100">
-      <h3 class="text-2xl font-bold text-center text-neutral-900">{content.plans.title}</h3>
-      <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
-        {content.plans.items.map(plan => (
-          <div class="text-center rounded-lg bg-white p-6 shadow-subtle border border-neutral-200">
-            <p class="text-lg font-semibold text-primary-700">{plan.name}</p>
-            <p class="mt-1 text-base text-neutral-600">{plan.price}</p>
-          </div>
-        ))}
+    <div class="mt-18 grid gap-14 lg:grid-cols-[1.4fr_1fr] lg:items-start">
+      <div class="relative">
+        <div class="absolute left-6 top-0 bottom-0 hidden w-px bg-gradient-to-b from-primary/60 via-white/10 to-transparent lg:block"></div>
+        <div class="space-y-6">
+          {content.steps.map((step, index) => (
+            <article class="relative rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-strong backdrop-blur-lg transition duration-500 hover:border-primary/40 lg:p-8">
+              <div class="flex flex-col gap-6 lg:flex-row lg:items-start">
+                <div class="relative flex items-center justify-center self-start rounded-2xl border border-primary/40 bg-primary/20 px-5 py-3 text-sm font-semibold uppercase tracking-[0.38em] text-primary-100">
+                  <span>Step {String(index + 1).padStart(2, '0')}</span>
+                  <div class="absolute -left-12 hidden h-px w-12 bg-gradient-to-r from-transparent via-primary/50 to-primary/80 lg:block"></div>
+                </div>
+                <div class="space-y-2">
+                  <h3 class="text-xl font-semibold text-white lg:text-2xl">{step.name}</h3>
+                  <p class="text-base leading-relaxed text-white/70">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+              <div class="mt-6 flex items-center gap-3 text-xs uppercase tracking-[0.32em] text-white/30">
+                <span class="inline-flex h-1 w-8 rounded-full bg-gradient-to-r from-primary via-secondary to-accent"></span>
+                CX Blueprint &nbsp;•&nbsp; Launch Command Center
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
-      <div class="mt-10 text-center">
-        <a href={priceLink} class="rounded-full bg-primary-600 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-primary-700 transition-all duration-300 ease-in-out transform hover:scale-105">
+
+      <aside class="space-y-6 rounded-[2.5rem] border border-white/10 bg-white/5 p-8 shadow-strong backdrop-blur-xl lg:p-10">
+        <div class="space-y-2 text-center">
+          <p class="text-xs font-semibold uppercase tracking-[0.38em] text-primary-200">
+            {content.plans.title}
+          </p>
+          <p class="text-sm text-white/60">
+            ビジネスの成熟度に合わせて、最適なプランを組み合わせ可能です。
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          {content.plans.items.map((plan) => (
+            <div class="rounded-2xl border border-white/15 bg-white/10 p-5 text-center text-white/80 shadow-subtle transition duration-300 hover:border-primary/40 hover:bg-white/15">
+              <p class="text-sm font-semibold uppercase tracking-[0.32em] text-primary-200">
+                {plan.name}
+              </p>
+              <p class="mt-2 text-2xl font-semibold text-white">{plan.price}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="rounded-2xl border border-white/10 bg-neutral-900/80 p-6 text-sm text-white/70 shadow-inner">
+          <p class="font-semibold uppercase tracking-[0.32em] text-primary-200">
+            Timeline
+          </p>
+          <p class="mt-2">
+            Kick-offから公開まで平均4週間。公開後も分析・改善サイクルを伴走します。
+          </p>
+        </div>
+
+        <a
+          href={priceLink}
+          class="inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-primary to-secondary px-6 py-4 text-sm font-semibold uppercase tracking-[0.32em] text-white shadow-glow transition duration-300 hover:shadow-strong"
+        >
           {content.buttonText}
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+          </svg>
         </a>
-      </div>
+      </aside>
     </div>
   </div>
 </section>

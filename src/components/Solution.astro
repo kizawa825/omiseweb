@@ -2,132 +2,88 @@
 const { content } = Astro.props;
 ---
 
-<!-- 2025年最新のSolutionセクション：権威性とプロフェッショナル感を演出 -->
-<section class="relative py-20 lg:py-32 bg-gradient-to-br from-white via-primary-50/30 to-neutral-50/50 overflow-hidden">
-  
-  <!-- 背景装飾 -->
-  <div class="absolute inset-0 overflow-hidden">
-    <div class="absolute top-1/2 right-0 w-96 h-96 bg-gradient-primary rounded-full opacity-5 animate-pulse-slow transform translate-x-1/2 -translate-y-1/2"></div>
-    <div class="absolute bottom-0 left-0 w-72 h-72 bg-gradient-accent rounded-full opacity-5 animate-pulse-slow" style="animation-delay: 1.5s;"></div>
+<section class="relative overflow-hidden bg-neutral-950 py-24 sm:py-28 lg:py-32 text-base-100">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute -top-32 right-[15%] h-80 w-80 rounded-full bg-primary/30 blur-[150px]"></div>
+    <div class="absolute bottom-0 left-[10%] h-[420px] w-[420px] rounded-full bg-secondary/30 blur-[180px]"></div>
+    <div class="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-neutral-950 via-transparent to-transparent"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(150deg,_rgba(255,255,255,0.06)_0%,_rgba(255,255,255,0)_60%)]"></div>
   </div>
 
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <!-- セクションヘッダー -->
-    <div class="text-center max-w-4xl mx-auto mb-16 lg:mb-20">
-      <div class="inline-flex items-center px-4 py-2 bg-gradient-accent/10 rounded-full text-sm font-semibold text-accent-700 mb-6">
-        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-        </svg>
-        私たちの強み
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.36em] text-primary-200">
+        Signature Strengths
       </div>
-      
-      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 mb-6">
-        <span class="gradient-text">{content.title}</span>
+      <h2 class="mt-8 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+        {content.title}
       </h2>
-      
-      <p class="text-lg sm:text-xl text-neutral-600 leading-relaxed">
+      <p class="mt-4 text-lg leading-relaxed text-white/70">
         {content.subtitle}
       </p>
     </div>
 
-    <!-- ソリューションカードグリッド -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+    <div class="mt-18 space-y-10 lg:mt-20">
       {content.solutions.map((solution, index) => (
-        <div class="group relative">
-          <!-- カード背景のグロー効果 -->
-          <div class="absolute -inset-2 bg-gradient-primary rounded-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 blur-xl"></div>
-          
-          <!-- メインカード -->
-          <div class="relative bg-white/90 backdrop-blur-sm rounded-3xl shadow-intense overflow-hidden transform group-hover:scale-105 transition-all duration-500">
-            
-            <!-- 画像エリア -->
-            <div class="aspect-[16/10] relative overflow-hidden">
-              <img 
-                src={solution.image} 
-                alt={solution.title}
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              
-              <!-- オーバーレイグラデーション -->
-              <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-              
-              <!-- フローティングバッジ -->
-              <div class="absolute top-6 left-6 bg-white/90 backdrop-blur-sm rounded-2xl px-4 py-2 shadow-lg">
-                <div class="flex items-center space-x-2">
-                  <div class="w-2 h-2 bg-gradient-accent rounded-full animate-pulse"></div>
-                  <span class="text-sm font-semibold text-neutral-700">強み {index + 1}</span>
-                </div>
-              </div>
+        <article
+          class:list={[
+            'group relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5 p-8 shadow-strong backdrop-blur-xl transition duration-500 lg:flex lg:items-stretch lg:gap-12 lg:p-12',
+            { 'lg:flex-row-reverse': index % 2 === 1 },
+          ]}
+        >
+          <div class="absolute -left-10 top-0 hidden h-full w-20 bg-gradient-to-b from-primary/40 to-transparent blur-3xl lg:block"></div>
+          <div class="absolute -right-10 bottom-0 hidden h-32 w-24 bg-gradient-to-t from-secondary/40 to-transparent blur-2xl lg:block"></div>
+
+          <div class="relative flex-1 space-y-6">
+            <div class="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-primary-200">
+              Strength {String(index + 1).padStart(2, '0')}
             </div>
-            
-            <!-- コンテンツエリア -->
-            <div class="p-6 lg:p-8">
-              <div class="space-y-4">
-                <!-- サブタイトル -->
-                <div class="inline-flex items-center px-3 py-1 bg-gradient-primary/10 rounded-full text-sm font-semibold text-primary-700">
-                  {solution.subtitle}
-                </div>
-                
-                <!-- メインタイトル -->
-                <h3 class="text-2xl lg:text-3xl font-bold text-neutral-900 leading-tight">
-                  {solution.title}
-                </h3>
-                
-                <!-- 説明文 -->
-                <p class="text-neutral-600 leading-relaxed text-lg">
-                  {solution.description}
-                </p>
-                
-                <!-- 装飾的な要素 -->
-                <div class="flex items-center space-x-2 pt-4">
-                  <div class="w-8 h-0.5 bg-gradient-primary rounded-full"></div>
-                  <div class="w-4 h-0.5 bg-gradient-primary/50 rounded-full"></div>
-                  <div class="w-2 h-0.5 bg-gradient-primary/30 rounded-full"></div>
-                </div>
-              </div>
+            <div class="space-y-3">
+              <p class="text-sm font-medium uppercase tracking-[0.38em] text-primary-100">
+                {solution.subtitle}
+              </p>
+              <h3 class="text-2xl font-semibold text-white sm:text-3xl">
+                {solution.title}
+              </h3>
+            </div>
+            <p class="text-base leading-relaxed text-white/70 lg:text-lg">
+              {solution.description}
+            </p>
+
+            <div class="flex flex-wrap items-center gap-3 pt-4 text-xs uppercase tracking-[0.32em] text-white/30">
+              <span class="inline-flex h-1 w-8 rounded-full bg-gradient-to-r from-primary via-secondary to-accent"></span>
+              Tailored Strategy · Culture-Driven Design · Growth Architecture
             </div>
           </div>
-        </div>
+
+          <figure class="relative mt-8 flex flex-1 items-center justify-center lg:mt-0">
+            <div class="relative w-full overflow-hidden rounded-[2rem] border border-white/15 bg-white/5 shadow-subtle">
+              <img
+                src={solution.image}
+                alt={solution.title}
+                class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/60 via-transparent to-transparent"></div>
+              <div class="absolute top-6 left-6 rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-xs font-semibold uppercase tracking-[0.28em] text-white/70 backdrop-blur">
+                Omiseweb Blueprint
+              </div>
+              <div class="absolute bottom-6 left-6 right-6 flex items-center justify-between rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white/80 backdrop-blur">
+                <span>Impact Scenario</span>
+                <span class="font-semibold text-primary-200">+187% engagement</span>
+              </div>
+            </div>
+          </figure>
+        </article>
       ))}
     </div>
 
-    <!-- ボトムCTA -->
-    <div class="text-center mt-16 lg:mt-20">
-      <div class="inline-flex items-center px-8 py-4 bg-gradient-primary text-white font-semibold rounded-2xl shadow-lg hover:shadow-glow hover:scale-105 transition-all duration-300 transform">
-        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-        </svg>
-        これらの強みで、あなたのビジネスを成功に導きます
+    <div class="mt-20 flex flex-col items-center gap-4 text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.38em] text-white/40">
+        Unified Experience · Conversion Strategy · Continuous Growth
+      </p>
+      <div class="inline-flex items-center gap-3 rounded-2xl border border-white/15 bg-white/10 px-8 py-4 text-sm font-semibold uppercase tracking-[0.28em] text-white/70 shadow-subtle backdrop-blur">
+        Our strength is in orchestrating every detail end-to-end
       </div>
     </div>
   </div>
 </section>
-
-<script>
-  // スクロールアニメーション
-  document.addEventListener('DOMContentLoaded', () => {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-          // 遅延アニメーションで順次表示
-          setTimeout(() => {
-            entry.target.classList.add('animate-fade-in-up');
-          }, index * 200);
-        }
-      });
-    }, observerOptions);
-
-    // カード要素を監視
-    const cards = document.querySelectorAll('.group');
-    cards.forEach(card => {
-      card.classList.add('animate-on-scroll');
-      observer.observe(card);
-    });
-  });
-</script>

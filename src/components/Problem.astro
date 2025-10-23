@@ -1,7 +1,6 @@
 ---
 const { content } = Astro.props;
 
-// 2025年トレンドのアイコンシステム
 const icons = {
   language: `<path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502" />`,
   users: `<path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-4.663M12 3.375c-3.418 0-6.167 2.749-6.167 6.167s2.749 6.167 6.167 6.167 6.167-2.749 6.167-6.167S15.418 3.375 12 3.375z" />`,
@@ -11,98 +10,65 @@ const icons = {
 };
 ---
 
-<!-- 2025年最新のProblemセクション：DaisyUI統合で高級感を演出 -->
-<section class="relative py-20 lg:py-32 bg-gradient-to-br from-base-100 via-base-200/50 to-primary/10 overflow-hidden">
-  
-  <!-- 背景装飾 -->
-  <div class="absolute inset-0 overflow-hidden">
-    <div class="absolute top-0 left-1/4 w-72 h-72 bg-gradient-to-br from-secondary to-primary rounded-full opacity-10 animate-pulse-slow"></div>
-    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-br from-accent to-secondary rounded-full opacity-10 animate-pulse-slow" style="animation-delay: 2s;"></div>
+<section class="relative overflow-hidden bg-base-100 py-24 sm:py-28 lg:py-32">
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute left-[8%] top-[12%] h-40 w-40 rounded-full bg-primary/10 blur-3xl"></div>
+    <div class="absolute right-[12%] top-0 h-72 w-72 rounded-full bg-secondary/10 blur-[140px]"></div>
+    <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-primary/5 to-transparent"></div>
   </div>
 
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <!-- セクションヘッダー -->
-    <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
-      <div class="badge badge-warning badge-lg mb-6">
-        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
-        </svg>
-        よくある課題
-      </div>
-      
-      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-base-content mb-6">
-        <span class="gradient-text">{content.title}</span>
-      </h2>
-      
-      <p class="text-lg sm:text-xl text-base-content/70 leading-relaxed">
-        多くの外国人オーナー様が抱える共通の課題を、私たちは深く理解しています。
-      </p>
-    </div>
-
-    <!-- 問題カードグリッド -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-      {content.problems.map((problem, index) => (
-        <div class="card glass-effect premium-shadow group hover:scale-105 transition-all duration-500">
-          <div class="card-body p-6 lg:p-8">
-            
-            <!-- アイコンエリア -->
-            <div class="flex items-center justify-center w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-primary-100 to-secondary-100 rounded-2xl group-hover:from-primary-200 group-hover:to-secondary-200 transition-all duration-300">
-              <svg class="w-8 h-8 text-primary-600 group-hover:scale-110 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" set:html={icons[problem.icon]} />
-            </div>
-            
-            <!-- コンテンツエリア -->
-            <div class="text-center space-y-4">
-              <h3 class="card-title text-lg lg:text-xl leading-tight justify-center">
-                {problem.text}
-              </h3>
-              
-              <!-- 装飾的な要素 -->
-              <div class="flex justify-center">
-                <div class="w-12 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
-              </div>
-            </div>
-          </div>
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid gap-14 lg:grid-cols-12 lg:items-start">
+      <div class="space-y-8 lg:col-span-5">
+        <div class="inline-flex items-center gap-2 rounded-full border border-amber-300/40 bg-amber-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.36em] text-amber-600">
+          Pain Map
         </div>
-      ))}
-    </div>
+        <h2 class="text-3xl font-bold leading-tight tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
+          <span class="bg-gradient-to-r from-neutral-900 via-primary-700 to-secondary-600 bg-clip-text text-transparent">
+            {content.title}
+          </span>
+        </h2>
+        <p class="max-w-xl text-lg leading-relaxed text-neutral-600">
+          多言語で想いを伝えながら、日本の顧客に選ばれる体験をデザインするために。最初に向き合うべき課題をデータから定義しました。
+        </p>
+        <div class="rounded-3xl border border-neutral-200/80 bg-white/80 p-6 shadow-subtle backdrop-blur-sm">
+          <p class="text-xs uppercase tracking-[0.32em] text-neutral-400">Omiseweb Insight</p>
+          <p class="mt-3 text-sm font-medium text-neutral-700">
+            課題はバラバラではなく、共通のストーリーでつながっています。だからこそ、ブランド体験・導線・言語サポートを一つにつなげることが重要です。
+          </p>
+        </div>
+      </div>
 
-    <!-- ボトムCTA -->
-    <div class="text-center mt-16 lg:mt-20">
-      <div class="badge badge-primary badge-lg glass-effect">
-        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-        </svg>
-        これらの課題、すべて解決できます
+      <div class="lg:col-span-7">
+        <div class="grid gap-6">
+          {content.problems.map((problem, index) => (
+            <article class="group relative overflow-hidden rounded-3xl border border-neutral-200/70 bg-white/80 p-6 shadow-subtle backdrop-blur-sm transition duration-500 hover:-translate-y-1 hover:border-primary/40 hover:shadow-strong lg:p-8">
+              <div class="absolute -right-6 -top-8 text-8xl font-black leading-none text-primary/5">
+                {String(index + 1).padStart(2, '0')}
+              </div>
+              <div class="relative flex flex-col gap-6 sm:flex-row sm:items-start">
+                <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/10 text-primary-600 shadow-subtle">
+                  <svg
+                    class="h-7 w-7"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    set:html={icons[problem.icon]}
+                  ></svg>
+                </div>
+                <p class="text-lg font-semibold leading-relaxed text-neutral-800 lg:text-xl">
+                  {problem.text}
+                </p>
+              </div>
+              <div class="mt-6 flex items-center gap-3 text-xs uppercase tracking-[0.32em] text-neutral-300">
+                <span class="inline-flex h-1 w-8 rounded-full bg-gradient-to-r from-primary to-secondary"></span>
+                Foreign Owner Interviews 2024–2025
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </div>
   </div>
 </section>
-
-<script>
-  // スクロールアニメーション
-  document.addEventListener('DOMContentLoaded', () => {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-          // 遅延アニメーションで順次表示
-          setTimeout(() => {
-            entry.target.classList.add('animate-fade-in-up');
-          }, index * 100);
-        }
-      });
-    }, observerOptions);
-
-    // カード要素を監視
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-      card.classList.add('animate-on-scroll');
-      observer.observe(card);
-    });
-  });
-</script>

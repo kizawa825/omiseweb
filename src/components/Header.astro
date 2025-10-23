@@ -2,203 +2,397 @@
 // --- Props ---
 const { content = {} } = Astro.props;
 
-// --- Content Configuration ---
-const navLinks = content?.navLinks ?? [
-  { href: '#features', name: '機能' },
-  { href: '#pricing', name: '料金' },
-  { href: '#faq', name: 'よくある質問' },
-];
-const cta = content?.cta ?? 'お問い合わせ';
+const navLinks =
+  content?.navLinks ??
+  [
+    { href: '#features', name: '機能' },
+    { href: '#pricing', name: '料金' },
+    { href: '#faq', name: 'よくある質問' },
+  ];
+const cta = content?.cta ?? '無料相談';
+const languageLabel = content?.language ?? '言語';
 
-// --- Language Configuration ---
 const languages = [
   { code: 'jp', name: '日本語' },
   { code: 'en', name: 'English' },
   { code: 'zh', name: '中文' },
   { code: 'th', name: 'ไทย' },
 ];
+
 const { pathname } = Astro.url;
+const pathSegments = pathname.split('/').filter(Boolean);
+const nonDefaultLangs = languages.map((lang) => lang.code).filter((code) => code !== 'jp');
 
-// --- STEP 1: 現在の言語をURLから判定 ---
-const pathParts = pathname.split('/').filter(Boolean);
-const langCodes = languages.map(l => l.code).filter(c => c !== 'jp');
 let currentLangCode = 'jp';
-
-if (pathParts.length > 0 && langCodes.includes(pathParts[0])) {
-    currentLangCode = pathParts[0];
+if (pathSegments.length > 0 && nonDefaultLangs.includes(pathSegments[0])) {
+  currentLangCode = pathSegments[0];
 }
+
 const logoHref = currentLangCode === 'jp' ? '/' : `/${currentLangCode}/`;
 
-// --- STEP 2: 言語部分を除いた「ベースパス」を生成 ---
 let basePath = '';
 if (currentLangCode !== 'jp') {
-    basePath = `/${pathParts.slice(1).join('/')}`;
+  basePath = `/${pathSegments.slice(1).join('/')}`;
 } else {
-    basePath = `/${pathParts.join('/')}`;
-}
-if (basePath === '/') {
-    basePath = '';
+  basePath = `/${pathSegments.join('/')}`;
 }
 
-// --- STEP 3: 各言語のページへのURLを動的に生成 ---
-const pageLanguages = languages.map(lang => {
-    let newHref = '';
-    if (lang.code === 'jp') {
-        newHref = basePath || '/';
-    } else {
-        newHref = `/${lang.code}${basePath}`;
-    }
-    return { ...lang, href: newHref };
+if (basePath === '/') {
+  basePath = '';
+}
+
+const pageLanguages = languages.map((lang) => {
+  const href = lang.code === 'jp' ? basePath || '/' : `/${lang.code}${basePath}`;
+  return { ...lang, href };
 });
 
-// --- STEP 4: 表示用に現在の言語を先頭にして並び替え ---
-const currentLanguage = pageLanguages.find(lang => lang.code === currentLangCode) || pageLanguages[0];
+const currentLanguage =
+  pageLanguages.find((lang) => lang.code === currentLangCode) ?? pageLanguages[0];
 const sortedLanguages = [
-  currentLanguage, ...pageLanguages.filter(lang => lang.code !== currentLanguage.code)
+  currentLanguage,
+  ...pageLanguages.filter((lang) => lang.code !== currentLanguage.code),
 ];
 ---
-
-<!-- 2025年最新のヘッダーデザイン：DaisyUI統合で高級感を演出 -->
-<header class="navbar fixed top-0 left-0 right-0 z-50 glass-effect border-b border-base-300/50">
-  <div class="navbar-start">
-    <!-- ロゴ：DaisyUI統合のモダンなデザイン -->
-    <a href={logoHref} class="btn btn-ghost text-xl font-bold">
-      <div class="w-10 h-10 luxury-gradient rounded-xl flex items-center justify-center shadow-lg">
-        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-        </svg>
-      </div>
-      <span class="gradient-text font-heading ml-2">Omiseweb</span>
-    </a>
-  </div>
-  
-  <!-- デスクトップナビゲーション -->
-  <div class="navbar-center hidden lg:flex">
-    <ul class="menu menu-horizontal px-1">
-      {navLinks.map(link => (
-        <li>
-          <a 
-            href={link.href} 
-            class="text-base-content hover:text-primary-600 hover:bg-primary-100 rounded-xl transition-all duration-300"
-          >
-            {link.name}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </div>
-
-  <!-- 右側のアクションエリア -->
-  <div class="navbar-end">
-    
-    <!-- 言語スイッチャー：DaisyUI統合のドロップダウン -->
-    <div class="dropdown dropdown-end hidden md:block">
-      <div tabindex="0" role="button" class="btn btn-ghost btn-sm">
-        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
-        </svg>
-        <span class="ml-1">{currentLanguage.name}</span>
-        <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-        </svg>
-      </div>
-      <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-40 p-2 shadow-lg border border-base-300">
-        {sortedLanguages.map(lang => (
-          <li>
-            <a 
-              href={lang.href} 
-              class:list={[
-                "text-sm",
-                { "bg-primary text-primary-content": lang.code === currentLangCode }
-              ]}
-            >
-              {lang.name}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-    
-    <!-- CTAボタン：DaisyUI統合のグラデーション -->
-    <a 
-      href="#contact" 
-      class="btn btn-primary hidden sm:inline-flex"
+<header class="fixed inset-x-0 top-0 z-50" data-header>
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div
+      class="group relative mt-4 flex items-center gap-4 overflow-hidden rounded-3xl border border-transparent bg-base-100/65 px-4 py-4 shadow-subtle backdrop-blur-xl transition-all duration-500 lg:px-6"
+      data-header-shell
     >
-      <span>{cta}</span>
-      <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-      </svg>
-    </a>
+      <span class="pointer-events-none absolute inset-0 rounded-[inherit] bg-gradient-to-r from-primary/15 via-transparent to-secondary/20 opacity-0 transition duration-500 group-hover:opacity-100"></span>
+      <span class="pointer-events-none absolute -bottom-20 right-10 h-40 w-40 rounded-full bg-gradient-to-br from-primary/15 to-secondary/15 blur-3xl"></span>
+      <div class="relative flex flex-1 items-center gap-6">
+        <a href={logoHref} class="flex items-center gap-4">
+          <span class="grid h-12 w-12 place-content-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-lg font-semibold uppercase text-white shadow-glow">
+            OW
+          </span>
+          <div class="flex flex-col leading-tight">
+            <span class="font-heading text-lg font-semibold tracking-tight text-base-content sm:text-xl">
+              Omiseweb Studio
+            </span>
+            <span class="text-xs font-medium uppercase tracking-[0.28em] text-primary-500/80">
+              Crafted For Global Owners
+            </span>
+          </div>
+        </a>
 
-    <!-- モバイルメニューボタン：DaisyUI統合 -->
-    <div class="dropdown dropdown-end lg:hidden">
-      <div tabindex="0" role="button" class="btn btn-ghost">
-        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-        </svg>
-      </div>
-      <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow-lg border border-base-300">
-        <!-- ナビゲーションリンク -->
-        {navLinks.map(link => (
-          <li>
-            <a href={link.href} class="text-base-content hover:text-primary-600 hover:bg-primary-100">
-              {link.name}
-            </a>
-          </li>
-        ))}
-        
-        <!-- CTAボタン（モバイル） -->
-        <li>
-          <a href="#contact" class="btn btn-primary btn-sm mt-2">
-            {cta}
-          </a>
-        </li>
-        
-        <!-- 言語選択 -->
-        <li class="menu-title">
-          <span>言語を選択</span>
-        </li>
-        {sortedLanguages.map(lang => (
-          <li>
-            <a 
-              href={lang.href} 
-              class:list={[
-                "text-sm",
-                { "bg-primary text-primary-content": lang.code === currentLangCode }
-              ]}
+        <nav class="hidden flex-1 items-center justify-center gap-1 lg:flex">
+          {navLinks.map((link) => (
+            <a
+              href={link.href}
+              class="relative rounded-full px-4 py-2 text-sm font-medium text-base-content/75 transition duration-300 hover:text-primary-600"
             >
-              {lang.name}
+              <span class="absolute inset-0 rounded-full bg-gradient-to-r from-primary/10 via-primary/5 to-secondary/10 opacity-0 transition duration-300 group-hover:opacity-70"></span>
+              <span class="relative">{link.name}</span>
             </a>
-          </li>
-        ))}
-      </ul>
+          ))}
+        </nav>
+      </div>
+
+      <div class="relative flex items-center gap-3">
+        <div class="relative hidden md:block">
+          <button
+            type="button"
+            class="relative inline-flex items-center gap-2 rounded-full border border-base-300/60 bg-base-100/60 px-4 py-2 text-sm font-medium text-base-content/80 transition duration-300 hover:border-primary/40 hover:text-primary-600"
+            data-language-trigger
+            aria-expanded="false"
+          >
+            <svg
+              class="h-4 w-4 text-primary-500"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
+              ></path>
+            </svg>
+            <span>{languageLabel}</span>
+            <span class="text-xs tracking-[0.2em] text-base-content/50">
+              {currentLanguage.name}
+            </span>
+          </button>
+          <div
+            class="invisible absolute right-0 top-full z-40 mt-3 w-56 origin-top-right scale-95 transform rounded-2xl border border-base-300/50 bg-base-100/95 p-4 opacity-0 shadow-strong backdrop-blur-xl transition duration-200 ease-out"
+            data-language-panel
+          >
+            <p class="mb-3 text-xs font-semibold uppercase tracking-[0.28em] text-base-content/40">
+              LANGUAGE
+            </p>
+            <div class="flex flex-col gap-1">
+              {sortedLanguages.map((lang) => (
+                <a
+                  href={lang.href}
+                  class:list={[
+                    'flex items-center justify-between rounded-xl px-3 py-2 text-sm font-medium transition duration-200',
+                    {
+                      'bg-primary/10 text-primary-600 shadow-subtle':
+                        lang.code === currentLangCode,
+                      'text-base-content/70 hover:bg-base-200/80 hover:text-base-content':
+                        lang.code !== currentLangCode,
+                    },
+                  ]}
+                >
+                  <span>{lang.name}</span>
+                  {lang.code === currentLangCode ? (
+                    <span class="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.3em] text-primary-600">
+                      NOW
+                    </span>
+                  ) : (
+                    <span class="text-xs text-base-content/40">Switch</span>
+                  )}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <a
+          href="#contact"
+          class="hidden items-center gap-2 rounded-full bg-gradient-to-r from-primary to-secondary px-5 py-3 text-sm font-semibold text-white shadow-glow transition duration-300 hover:shadow-strong md:inline-flex"
+        >
+          <span>{cta}</span>
+          <svg
+            class="h-4 w-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+
+        <button
+          type="button"
+          class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-base-300/60 bg-base-100/70 text-base-content transition duration-300 hover:border-primary/40 hover:text-primary-600 lg:hidden"
+          data-mobile-trigger
+          aria-expanded="false"
+          aria-label="Open navigation menu"
+        >
+          <svg class="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h12M4 17h16"></path>
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </header>
 
-<!-- ヘッダーの高さ分のスペーサー -->
-<div class="h-16 lg:h-20"></div>
+<div
+  class="pointer-events-none fixed inset-0 z-[60] bg-neutral-900/40 opacity-0 backdrop-blur-sm transition duration-300 md:hidden"
+  data-mobile-overlay
+></div>
+
+<nav
+  class="fixed inset-x-4 top-24 z-[70] origin-top scale-95 transform opacity-0 pointer-events-none transition duration-300 md:hidden"
+  data-mobile-panel
+>
+  <div class="rounded-3xl border border-base-300/50 bg-base-100/95 px-6 py-8 shadow-strong backdrop-blur-xl">
+    <div class="flex flex-col gap-6">
+      <div class="flex items-center gap-3">
+        <span class="grid h-10 w-10 place-content-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-sm font-semibold uppercase text-white shadow-glow">
+          OW
+        </span>
+        <div>
+          <p class="text-sm font-semibold text-base-content">Omiseweb Studio</p>
+          <p class="text-xs uppercase tracking-[0.28em] text-primary-500/70">
+            Tokyo · 2025
+          </p>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="flex items-center justify-between rounded-2xl border border-base-300/60 px-4 py-3 text-sm font-semibold text-base-content/80 transition duration-200 hover:border-primary/40 hover:bg-primary/5 hover:text-primary-600"
+          >
+            <span>{link.name}</span>
+            <svg
+              class="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        ))}
+      </div>
+
+      <div class="rounded-2xl border border-base-300/60 bg-base-100/70 p-5">
+        <p class="text-xs font-semibold uppercase tracking-[0.28em] text-base-content/40">
+          {languageLabel}
+        </p>
+        <div class="mt-3 grid gap-2">
+          {sortedLanguages.map((lang) => (
+            <a
+              href={lang.href}
+              class:list={[
+                'flex items-center justify-between rounded-xl px-3 py-2 text-sm font-medium transition duration-200',
+                {
+                  'bg-primary/10 text-primary-600 shadow-subtle': lang.code === currentLangCode,
+                  'text-base-content/70 hover:bg-base-200 hover:text-base-content':
+                    lang.code !== currentLangCode,
+                },
+              ]}
+            >
+              <span>{lang.name}</span>
+              {lang.code === currentLangCode ? (
+                <span class="text-xs uppercase tracking-[0.26em] text-primary-500">Active</span>
+              ) : (
+                <span class="text-xs text-base-content/40">Select</span>
+              )}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <a
+        href="#contact"
+        class="btn btn-primary btn-lg w-full justify-between rounded-2xl"
+      >
+        <span>{cta}</span>
+        <svg
+          class="h-5 w-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="h-24 md:h-28 lg:h-32"></div>
 
 <script>
-  // DOMの読み込みが完了してからスクリプトを実行
   document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- スクロール時のヘッダーエフェクト ---
-    let lastScrollTop = 0;
-    const header = document.querySelector('header');
-    
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
-      if (scrollTop > lastScrollTop && scrollTop > 100) {
-        // 下にスクロール
-        header?.classList.add('transform', '-translate-y-full');
+    const shell = document.querySelector('[data-header-shell]');
+    const languageTrigger = document.querySelector('[data-language-trigger]');
+    const languagePanel = document.querySelector('[data-language-panel]');
+    const mobileTrigger = document.querySelector('[data-mobile-trigger]');
+    const mobilePanel = document.querySelector('[data-mobile-panel]');
+    const mobileOverlay = document.querySelector('[data-mobile-overlay]');
+
+    const setHeaderElevation = () => {
+      if (!shell) return;
+      const scrolled = window.scrollY > 24;
+      shell.classList.toggle('border-transparent', !scrolled);
+      shell.classList.toggle('border-base-300/60', scrolled);
+      shell.classList.toggle('bg-base-100/65', !scrolled);
+      shell.classList.toggle('bg-base-100/85', scrolled);
+      shell.classList.toggle('shadow-subtle', !scrolled);
+      shell.classList.toggle('shadow-strong', scrolled);
+    };
+
+    const closeLanguage = () => {
+      if (!languageTrigger || !languagePanel) return;
+      languageTrigger.setAttribute('aria-expanded', 'false');
+      languagePanel.classList.add('invisible', 'opacity-0', 'pointer-events-none', 'scale-95');
+      languagePanel.classList.remove('opacity-100', 'pointer-events-auto', 'scale-100');
+    };
+
+    const openLanguage = () => {
+      if (!languageTrigger || !languagePanel) return;
+      languageTrigger.setAttribute('aria-expanded', 'true');
+      languagePanel.classList.remove('invisible', 'opacity-0', 'pointer-events-none', 'scale-95');
+      languagePanel.classList.add('opacity-100', 'pointer-events-auto', 'scale-100');
+    };
+
+    const toggleLanguage = () => {
+      if (!languageTrigger || !languagePanel) return;
+      const isOpen = languageTrigger.getAttribute('aria-expanded') === 'true';
+      if (isOpen) {
+        closeLanguage();
       } else {
-        // 上にスクロール
-        header?.classList.remove('transform', '-translate-y-full');
+        openLanguage();
       }
-      
-      lastScrollTop = scrollTop;
+    };
+
+    const closeMobile = () => {
+      if (!mobileTrigger || !mobilePanel || !mobileOverlay) return;
+      mobileTrigger.setAttribute('aria-expanded', 'false');
+      mobilePanel.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
+      mobilePanel.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+      mobileOverlay.classList.remove('opacity-100', 'pointer-events-auto');
+      mobileOverlay.classList.add('opacity-0', 'pointer-events-none');
+      document.body.classList.remove('overflow-hidden');
+    };
+
+    const openMobile = () => {
+      if (!mobileTrigger || !mobilePanel || !mobileOverlay) return;
+      mobileTrigger.setAttribute('aria-expanded', 'true');
+      mobilePanel.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
+      mobilePanel.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+      mobileOverlay.classList.add('opacity-100', 'pointer-events-auto');
+      mobileOverlay.classList.remove('opacity-0', 'pointer-events-none');
+      document.body.classList.add('overflow-hidden');
+    };
+
+    const toggleMobile = () => {
+      if (!mobileTrigger) return;
+      const isOpen = mobileTrigger.getAttribute('aria-expanded') === 'true';
+      if (isOpen) {
+        closeMobile();
+      } else {
+        closeLanguage();
+        openMobile();
+      }
+    };
+
+    setHeaderElevation();
+    window.addEventListener('scroll', setHeaderElevation, { passive: true });
+
+    languageTrigger?.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      toggleLanguage();
     });
+
+    document.addEventListener('click', (event) => {
+      if (!languagePanel || !languageTrigger) return;
+      if (
+        languagePanel.contains(event.target) ||
+        languageTrigger.contains(event.target)
+      ) {
+        return;
+      }
+      closeLanguage();
+    });
+
+    mobileTrigger?.addEventListener('click', (event) => {
+      event.preventDefault();
+      toggleMobile();
+    });
+
+    mobileOverlay?.addEventListener('click', () => {
+      closeMobile();
+    });
+
+    mobilePanel?.querySelectorAll('a').forEach((anchor) => {
+      anchor.addEventListener('click', () => {
+        closeMobile();
+      });
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024) {
+        closeMobile();
+        closeLanguage();
+      }
+    });
+
+    closeLanguage();
+    closeMobile();
   });
 </script>
