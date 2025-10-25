@@ -16,7 +16,7 @@
       { "name": "价格方案", "href": "/zh/price" }
     ],
     "supportedLanguages": "支持语言",
-    "languages": ["日本語", "English", "中文", "ภาษาไทย"],
+    "languages": ["日语", "English", "中文", "ภาษาไทย"],
     "contact": "联系我们",
     "contactButton": "选择方案",
     "copyright": "© 2025 Omiseweb. All rights reserved."

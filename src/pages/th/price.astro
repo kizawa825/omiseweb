@@ -168,6 +168,24 @@ const pageContent = content.pricePage;
       </div>
     </div>
   </section>
+
+  <!-- ส่วนบริการเพิ่มเติม -->
+  <section class="py-20 sm:py-24 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-slate-900">{pageContent.additionalServices.title}</h2>
+        <p class="mt-2 text-lg leading-8 text-slate-600">{pageContent.additionalServices.description}</p>
+      </div>
+      <div class="space-y-4">
+        {pageContent.additionalServices.items.map(service => (
+            <div class="bg-white border border-slate-200 p-6 rounded-lg shadow-subtle transition-all duration-300 hover:shadow-lg">
+                 <h3 class="font-semibold text-lg text-slate-800">{service.name}</h3>
+                <p class="mt-1 text-slate-600">{service.description}</p>
+            </div>
+        ))}
+      </div>
+    </div>
+  </section>
   
   <Cta content={content.cta} />
 </Layout>

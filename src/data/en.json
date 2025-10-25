@@ -15,8 +15,8 @@
       { "name": "Works", "href": "/en/works" },
       { "name": "Price", "href": "/en/price" }
     ],
-    "suppottedLanguages":"Supported Languages",
-    "languages":["日本語","English","中文","ภาษาไทย"],
+    "supportedLanguages":"Supported Languages",
+    "languages":["Japanese","English","中文","ภาษาไทย"],
     "contact": "Contact",
     "contactButton": "Choose Plan",
     "copyright": "© 2025 Omiseweb. All rights reserved."

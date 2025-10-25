@@ -16,7 +16,7 @@
       { "name": "ราคา", "href": "/th/price" }
     ],
     "supportedLanguages": "ภาษาที่รองรับ",
-    "languages": ["日本語", "English", "中文", "ภาษาไทย"],
+    "languages": ["ญี่ปุ่น", "English", "中文", "ภาษาไทย"],
     "contact": "ติดต่อ",
     "contactButton": "เลือกแผน",
     "copyright": "© 2025 Omiseweb. All rights reserved."
