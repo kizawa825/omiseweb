@@ -8,7 +8,7 @@
     "language": "Language"
   },
   "footer": {
-    "description": "A fully custom-made website creation service strong in attracting customers, for foreign owners working hard in Japan.",
+    "description": "High-quality, low-cost website creation service for foreign business owners in Japan.",
     "navigation": "Navigation",
     "navLinks": [
       { "name": "About Us", "href": "/en/about" },
@@ -23,11 +23,11 @@
   },
   "hero": {
     "catchphrase": "We deliver your wonderful shop to fans in Japan.",
-    "subcopy": "For foreign restaurant and salon owners working hard in Japan.\nA fully custom-made website strong in attracting customers, at a surprisingly low price.",
+    "subcopy": "For foreign business owners in Japan.\nHigh-quality, low-cost website creation service for restaurants and salons only.",
     "features": [
-      "No Templates Used",
-      "Strong in Customer Acquisition (SEO/MEO)",
-      "Full Support in Your Native Language"
+      "Overwhelmingly Fast Loading",
+      "High Quality Low Cost Support",
+      "15 Years of Industry Customer Acquisition"
     ],
     "cta_main": "Get a Free Consultation (in your language)",
     "cta_sub": "See Pricing Plans"
@@ -37,7 +37,7 @@
     "problems": [
       { "icon": "language", "text": "Anxious about communicating in Japanese with Japanese production companies..." },
       { "icon": "users", "text": "The charm of my shop isn't conveyed, and I'm not getting new customers..." },
-      { "icon": "palette", "text": "I don't want a template design. I want to express my shop's uniqueness..." },
+      { "icon": "palette", "text": "My site is heavy and slow to load..." },
       { "icon": "money", "text": "A professional website is too expensive to afford..." },
       { "icon": "question", "text": "I have no web expertise and don't know where to start..." }
     ]
@@ -47,28 +47,28 @@
     "subtitle": "Four strengths that will lead your business to success.",
     "solutions": [
       {
-        "title": "We don't use templates",
-        "subtitle": "Fully Original Design, Even at a Low Price",
-        "description": "We specialize in small to medium-sized and individual shops, thoroughly cutting unnecessary costs. Even at a low price, we carefully listen to each shop's concept and story to create a unique site just for your business.",
-        "image": "https://placehold.co/600x400/312e81/ffffff?text=Original+Design"
-      },
-      {
-        "title": "Designs that 'resonate' with Japanese customers",
-        "subtitle": "Localization for the Japanese Market by Japanese Professionals",
-        "description": "Japanese designers and marketers who are well-versed in the Japanese market, culture, and trends will be in charge. We propose the most effective way to present your business by blending the charm of your home country with Japanese sensibilities.",
+        "title": "Created by Japanese who know Japan well",
+        "subtitle": "Love Chinese, Thai, and Western restaurants",
+        "description": "We have Japanese creators who know Japan well. We love Chinese, Thai, and Western restaurants, and also visit massage and salons, so we create with people who understand localization and shops.",
         "image": "https://placehold.co/600x400/312e81/ffffff?text=Localization"
       },
       {
-        "title": "Attracting fans with SEO/MEO",
-        "subtitle": "It's Not Over After Launch: 'Customer Attraction'",
-        "description": "Customer acquisition truly begins after the website is launched. We include standard MEO measures to get your shop found on Google Maps and SEO measures to be found in searches, attracting customers interested in your shop.",
-        "image": "https://placehold.co/600x400/312e81/ffffff?text=Customer+Attraction"
+        "title": "Overwhelmingly Fast Loading",
+        "subtitle": "Haven't you been frustrated by sites that take forever to load?",
+        "description": "We utilize the latest technology to achieve overwhelmingly fast loading. We provide optimized sites so customers can browse without stress.",
+        "image": "https://placehold.co/600x400/312e81/ffffff?text=Fast+Loading"
       },
       {
-        "title": "Zero language stress",
-        "subtitle": "Peace of Mind with 'Native Language' Full Support",
-        "description": "From the initial hearing to design confirmation and post-launch operational instructions, we handle everything in your native language (Chinese, English, Thai). Please consult with us with confidence, down to the finest nuances.",
-        "image": "https://placehold.co/600x400/312e81/ffffff?text=Full+Support"
+        "title": "High Quality Low Cost Support for Owners",
+        "subtitle": "Creating responsive HP with latest design",
+        "description": "By offering online payment (Stripe) only and primarily email and chat support, we provide at a lower cost. We create responsive HP with the latest design, achieving high-quality service at low cost.",
+        "image": "https://placehold.co/600x400/312e81/ffffff?text=High+Quality+Low+Cost"
+      },
+      {
+        "title": "More Reservations! 15 Years of Industry Customer Acquisition",
+        "subtitle": "SEO/MEO measures by 15-year industry professionals",
+        "description": "Customer acquisition truly begins after the website is launched. We implement MEO measures to get your shop found on Google Maps and SEO measures to be found in searches by 15-year industry professionals. We attract customers interested in your shop.",
+        "image": "https://placehold.co/600x400/312e81/ffffff?text=Customer+Attraction"
       }
     ]
   },
@@ -120,17 +120,17 @@
     "subtitle": "You can request with confidence thanks to our transparent pricing.",
     "buttonText": "See detailed pricing",
     "steps": [
-      { "name": "Free Consultation & Hearing", "description": "We listen carefully in your native language" },
-      { "name": "Proposal & Contract", "description": "We'll propose the optimal plan for you" },
-      { "name": "Original Design & Development", "description": "A unique design just for your shop" },
-      { "name": "Launch & Support Start", "description": "We'll powerfully support your customer acquisition" }
+      { "name": "Choose a Plan", "description": "Customer selects a plan" },
+      { "name": "Add Options (Optional)", "description": "Add optional services as needed" },
+      { "name": "Make Payment", "description": "Pay with online payment (Stripe)" },
+      { "name": "Hearing & Production Start", "description": "After hearing via chat, production begins" }
     ],
     "plans": {
-      "title": "Transparent pricing plans for small and individual shops",
+      "title": "Restaurant, Esthetic Salon, Relaxation Salon, Massage Shop Only Plans",
       "items": [
-        { "name": "Start Plan", "price": "From ¥150,000" },
-        { "name": "Standard Plan", "price": "From ¥300,000" },
-        { "name": "Premium Plan", "price": "From ¥500,000" }
+        { "name": "Start", "price": "From ¥5,000/month" },
+        { "name": "Standard", "price": "From ¥10,000/month" },
+        { "name": "Premium", "price": "From ¥30,000/month" }
       ]
     }
   },
@@ -204,54 +204,58 @@
   },
   "pricePage": {
     "title": "Pricing Plans",
-    "description": "The perfect plan for your business. Customization to fit your needs is also available.",
+    "description": "Renewal Discount! Limited to first 100 customers\nAdditional 20% OFF from total bill\nFor those who already have a website and want to renew.",
     "plans": [
       {
-        "name": "Start Plan",
-        "price": "150,000",
-        "currency": "JPY~",
-        "description": "For individual owners who want to start with an official website at a low cost.",
+        "name": "Start",
+        "price": "25,000",
+        "currency": "JPY",
+        "description": "Initial cost (monthly payment only)",
         "features": [
-          "Total of 3 pages including top page",
-          "Responsive design for smartphones",
-          "Basic SEO/MEO settings",
-          "News update function",
-          "Contact form",
-          "1 month of free post-launch support"
+          "3 pages",
+          "High-quality template",
+          "Mobile responsive",
+          "Search optimization (basic)",
+          "Blog function (news)",
+          "Multilingual support (separate)",
+          "News updates & page modifications (up to 1/month)",
+          "Support (email & chat)"
         ],
         "recommended": false,
         "cta": "Consult with this plan"
       },
       {
-        "name": "Standard Plan",
-        "price": "300,000",
-        "currency": "JPY~",
-        "description": "Ideal for those who want to create an original site that maximizes the shop's appeal and is strong in attracting customers.",
+        "name": "Standard",
+        "price": "50,000",
+        "currency": "JPY",
+        "description": "Initial cost (monthly payment only)",
         "features": [
-          "Total of 6 pages including top page",
-          "Fully original design",
-          "Responsive design for smartphones",
-          "Internal SEO/MEO measures",
-          "Blog/CMS function",
-          "Web reservation system integration",
-          "1 month of free post-launch support"
+          "6 pages",
+          "Fully original",
+          "Mobile responsive",
+          "Search optimization (internal)",
+          "Blog function",
+          "Multilingual support (separate)",
+          "News updates & page modifications (up to 2/month)",
+          "Support (email & chat)"
         ],
         "recommended": true,
         "cta": "Consult with this plan"
       },
       {
-        "name": "Premium Plan",
-        "price": "500,000",
-        "currency": "JPY~",
-        "description": "For those seeking advanced features like multilingual support and e-commerce functions for business expansion.",
+        "name": "Premium",
+        "price": "100,000",
+        "currency": "JPY",
+        "description": "Initial cost (monthly payment only)",
         "features": [
-          "Large-scale site with 10+ pages",
-          "Full custom-made from strategy planning",
-          "Advanced SEO/MEO measures",
-          "Blog/CMS function",
-          "Multilingual support (JP + 1 lang)",
-          "E-commerce site function",
-          "2 months of free post-launch support"
+          "9 pages",
+          "Strategic original",
+          "Mobile responsive",
+          "Search optimization (advanced)",
+          "Blog function",
+          "Multilingual support (JP + 1 language)",
+          "News updates & page modifications (up to 10/month)",
+          "Support (priority email & chat)"
         ],
         "recommended": false,
         "cta": "Consult with this plan"
@@ -259,27 +263,45 @@
     ],
     "featureComparison": {
       "title": "Feature Comparison",
-      "headers": ["Feature", "Start Plan", "Standard Plan", "Premium Plan"],
+      "headers": ["Feature", "Start", "Standard", "Premium"],
       "rows": [
-        { "feature": "Pages", "start": "3 pages", "standard": "6 pages", "premium": "10+ pages" },
+        { "feature": "Pages", "start": "3 pages", "standard": "6 pages", "premium": "9 pages" },
         { "feature": "Design", "start": "High-quality Template", "standard": "Fully Original", "premium": "Strategic Original" },
         { "feature": "Mobile Friendly", "start": "✔", "standard": "✔", "premium": "✔" },
-        { "feature": "SEO/MEO", "start": "Basic", "standard": "Internal", "premium": "Advanced" },
+        { "feature": "Search Optimization", "start": "Basic", "standard": "Internal", "premium": "Advanced" },
         { "feature": "Blog Function", "start": "News", "standard": "✔", "premium": "✔" },
-        { "feature": "Booking linkage", "start": "Optional", "standard": "✔", "premium": "✔" },
         { "feature": "Multilingual", "start": "Optional", "standard": "Optional", "premium": "✔ (JP+1)" },
-        { "feature": "Support", "start": "1 month", "standard": "1 month", "premium": "2 months" }
+        { "feature": "Updates & Modifications", "start": "Up to 1/month", "standard": "Up to 2/month", "premium": "Up to 10/month" },
+        { "feature": "Support", "start": "Email & Chat", "standard": "Email & Chat", "premium": "Priority Email & Chat" }
       ]
     },
     "options": {
       "title": "Optional Services",
       "description": "You can extend the functionality by adding the following services to each plan.",
       "items": [
-        { "name": "Logo Design", "description": "We design an original logo that embodies your shop's brand image." },
-        { "name": "Professional Photography", "description": "We capture photos that maximize the appeal of your dishes, interior, and staff." },
-        { "name": "Additional Languages", "description": "We can add support for your desired languages, such as English, Chinese, and Thai." },
-        { "name": "E-commerce Functionality", "description": "We build an e-commerce site with payment functions to sell your products online." },
-        { "name": "Maintenance & Operation Support", "description": "We handle post-launch server management, regular backups, and update tasks for you." }
+        { "name": "Online Reservation System (no reservation management)", "description": "¥50,000" },
+        { "name": "Google Maps (MEO) Measures", "description": "¥5,000/month minimum 3 months~" },
+        { "name": "Additional Languages", "description": "¥5,000 per language" },
+        { "name": "Campaign/Event Page Creation", "description": "¥5,000 per page" }
+      ]
+    },
+    "additionalServices": {
+      "title": "Other Services",
+      "description": "We provide the following services at special prices for customers who apply for production plans.",
+      "items": [
+        { "name": "Job posting on job sites", "description": "Usually ¥20,000/month → ¥10,000" },
+        { "name": "Shop information posting on portal sites", "description": "Usually ¥20,000/month → ¥10,000" }
+      ]
+    },
+    "pricingNotes": {
+      "title": "About Pricing",
+      "notes": [
+        "Auto-renewal (credit card, etc.)",
+        "Plan changes: Downgrades not allowed. Upgrades with annual payment charge only the difference, no initial cost.",
+        "Content → Pages → Provide difference, apply other upgrade content",
+        "Second shop onwards: No initial cost for all plans + 10% OFF",
+        "Chat: LINE, Messenger, WhatsApp, WeChat",
+        "※All prices above are excluding tax. 10% consumption tax will be added separately."
       ]
     }
   }

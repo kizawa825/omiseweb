@@ -8,7 +8,7 @@
     "language": "语言"
   },
   "footer": {
-    "description": "为在日本努力奋斗的外国店主提供能强力吸引顾客的完全定制化网站制作服务。",
+    "description": "为在日本经营业务的外国店主提供高品质低价格的网站制作服务。",
     "navigation": "导航",
     "navLinks": [
       { "name": "关于我们", "href": "/zh/about" },
@@ -23,11 +23,11 @@
   },
   "hero": {
     "catchphrase": "将您出色的店铺，呈现给日本的粉丝。",
-    "subcopy": "致在日本努力奋斗的外国餐厅和沙龙老板。\n以惊人的低价，为您打造一个善于吸引顾客的完全定制化网站。",
+    "subcopy": "致在日本经营业务的外国店主。\n仅限餐厅和沙龙的高品质低价格网站制作服务。",
     "features": [
-      "不使用模板",
-      "擅长吸引顾客 (SEO/MEO)",
-      "全程母语支持"
+      "压倒性的高速显示",
+      "高品质低价格支持",
+      "行业15年的集客力"
     ],
     "cta_main": "免费咨询 (用您的母语)",
     "cta_sub": "查看价格方案"
@@ -37,7 +37,7 @@
     "problems": [
       { "icon": "language", "text": "担心与日本制作公司的日语沟通..." },
       { "icon": "users", "text": "店铺的魅力无法传达，新顾客没有增加..." },
-      { "icon": "palette", "text": "不想用模板设计，希望展现店铺的个性..." },
+      { "icon": "palette", "text": "网站很重，加载很慢..." },
       { "icon": "money", "text": "专业的网站制作费用太高，难以负担..." },
       { "icon": "question", "text": "没有网络专业知识，不知从何下手..." }
     ]
@@ -47,28 +47,28 @@
     "subtitle": "引领您事业成功的四大优势",
     "solutions": [
       {
-        "title": "我们不使用模板",
-        "subtitle": "低价格，也能实现完全原创设计",
-        "description": "我们专注于中小型及个人店铺，彻底削减不必要的成本。即使价格低廉，我们也会仔细聆听每家店铺的理念和故事，为您打造独一无二的原创网站。",
-        "image": "https://placehold.co/600x400/312e81/ffffff?text=原创设计"
-      },
-      {
-        "title": "能“打动”日本顾客的设计",
-        "subtitle": "由日本人为日本市场量身打造的本地化",
-        "description": "由深谙日本市场、文化及潮流的日本设计师和营销人员负责。我们将您祖国的魅力与日本人的审美相结合，提出最有效的展示方案。",
+        "title": "由熟悉日本的日本人制作",
+        "subtitle": "喜欢中餐、泰餐、西餐厅",
+        "description": "我们由熟悉日本的日本人负责制作。我们喜欢中餐、泰餐、西餐厅，也经常去按摩和沙龙，因此由了解本地化和店铺的人来制作。",
         "image": "https://placehold.co/600x400/312e81/ffffff?text=本地化"
       },
       {
-        "title": "通过SEO/MEO吸引粉丝",
-        "subtitle": "制作完成并非终点，强化“吸引顾客”的能力",
-        "description": "网站上线后才是吸引顾客的真正开始。我们标配了MEO对策，让顾客能在谷歌地图上找到您的店铺；以及SEO对策，让顾客能通过搜索找到您，从而吸引对您店铺感兴趣的顾客。",
-        "image": "https://placehold.co/600x400/312e81/ffffff?text=强化吸引顾客"
+        "title": "压倒性的高速显示",
+        "subtitle": "您是否曾因网站加载缓慢而感到烦躁？",
+        "description": "我们运用最新技术，实现压倒性的高速显示。为了让客户能够无压力地浏览网站，我们提供经过优化的网站。",
+        "image": "https://placehold.co/600x400/312e81/ffffff?text=高速显示"
       },
       {
-        "title": "零语言压力",
-        "subtitle": "安心的“母语”全程支持",
-        "description": "从初次洽谈、设计确认到上线后的操作说明，我们全部用您的母语（中文、英文、泰文）进行对应。即使是细微的差异，也请您安心与我们商谈。",
-        "image": "https://placehold.co/600x400/312e81/ffffff?text=全程支持"
+        "title": "高品质低价格支持店主",
+        "subtitle": "制作最新响应式设计的HP",
+        "description": "通过仅提供在线支付（Stripe）和主要邮件和聊天支持，我们以更低的价格提供服务。我们制作最新响应式设计的HP，以低价格实现高品质服务。",
+        "image": "https://placehold.co/600x400/312e81/ffffff?text=高品质低价格"
+      },
+      {
+        "title": "预约增加！行业15年的集客力",
+        "subtitle": "由行业15年专业人士实施SEO・MEO对策",
+        "description": "网站上线后才是吸引顾客的真正开始。我们由行业15年的专业人士实施MEO对策，让顾客能在谷歌地图上找到您的店铺；以及SEO对策，让顾客能通过搜索找到您，从而吸引对您店铺感兴趣的顾客。",
+        "image": "https://placehold.co/600x400/312e81/ffffff?text=强化吸引顾客"
       }
     ]
   },
@@ -120,17 +120,17 @@
     "subtitle": "透明的价格方案，让您安心委托。",
     "buttonText": "查看详细价格方案",
     "steps": [
-      { "name": "免费咨询・需求沟通", "description": "用您的母语仔细聆听您的需求" },
-      { "name": "提案・签订合同", "description": "为您提案最合适的方案" },
-      { "name": "原创设计制作", "description": "专属于您店铺的设计" },
-      { "name": "网站上线・开始支持", "description": "强力支持您的顾客吸引" }
+      { "name": "选择方案", "description": "客户选择方案" },
+      { "name": "添加选项（可选）", "description": "根据需要添加可选服务" },
+      { "name": "支付", "description": "通过在线支付（Stripe）付款" },
+      { "name": "需求沟通・开始制作", "description": "通过聊天沟通需求后，开始制作" }
     ],
     "plans": {
-      "title": "为中小型及个人店铺打造的透明价格方案",
+      "title": "仅限餐厅・美容沙龙・放松沙龙・按摩店的方案",
       "items": [
-        { "name": "入门方案", "price": "15万日元起" },
-        { "name": "标准方案", "price": "30万日元起" },
-        { "name": "高级方案", "price": "50万日元起" }
+        { "name": "Start", "price": "月付5,000日元起" },
+        { "name": "Standard", "price": "月付10,000日元起" },
+        { "name": "Premium", "price": "月付30,000日元起" }
       ]
     }
   },
@@ -204,54 +204,58 @@
   },
   "pricePage": {
     "title": "价格方案",
-    "description": "为您的业务提供最合适的方案。也可根据您的需求进行定制。",
+    "description": "更新优惠！限前100名\n从总账单再减20%OFF\n适用于已有网站并希望更新的客户。",
     "plans": [
       {
-        "name": "入门方案",
-        "price": "150,000",
-        "currency": "日元起",
-        "description": "适合希望以低成本拥有官方网站的个人店主。",
+        "name": "Start",
+        "price": "25,000",
+        "currency": "日元",
+        "description": "初期费用（仅月付）",
         "features": [
-          "包括主页在内共3页",
-          "响应式设计，适配智能手机",
-          "SEO/MEO基础设置",
-          "新闻更新功能",
-          "咨询表格",
-          "上线后1个月免费支持"
+          "3页",
+          "高品质模板",
+          "适配手机",
+          "搜索优化（基础设置）",
+          "博客功能（通知）",
+          "多语言支持（另计）",
+          "通知更新・页面修改（每月最多1次）",
+          "支持（邮件・聊天）"
         ],
         "recommended": false,
         "cta": "咨询此方案"
       },
       {
-        "name": "标准方案",
-        "price": "300,000",
-        "currency": "日元起",
-        "description": "最适合希望制作能最大限度展现店铺魅力、强于吸引顾客的原创网站的客户。",
+        "name": "Standard",
+        "price": "50,000",
+        "currency": "日元",
+        "description": "初期费用（仅月付）",
         "features": [
-          "包括主页在内共6页",
-          "完全原创设计",
-          "响应式设计，适配智能手机",
-          "SEO/MEO内部对策",
-          "博客/CMS功能",
-          "网络预约系统对接",
-          "上线后1个月免费支持"
+          "6页",
+          "完全原创",
+          "适配手机",
+          "搜索优化（内部对策）",
+          "博客功能",
+          "多语言支持（另计）",
+          "通知更新・页面修改（每月最多2次）",
+          "支持（邮件・聊天）"
         ],
         "recommended": true,
         "cta": "咨询此方案"
       },
       {
-        "name": "高级方案",
-        "price": "500,000",
-        "currency": "日元起",
-        "description": "适合寻求多语言支持、电商功能等高级功能以拓展业务的客户。",
+        "name": "Premium",
+        "price": "100,000",
+        "currency": "日元",
+        "description": "初期费用（仅月付）",
         "features": [
-          "10页以上的大型网站",
-          "从战略规划开始的全定制服务",
-          "高级SEO/MEO对策",
-          "博客/CMS功能",
+          "9页",
+          "战略性原创",
+          "适配手机",
+          "搜索优化（高级对策）",
+          "博客功能",
           "多语言支持（日+1语）",
-          "电商网站功能",
-          "上线后2个月免费支持"
+          "通知更新・页面修改（每月最多10次）",
+          "支持（优先邮件・聊天）"
         ],
         "recommended": false,
         "cta": "咨询此方案"
@@ -259,27 +263,45 @@
     ],
     "featureComparison": {
       "title": "功能比较表",
-      "headers": ["功能", "入门方案", "标准方案", "高级方案"],
+      "headers": ["功能", "Start", "Standard", "Premium"],
       "rows": [
-        { "feature": "页面数", "start": "3页", "standard": "6页", "premium": "10页以上" },
+        { "feature": "页面数", "start": "3页", "standard": "6页", "premium": "9页" },
         { "feature": "设计", "start": "高品质模板", "standard": "完全原创", "premium": "战略性原创" },
         { "feature": "适配手机", "start": "✔", "standard": "✔", "premium": "✔" },
-        { "feature": "SEO/MEO对策", "start": "基础设置", "standard": "内部对策", "premium": "高级对策" },
-        { "feature": "博客功能", "start": "新闻", "standard": "✔", "premium": "✔" },
-        { "feature": "预约对接", "start": "另计", "standard": "✔", "premium": "✔" },
+        { "feature": "搜索优化", "start": "基础设置", "standard": "内部对策", "premium": "高级对策" },
+        { "feature": "博客功能", "start": "通知", "standard": "✔", "premium": "✔" },
         { "feature": "多语言支持", "start": "另计", "standard": "另计", "premium": "✔ (日+1语)" },
-        { "feature": "上线后支持", "start": "1个月", "standard": "1个月", "premium": "2个月" }
+        { "feature": "通知更新・页面修改", "start": "每月最多1次", "standard": "每月最多2次", "premium": "每月最多10次" },
+        { "feature": "支持", "start": "邮件・聊天", "standard": "邮件・聊天", "premium": "优先邮件・聊天" }
       ]
     },
     "options": {
       "title": "可选服务",
       "description": "您可以通过为每个方案添加以下服务来扩展功能。",
       "items": [
-        { "name": "标志设计", "description": "设计体现您店铺品牌形象的原创标志。" },
-        { "name": "专业摄影师拍摄", "description": "拍摄能最大限度展现您的菜品、室内环境和员工魅力的照片。" },
-        { "name": "增加语言", "description": "我们可以为您添加所需的语言支持，如英语、中文、泰语等。" },
-        { "name": "增加电商功能", "description": "构建一个带支付功能的电商网站，以便您在线销售商品。" },
-        { "name": "维护与运营支持", "description": "我们可以为您代劳网站上线后的服务器管理、定期备份和更新工作。" }
+        { "name": "在线预约功能实现（无预约管理运营）", "description": "50,000日元" },
+        { "name": "Google地图（MEO）对策", "description": "月费5,000日元 最少3个月~" },
+        { "name": "增加语言", "description": "1语言5,000日元" },
+        { "name": "活动・活动页面制作", "description": "1页面5,000日元" }
+      ]
+    },
+    "additionalServices": {
+      "title": "其他服务",
+      "description": "我们为申请制作方案的客户提供以下服务的特别价格。",
+      "items": [
+        { "name": "招聘网站招聘信息发布", "description": "通常月费20,000日元→10,000日元" },
+        { "name": "店铺门户网站店铺信息发布", "description": "通常月费20,000日元→10,000日元" }
+      ]
+    },
+    "pricingNotes": {
+      "title": "关于价格",
+      "notes": [
+        "自动更新（信用卡等）",
+        "方案变更：不可降级。升级年付仅收取差额，无初期费用。",
+        "内容→页面数→提供差额，应用其他升级内容",
+        "第二家店以后：所有方案初期费用免费+10%OFF",
+        "聊天：LINE、Messenger、WhatsApp、WeChat",
+        "※上述价格均为不含税。另需缴纳10%消费税。"
       ]
     }
   }
