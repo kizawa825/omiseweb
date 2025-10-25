@@ -124,13 +124,18 @@ const sortedLanguages = [
             class="invisible absolute right-0 top-full z-40 mt-3 w-56 origin-top-right scale-95 transform rounded-2xl border border-base-300/50 bg-base-100/95 p-4 opacity-0 shadow-strong backdrop-blur-xl transition duration-200 ease-out"
             data-language-panel
           >
-            <p class="mb-3 text-xs font-semibold uppercase tracking-[0.28em] text-base-content/40">
+            <p
+              class="mb-3 text-xs font-semibold uppercase tracking-[0.28em] text-base-content/40"
+              data-language-panel-heading
+            >
               LANGUAGE
             </p>
             <div class="flex flex-col gap-1">
               {sortedLanguages.map((lang) => (
                 <a
                   href={lang.href}
+                  data-language-option
+                  data-language-option-state={lang.code === currentLangCode ? 'current' : 'idle'}
                   class:list={[
                     'flex items-center justify-between rounded-xl px-3 py-2 text-sm font-medium transition duration-200',
                     {
@@ -143,11 +148,16 @@ const sortedLanguages = [
                 >
                   <span>{lang.name}</span>
                   {lang.code === currentLangCode ? (
-                    <span class="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.3em] text-primary-600">
+                    <span
+                      class="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.3em] text-primary-600"
+                      data-language-option-badge
+                    >
                       NOW
                     </span>
                   ) : (
-                    <span class="text-xs text-base-content/40">Switch</span>
+                    <span class="text-xs text-base-content/40" data-language-option-hint>
+                      Switch
+                    </span>
                   )}
                 </a>
               ))}
@@ -294,6 +304,17 @@ const sortedLanguages = [
     const brandText = shell?.querySelector('[data-header-brand-text]') ?? null;
     const navLinks = shell ? Array.from(shell.querySelectorAll('[data-header-nav-link]')) : [];
     const languageCurrent = languageTrigger?.querySelector('[data-header-language-current]') ?? null;
+    const languageHeading =
+      languagePanel?.querySelector('[data-language-panel-heading]') ?? null;
+    const languageOptions = languagePanel
+      ? Array.from(languagePanel.querySelectorAll('[data-language-option]'))
+      : [];
+    const languageOptionHints = languagePanel
+      ? Array.from(languagePanel.querySelectorAll('[data-language-option-hint]'))
+      : [];
+    const languageOptionBadges = languagePanel
+      ? Array.from(languagePanel.querySelectorAll('[data-language-option-badge]'))
+      : [];
     const darkSections = Array.from(document.querySelectorAll('[data-dark-section]'));
     let isHeaderOnDark = false;
 
@@ -319,6 +340,38 @@ const sortedLanguages = [
 
       languageCurrent?.classList.toggle('text-base-content/50', !onDark);
       languageCurrent?.classList.toggle('text-white/60', onDark);
+
+      languageHeading?.classList.toggle('text-base-content/40', !onDark);
+      languageHeading?.classList.toggle('text-white/70', onDark);
+
+      languageOptions.forEach((option) => {
+        const isActive = option.dataset.languageOptionState === 'current';
+        if (isActive) {
+          option.classList.toggle('bg-primary/10', !onDark);
+          option.classList.toggle('text-primary-600', !onDark);
+          option.classList.toggle('bg-white/10', onDark);
+          option.classList.toggle('text-white', onDark);
+        } else {
+          option.classList.toggle('text-base-content/70', !onDark);
+          option.classList.toggle('hover:text-base-content', !onDark);
+          option.classList.toggle('hover:bg-base-200/80', !onDark);
+          option.classList.toggle('text-white/80', onDark);
+          option.classList.toggle('hover:text-white', onDark);
+          option.classList.toggle('hover:bg-white/10', onDark);
+        }
+      });
+
+      languageOptionHints.forEach((hint) => {
+        hint.classList.toggle('text-base-content/40', !onDark);
+        hint.classList.toggle('text-white/60', onDark);
+      });
+
+      languageOptionBadges.forEach((badge) => {
+        badge.classList.toggle('bg-primary/10', !onDark);
+        badge.classList.toggle('text-primary-600', !onDark);
+        badge.classList.toggle('bg-white/10', onDark);
+        badge.classList.toggle('text-white', onDark);
+      });
 
       mobileTrigger?.classList.toggle('text-base-content', !onDark);
       mobileTrigger?.classList.toggle('hover:text-primary-600', !onDark);
