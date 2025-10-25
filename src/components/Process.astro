@@ -7,6 +7,12 @@ const supportedLangs = ['en', 'th', 'zh'];
 const currentLang = supportedLangs.find((code) => code === lang);
 const priceLink = currentLang ? `/${currentLang}/price` : '/price';
 const eyebrow = content?.eyebrow ?? 'Process';
+const planDescription =
+  content?.plans?.description ??
+  'ビジネスの成熟度に合わせて、最適なプランを組み合わせ可能です。';
+const timelineDescription =
+  content?.timeline ??
+  'Kick-offから公開まで平均4週間。公開後も分析・改善サイクルを伴走します。';
 ---
 
 <section class="relative overflow-hidden bg-neutral-950 py-24 sm:py-28 lg:py-32 text-base-100" data-dark-section>
@@ -62,7 +68,7 @@ const eyebrow = content?.eyebrow ?? 'Process';
             {content.plans.title}
           </p>
           <p class="text-sm text-white/60">
-            ビジネスの成熟度に合わせて、最適なプランを組み合わせ可能です。
+            {planDescription}
           </p>
         </div>
 
@@ -82,7 +88,7 @@ const eyebrow = content?.eyebrow ?? 'Process';
             Timeline
           </p>
           <p class="mt-2">
-            Kick-offから公開まで平均4週間。公開後も分析・改善サイクルを伴走します。
+            {timelineDescription}
           </p>
         </div>
 

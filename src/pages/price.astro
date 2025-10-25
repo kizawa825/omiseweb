@@ -13,7 +13,9 @@ const pageContent = content.pricePage;
 >
   <section class="bg-white py-20 sm:py-24">
     <div class="max-w-7xl mx-auto px-6 text-center">
-      <p class="text-base font-semibold leading-7 text-primary-600">{pageContent.eyebrow}</p>
+      {pageContent.eyebrow && (
+        <p class="text-base font-semibold leading-7 text-primary-600">{pageContent.eyebrow}</p>
+      )}
       <h1 class="text-4xl md:text-5xl font-bold text-neutral-900">{pageContent.title}</h1>
       <p class="mt-4 max-w-2xl mx-auto text-lg leading-8 text-neutral-600">
         {pageContent.description}

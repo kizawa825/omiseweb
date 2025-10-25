@@ -12,11 +12,34 @@ const hasSplit = headlineRestParts.length > 0;
 const eyebrowHeadline = hasSplit ? eyebrowHeadlineRaw : 'Omiseweb Studio';
 const mainHeadline = hasSplit ? headlineRestParts.join('、') : content.catchphrase;
 
-const trustMetrics = [
+const defaultTrustMetrics = [
   { label: 'リピート率', value: '97%' },
-  { label: '平均CV改善', value: '+168%' },
+  { label: '予約数改善', value: '+168%' },
   { label: '制作期間', value: '4 Weeks' },
 ];
+
+const trustMetrics = Array.isArray(content?.trustMetrics) ? content.trustMetrics : defaultTrustMetrics;
+
+const beforeAfterCard = {
+  label: content?.beforeAfter?.label ?? 'Before → After',
+  description:
+    content?.beforeAfter?.description ??
+    '集客導線・多言語導線を設計し、売上に直結する体験を構築します。',
+};
+
+const insightCard = {
+  label: content?.insightCard?.label ?? 'Insight',
+  description:
+    content?.insightCard?.description ??
+    '日本人デザイナーとグローバルマーケターが、文化背景まで深掘り。',
+};
+
+const resultCard = {
+  label: content?.resultCard?.label ?? 'Result',
+  description:
+    content?.resultCard?.description ??
+    '公開翌月から予約数1.5倍。口コミ導線とSEO/MEOで長期的に効果を持続。',
+};
 ---
 <section class="relative overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.08),_transparent_60%)] py-20 sm:py-28 lg:py-36">
   <div class="pointer-events-none absolute inset-0">
@@ -107,9 +130,9 @@ const trustMetrics = [
       <div class="relative lg:col-span-6">
         <div class="relative mx-auto max-w-xl">
           <div class="absolute -left-8 top-12 hidden max-w-[180px] rounded-2xl border border-primary/30 bg-white/80 p-4 shadow-subtle backdrop-blur-sm lg:block">
-            <p class="text-xs uppercase tracking-[0.32em] text-primary-500">Before → After</p>
+            <p class="text-xs uppercase tracking-[0.32em] text-primary-500">{beforeAfterCard.label}</p>
             <p class="mt-3 text-sm font-medium text-neutral-700">
-              集客導線・多言語導線を設計し、売上に直結する体験を構築します。
+              {beforeAfterCard.description}
             </p>
           </div>
 
@@ -140,15 +163,15 @@ const trustMetrics = [
 
             <div class="mt-6 grid gap-4 md:grid-cols-2">
               <div class="rounded-2xl border border-white/20 bg-white/70 p-4 text-sm text-neutral-700 shadow-subtle">
-                <p class="text-xs uppercase tracking-[0.32em] text-neutral-400">Insight</p>
+                <p class="text-xs uppercase tracking-[0.32em] text-neutral-400">{insightCard.label}</p>
                 <p class="mt-2 font-semibold">
-                  日本人デザイナーとグローバルマーケターが、文化背景まで深掘り。
+                  {insightCard.description}
                 </p>
               </div>
               <div class="rounded-2xl border border-white/20 bg-neutral-900 text-white p-4 text-sm shadow-subtle">
-                <p class="text-xs uppercase tracking-[0.32em] text-primary-200">Result</p>
+                <p class="text-xs uppercase tracking-[0.32em] text-primary-200">{resultCard.label}</p>
                 <p class="mt-2 font-semibold">
-                  公開翌月から予約数1.5倍。口コミ導線とSEO/MEOで長期的に効果を持続。
+                  {resultCard.description}
                 </p>
               </div>
             </div>

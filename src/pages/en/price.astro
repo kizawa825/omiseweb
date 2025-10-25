@@ -11,80 +11,90 @@ const pageContent = content.pricePage;
   headerContent={content.header}
   footerContent={content.footer}
 >
-  <!-- Hero Section -->
-  <section class="bg-slate-50 py-20 sm:py-24">
+  <section class="bg-white py-20 sm:py-24">
     <div class="max-w-7xl mx-auto px-6 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold text-slate-900">{pageContent.title}</h1>
-      <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-600">
+      {pageContent.eyebrow && (
+        <p class="text-base font-semibold leading-7 text-primary-600">{pageContent.eyebrow}</p>
+      )}
+      <h1 class="text-4xl md:text-5xl font-bold text-neutral-900">{pageContent.title}</h1>
+      <p class="mt-4 max-w-2xl mx-auto text-lg leading-8 text-neutral-600">
         {pageContent.description}
       </p>
     </div>
   </section>
 
-  <!-- Pricing Cards Section -->
-  <section class="py-20 sm:py-24">
-    <div class="max-w-7xl mx-auto px-6">
-      <!-- Payment Method Toggle -->
+  <section class="py-20 sm:py-24 bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-6 text-center">
       <div class="text-center mb-12">
-        <div class="inline-flex bg-slate-100 rounded-lg p-1">
-          <button id="monthly-toggle" class="px-6 py-2 rounded-md font-semibold text-sm transition-all duration-200 bg-white text-slate-900 shadow-sm">
+        <div class="inline-flex bg-neutral-100 rounded-lg p-1">
+          <button id="monthly-toggle" class="px-6 py-2 rounded-md font-semibold text-sm transition-all duration-200 bg-white text-neutral-900 shadow-sm">
             Monthly
           </button>
-          <button id="yearly-toggle" class="px-6 py-2 rounded-md font-semibold text-sm transition-all duration-200 text-slate-600 hover:text-slate-900">
+          <button id="yearly-toggle" class="px-6 py-2 rounded-md font-semibold text-sm transition-all duration-200 text-neutral-600 hover:text-neutral-900">
             Yearly
           </button>
         </div>
-        <p class="mt-3 text-sm text-slate-600">20% OFF + No initial cost with yearly payment</p>
+        <p class="mt-3 text-sm text-neutral-600">20% OFF + No initial cost with yearly payment</p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-        {pageContent.plans.map(plan => (
-          <div class={`flex flex-col border rounded-xl p-8 ${plan.recommended ? 'border-indigo-500 ring-2 ring-indigo-500' : 'border-slate-200'}`}>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-stretch">
+        {pageContent.plans.map((plan) => (
+          <div
+            class:list={[
+              'flex flex-col bg-white rounded-2xl p-8 transition-all duration-300',
+              {
+                'border border-neutral-200 shadow-lg hover:shadow-strong': !plan.recommended,
+                'border-2 border-primary-500 shadow-2xl lg:scale-105': plan.recommended,
+              },
+            ]}
+          >
             {plan.recommended && (
-              <div class="text-center mb-4">
-                <span class="bg-indigo-100 text-indigo-700 text-sm font-semibold px-4 py-1 rounded-full">Most Popular</span>
+              <div class="text-center mb-5">
+                <span class="bg-primary-100 text-primary-700 text-sm font-semibold px-4 py-1.5 rounded-full">Most Popular</span>
               </div>
             )}
-            <h2 class="text-2xl font-bold text-slate-900">{plan.name}</h2>
-            
-            <!-- Monthly Pricing Display -->
+            <h2 class="text-2xl font-bold text-neutral-900">{plan.name}</h2>
+
             <div id={`${plan.name.toLowerCase()}-monthly`} class="pricing-display">
-              <div class="mt-2 text-slate-600 text-sm h-12">
-                <p class="font-medium">Initial cost: ¥{plan.monthly.initial}</p>
-                <p class="font-medium">Monthly: ¥{plan.monthly.monthly}</p>
-              </div>
               <div class="mt-6">
-                <span class="text-3xl font-extrabold text-slate-900">¥{plan.monthly.monthly}</span>
-                <span class="text-lg font-medium text-slate-500 ml-1">/month</span>
-                <p class="text-sm text-slate-500 mt-1">+ Initial cost ¥{plan.monthly.initial}</p>
+                <span class="text-3xl font-extrabold text-neutral-900">¥{plan.monthly.monthly}</span>
+                <span class="text-lg font-medium text-neutral-500 ml-1">/month</span>
+                <p class="text-sm text-neutral-500 mt-1">+ Initial cost ¥{plan.monthly.initial}</p>
               </div>
             </div>
 
-            <!-- Yearly Pricing Display -->
             <div id={`${plan.name.toLowerCase()}-yearly`} class="pricing-display hidden">
-              <div class="mt-2 text-slate-600 text-sm h-12">
+              <div class="mt-2 text-neutral-600 text-sm h-12">
                 <p class="font-medium text-green-600">No initial cost</p>
-                <p class="font-medium">Yearly: ¥{plan.yearly.total}</p>
               </div>
               <div class="mt-6">
-                <span class="text-4xl font-extrabold text-slate-900">¥{plan.yearly.total}</span>
-                <span class="text-lg font-medium text-slate-500 ml-1">/year</span>
+                <span class="text-4xl font-extrabold text-neutral-900">¥{plan.yearly.total}</span>
+                <span class="text-lg font-medium text-neutral-500 ml-1">/year</span>
                 <div class="mt-2">
                   <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">{plan.yearly.savings}</span>
                 </div>
               </div>
             </div>
 
-            <ul class="mt-8 space-y-4 text-slate-600 flex-grow">
-              {plan.features.map(feature => (
+            <ul class="mt-8 space-y-4 text-neutral-600 flex-grow">
+              {plan.features.map((feature) => (
                 <li class="flex items-start">
-                  <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                  <svg class="w-5 h-5 text-success-500 mr-2 flex-shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
                   <span>{feature}</span>
                 </li>
               ))}
             </ul>
-            <div class="mt-8">
-              <a href="#contact" class={`block w-full text-center font-semibold py-3 rounded-lg transition-colors ${plan.recommended ? 'bg-indigo-600 text-white hover:bg-indigo-700' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}>
+            <div class="mt-10">
+              <a
+                href="/contact"
+                class:list={[
+                  'block w-full text-center font-semibold py-3.5 rounded-full transition-all duration-300 transform hover:scale-105',
+                  {
+                    'bg-primary-600 text-white hover:bg-primary-700 shadow-md hover:shadow-lg': plan.recommended,
+                    'bg-neutral-100 text-neutral-700 hover:bg-neutral-200': !plan.recommended,
+                  },
+                ]}
+              >
                 {plan.cta}
               </a>
             </div>
@@ -98,98 +108,78 @@ const pageContent = content.pricePage;
     document.addEventListener('DOMContentLoaded', function() {
       const monthlyToggle = document.getElementById('monthly-toggle');
       const yearlyToggle = document.getElementById('yearly-toggle');
-      
-      const monthlyDisplays = document.querySelectorAll('[id$="-monthly"]');
-      const yearlyDisplays = document.querySelectorAll('[id$="-yearly"]');
+
+      const monthlyDisplays = document.querySelectorAll('[id$=\"-monthly\"]');
+      const yearlyDisplays = document.querySelectorAll('[id$=\"-yearly\"]');
 
       monthlyToggle.addEventListener('click', function() {
-        monthlyToggle.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
-        monthlyToggle.classList.remove('text-slate-600');
-        yearlyToggle.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
-        yearlyToggle.classList.add('text-slate-600');
-        
-        monthlyDisplays.forEach(display => display.classList.remove('hidden'));
-        yearlyDisplays.forEach(display => display.classList.add('hidden'));
+        monthlyToggle.classList.add('bg-white', 'text-neutral-900', 'shadow-sm');
+        monthlyToggle.classList.remove('text-neutral-600');
+        yearlyToggle.classList.remove('bg-white', 'text-neutral-900', 'shadow-sm');
+        yearlyToggle.classList.add('text-neutral-600');
+
+        monthlyDisplays.forEach((display) => display.classList.remove('hidden'));
+        yearlyDisplays.forEach((display) => display.classList.add('hidden'));
       });
 
       yearlyToggle.addEventListener('click', function() {
-        yearlyToggle.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
-        yearlyToggle.classList.remove('text-slate-600');
-        monthlyToggle.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
-        monthlyToggle.classList.add('text-slate-600');
-        
-        yearlyDisplays.forEach(display => display.classList.remove('hidden'));
-        monthlyDisplays.forEach(display => display.classList.add('hidden'));
+        yearlyToggle.classList.add('bg-white', 'text-neutral-900', 'shadow-sm');
+        yearlyToggle.classList.remove('text-neutral-600');
+        monthlyToggle.classList.remove('bg-white', 'text-neutral-900', 'shadow-sm');
+        monthlyToggle.classList.add('text-neutral-600');
+
+        yearlyDisplays.forEach((display) => display.classList.remove('hidden'));
+        monthlyDisplays.forEach((display) => display.classList.add('hidden'));
       });
     });
   </script>
 
-  <!-- Feature Comparison Table -->
-  <section class="py-20 sm:py-24 bg-slate-50">
+  <section class="py-20 sm:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-slate-900">{pageContent.featureComparison.title}</h2>
-        </div>
-        <div class="overflow-x-auto">
-            <table class="w-full min-w-max text-left">
-                <thead>
-                    <tr class="border-b">
-                        <th class="p-4 font-bold">{pageContent.featureComparison.headers[0]}</th>
-                        <th class="p-4 text-center font-bold">{pageContent.featureComparison.headers[1]}</th>
-                        <th class="p-4 text-center font-bold bg-indigo-50 rounded-t-lg">{pageContent.featureComparison.headers[2]}</th>
-                        <th class="p-4 text-center font-bold">{pageContent.featureComparison.headers[3]}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {pageContent.featureComparison.rows.map((item, index) => (
-                        <tr class={`border-b ${index % 2 === 0 ? 'bg-white' : ''}`}>
-                            <td class="p-4 font-semibold">{item.feature}</td>
-                            <td class="p-4 text-center text-slate-600">{item.start}</td>
-                            <td class="p-4 text-center text-slate-800 font-medium bg-indigo-50">{item.standard}</td>
-                            <td class="p-4 text-center text-slate-600">{item.premium}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-neutral-900">{pageContent.featureComparison.title}</h2>
+      </div>
+      <div class="overflow-x-auto rounded-lg border border-neutral-200 shadow-subtle">
+        <table class="w-full min-w-max text-left">
+          <thead>
+            <tr class="border-b border-neutral-200 bg-neutral-50">
+              <th class="p-4 font-bold text-neutral-800 text-base">{pageContent.featureComparison.headers[0]}</th>
+              <th class="p-4 text-center font-bold text-neutral-800 text-base">{pageContent.featureComparison.headers[1]}</th>
+              <th class="p-4 text-center font-bold text-primary-700 text-base bg-primary-50 rounded-t-lg">{pageContent.featureComparison.headers[2]}</th>
+              <th class="p-4 text-center font-bold text-neutral-800 text-base">{pageContent.featureComparison.headers[3]}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {pageContent.featureComparison.rows.map((item, index) => (
+              <tr class={`border-b border-neutral-200 ${index % 2 === 0 ? 'bg-white' : 'bg-neutral-50/50'}`}>
+                <td class="p-4 font-semibold text-neutral-700">{item.feature}</td>
+                <td class="p-4 text-center text-neutral-600">{item.start}</td>
+                <td class="p-4 text-center text-primary-800 font-medium bg-primary-50">{item.standard}</td>
+                <td class="p-4 text-center text-neutral-600">{item.premium}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
-  <!-- Options Section -->
-  <section class="py-20 sm:py-24">
+  <section class="py-20 sm:py-24 bg-neutral-50">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-slate-900">{pageContent.options.title}</h2>
-        <p class="mt-2 text-slate-600">{pageContent.options.description}</p>
+        <h2 class="text-3xl font-bold text-neutral-900">{pageContent.options.title}</h2>
+        <p class="mt-2 text-lg leading-8 text-neutral-600">{pageContent.options.description}</p>
       </div>
       <div class="space-y-4">
-        {pageContent.options.items.map(option => (
-            <div class="bg-white border border-slate-200 p-6 rounded-lg">
-                <h3 class="font-semibold text-lg text-slate-800">{option.name}</h3>
-                <p class="mt-1 text-slate-600">{option.description}</p>
-            </div>
+        {pageContent.options.items.map((option) => (
+          <div class="bg-white border border-neutral-200 p-6 rounded-lg shadow-subtle transition-all duration-300 hover:shadow-lg">
+            <h3 class="font-semibold text-lg text-neutral-800">{option.name}</h3>
+            <p class="mt-1 text-neutral-600">{option.description}</p>
+          </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Additional Services Section -->
-  <section class="py-20 sm:py-24 bg-slate-50">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-slate-900">{pageContent.additionalServices.title}</h2>
-        <p class="mt-2 text-lg leading-8 text-slate-600">{pageContent.additionalServices.description}</p>
-      </div>
-      <div class="space-y-4">
-        {pageContent.additionalServices.items.map(service => (
-            <div class="bg-white border border-slate-200 p-6 rounded-lg shadow-subtle transition-all duration-300 hover:shadow-lg">
-                 <h3 class="font-semibold text-lg text-slate-800">{service.name}</h3>
-                <p class="mt-1 text-slate-600">{service.description}</p>
-            </div>
-        ))}
-      </div>
-    </div>
-  </section>
-  
   <Cta content={content.cta} />
 </Layout>

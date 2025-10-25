@@ -1,5 +1,11 @@
 ---
 const { content } = Astro.props;
+const description =
+  content?.description ??
+  '多言語で想いを伝えながら、日本の顧客に選ばれる体験をデザインするために。最初に向き合うべき課題をデータから定義しました。';
+const insightText =
+  content?.insight ??
+  '課題はバラバラではなく、共通のストーリーでつながっています。だからこそ、ブランド体験・導線・言語サポートを一つにつなげることが重要です。';
 
 const icons = {
   language: `<path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502" />`,
@@ -29,12 +35,12 @@ const icons = {
           </span>
         </h2>
         <p class="max-w-xl text-lg leading-relaxed text-neutral-600">
-          多言語で想いを伝えながら、日本の顧客に選ばれる体験をデザインするために。最初に向き合うべき課題をデータから定義しました。
+          {description}
         </p>
         <div class="rounded-3xl border border-neutral-200/80 bg-white/80 p-6 shadow-subtle backdrop-blur-sm">
           <p class="text-xs uppercase tracking-[0.32em] text-neutral-400">Omiseweb Insight</p>
           <p class="mt-3 text-sm font-medium text-neutral-700">
-            課題はバラバラではなく、共通のストーリーでつながっています。だからこそ、ブランド体験・導線・言語サポートを一つにつなげることが重要です。
+            {insightText}
           </p>
         </div>
       </div>

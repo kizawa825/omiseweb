@@ -7,6 +7,18 @@ const defaultContent = {
 };
 // contentが渡されない場合は、defaultContentを使用するように修正
 const { id, content = defaultContent } = Astro.props;
+const { pathname } = Astro.url;
+const lang = pathname.split('/')[1];
+const supportedLangs = ['en', 'th', 'zh'];
+const currentLang = supportedLangs.find((code) => code === lang);
+const priceLink = content?.buttonLink ?? (currentLang ? `/${currentLang}/price` : '/price');
+const infoCards = Array.isArray(content?.infoCards)
+  ? content.infoCards
+  : [
+      { label: 'Languages', value: '日本語 / English / 中文 / ภาษาไทย' },
+      { label: 'Response', value: '24時間以内に専門チームがご連絡' },
+      { label: 'Next Step', value: 'チャットまたはメールでヒアリング' },
+    ];
 ---
 
 <section
@@ -37,7 +49,7 @@ const { id, content = defaultContent } = Astro.props;
 
         <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-center">
           <a
-            href="/price"
+            href={priceLink}
             class="inline-flex items-center justify-between gap-4 rounded-2xl bg-white px-8 py-4 text-base font-semibold uppercase tracking-[0.32em] text-primary-700 shadow-glow transition duration-300 hover:shadow-strong"
           >
             {content.buttonText}
@@ -56,18 +68,12 @@ const { id, content = defaultContent } = Astro.props;
         </div>
 
         <div class="grid gap-4 text-sm text-white/70 sm:grid-cols-3">
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <p class="text-xs uppercase tracking-[0.3em] text-primary-200">Languages</p>
-            <p class="mt-2 font-semibold">日本語 / English / 中文 / ภาษาไทย</p>
-          </div>
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <p class="text-xs uppercase tracking-[0.3em] text-primary-200">Response</p>
-            <p class="mt-2 font-semibold">24時間以内に専門チームがご連絡</p>
-          </div>
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-            <p class="text-xs uppercase tracking-[0.3em] text-primary-200">Next Step</p>
-            <p class="mt-2 font-semibold">チャットまたはメールでヒアリング</p>
-          </div>
+          {infoCards.map((card) => (
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p class="text-xs uppercase tracking-[0.3em] text-primary-200">{card.label}</p>
+              <p class="mt-2 font-semibold">{card.value}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

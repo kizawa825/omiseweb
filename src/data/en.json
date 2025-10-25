@@ -17,8 +17,13 @@
     ],
     "supportedLanguages":"Supported Languages",
     "languages":["Japanese","English","中文","ภาษาไทย"],
+    "highlights": [
+      { "label": "Track Record", "value": "120", "accent": "+", "description": "Chosen by owners worldwide as their launch partner" },
+      { "label": "Support", "value": "Multi-lang", "description": "Consulting and continuous support in your native language" }
+    ],
     "contact": "Contact",
     "contactButton": "Choose Plan",
+    "contactHours": "Weekdays 10:00-18:00 (JST)",
     "copyright": "© 2025 Omiseweb. All rights reserved."
   },
   "hero": {
@@ -30,10 +35,29 @@
       "15 Years of Proven Results"
     ],
     "cta_main": "Choose Plan and Start",
-    "cta_sub": "See Pricing Plans"
+    "cta_sub": "See Pricing Plans",
+    "trustMetrics": [
+      { "label": "Repeat Rate", "value": "97%" },
+      { "label": "Increase in Bookings", "value": "+168%" },
+      { "label": "Production Time", "value": "4 Weeks" }
+    ],
+    "beforeAfter": {
+      "label": "Before → After",
+      "description": "We design acquisition and multilingual journeys that turn directly into revenue."
+    },
+    "insightCard": {
+      "label": "Insight",
+      "description": "Japanese designers and global marketers dive deep into cultural backgrounds."
+    },
+    "resultCard": {
+      "label": "Result",
+      "description": "Bookings jump 1.5x the month after launch. Sustain impact with referral flows plus SEO/MEO."
+    }
   },
   "problem": {
     "title": "Do you have these problems?",
+    "description": "To design an experience that shares your story in multiple languages and wins customers in Japan, we defined the core issues from data first.",
+    "insight": "These challenges are not isolated; they connect as one story. That’s why aligning brand experience, user flow, and language support is critical.",
     "problems": [
       { "icon": "language", "text": "Anxious about communicating in Japanese with production companies" },
       { "icon": "users", "text": "Shop's charm isn't conveyed, not getting new customers" },
@@ -113,7 +137,8 @@
         "role": "Chinese Restaurant Owner",
         "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop"
       }
-    ]
+    ],
+    "emptyMessage": "Testimonials are coming soon."
   },
   "process": {
     "title": "Simple & Speedy, from Consultation to Launch",
@@ -127,16 +152,28 @@
     ],
     "plans": {
       "title": "Restaurant, Esthetic Salon, Relaxation Salon, Massage Shop Only",
+      "description": "Combine the ideal plan based on how mature your business is.",
       "items": [
         { "name": "Start", "price": "From ¥5,000/month" },
         { "name": "Standard", "price": "From ¥10,000/month" },
         { "name": "Premium", "price": "From ¥30,000/month" }
       ]
-    }
+    },
+    "timeline": "Average four weeks from kick-off to launch. We stay with you to analyze and improve afterwards."
   },
   "faq": {
     "title": "Frequently Asked Questions",
     "subtitle": "Your questions and concerns, answered here.",
+    "support": {
+      "label": "Concierge Support",
+      "email": "info@omiseweb.com",
+      "hours": "Weekdays 10:00 - 18:00 (JST) / Multilingual support",
+      "cta": "Book a free consultation"
+    },
+    "infoCards": [
+      { "label": "Languages", "value": "Japanese / English / 中文 / ภาษาไทย" },
+      { "label": "Average Response Time", "value": "Within 24 hours" }
+    ],
     "faqs": [
       { "q": "Are there really no extra charges?", "a": "No fees other than the estimate at contract time. However, if you wish to add features later, a separate estimate will be provided." },
       { "q": "How long does production take?", "a": "Standard plan typically takes about 1 to 1.5 months." },
@@ -148,7 +185,12 @@
     "title": "Now, why not deliver the true value of your business\nto fans in Japan with a website?",
     "subtitle": "We will help you overcome the walls of language, culture, and digital.",
     "buttonText": "Get a Free Consultation Now",
-    "notice": "We will contact you within 24 hours in your desired language after your inquiry. We will never engage in pushy sales."
+    "notice": "We will contact you within 24 hours in your desired language after your inquiry. We will never engage in pushy sales.",
+    "infoCards": [
+      { "label": "Languages", "value": "Japanese / English / 中文 / ภาษาไทย" },
+      { "label": "Response", "value": "Specialist team replies within 24 hours" },
+      { "label": "Next Step", "value": "We'll follow up via chat or email" }
+    ]
   },
     "aboutPage": {
     "title": "About Us",

@@ -19,8 +19,13 @@
     ],
     "supportedLanguages": "対応言語",
     "languages": ["日本語", "English", "中文", "ภาษาไทย"],
+    "highlights": [
+      { "label": "実績と信頼", "value": "120", "accent": "+", "description": "世界のオーナーに選ばれる制作パートナー" },
+      { "label": "サポート", "value": "Multi-lang", "description": "母国語でのコンサルと継続サポート" }
+    ],
     "contact": "お問い合わせ",
     "contactButton": "プランを選ぶ",
+    "contactHours": "平日10:00-18:00（日本時間）",
     "copyright": "© 2025 Omiseweb. All rights reserved."
   },
   "hero": {
@@ -32,10 +37,29 @@
       "業界15年の実績"
     ],
     "cta_main": "プランを選んで始める",
-    "cta_sub": "料金プランを見る"
+    "cta_sub": "料金プランを見る",
+    "trustMetrics": [
+      { "label": "リピート率", "value": "97%" },
+      { "label": "予約数改善", "value": "+168%" },
+      { "label": "制作期間", "value": "4 Weeks" }
+    ],
+    "beforeAfter": {
+      "label": "Before → After",
+      "description": "集客導線・多言語導線を設計し、売上に直結する体験を構築します。"
+    },
+    "insightCard": {
+      "label": "Insight",
+      "description": "日本人デザイナーとグローバルマーケターが、文化背景まで深掘り。"
+    },
+    "resultCard": {
+      "label": "Result",
+      "description": "公開翌月から予約数1.5倍。口コミ導線とSEO/MEOで長期的に効果を持続。"
+    }
   },
   "problem": {
     "title": "こんなお悩みありませんか？",
+    "description": "多言語で想いを伝えながら、日本の顧客に選ばれる体験をデザインするために。最初に向き合うべき課題をデータから定義しました。",
+    "insight": "課題はバラバラではなく、共通のストーリーでつながっています。だからこそ、ブランド体験・導線・言語サポートを一つにつなげることが重要です。",
     "problems": [
       { "icon": "language", "text": "制作会社との日本語でのやりとりに不安" },
       { "icon": "users", "text": "お店の魅力が伝わらず新規客が増えない" },
@@ -115,7 +139,8 @@
         "role": "中国人・レストランオーナー",
         "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop"
       }
-    ]
+    ],
+    "emptyMessage": "お客様の声は現在準備中です。"
   },
   "process": {
     "title": "ご相談から公開までシンプル＆スピーディ",
@@ -129,16 +154,28 @@
     ],
     "plans": {
       "title": "飲食店・エステサロン・リラクサロン・マッサージ店限定",
+      "description": "ビジネスの成熟度に合わせて、最適なプランを組み合わせ可能です。",
       "items": [
         { "name": "Start", "price": "月払い¥5,000〜" },
         { "name": "Standard", "price": "月払い¥10,000〜" },
         { "name": "Premium", "price": "月払い¥30,000〜" }
       ]
-    }
+    },
+    "timeline": "Kick-offから公開まで平均4週間。公開後も分析・改善サイクルを伴走します。"
   },
   "faq": {
     "title": "よくあるご質問",
     "subtitle": "疑問や不安はここで解決",
+    "support": {
+      "label": "コンシェルジュサポート",
+      "email": "info@omiseweb.com",
+      "hours": "平日 10:00 - 18:00（日本時間） / 多言語サポート対応",
+      "cta": "無料コンサルティングを予約する"
+    },
+    "infoCards": [
+      { "label": "Languages", "value": "日本語 / English / 中文 / ภาษาไทย" },
+      { "label": "平均回答時間", "value": "24時間以内" }
+    ],
     "faqs": [
       { "q": "追加料金はかかりませんか？", "a": "契約時の見積もり以外は発生しません。後から機能追加をご希望の場合は別途見積もりとなります。" },
       { "q": "制作期間はどのくらいですか？", "a": "スタンダードプランで約1〜1.5ヶ月が目安です。" },
@@ -150,7 +187,12 @@
     "title": "あなたのビジネスの本当の価値を\nWebサイトで日本のファンに届けませんか？",
     "subtitle": "言葉や文化、デジタルの壁を越えるお手伝いをします",
     "buttonText": "プランを選ぶ",
-    "notice": "お問い合わせはフォーム送信後、返信いたします。無理な営業は一切ありません。"
+    "notice": "お問い合わせはフォーム送信後、返信いたします。無理な営業は一切ありません。",
+    "infoCards": [
+      { "label": "Languages", "value": "日本語 / English / 中文 / ภาษาไทย" },
+      { "label": "Response", "value": "24時間以内に専門チームがご連絡" },
+      { "label": "Next Step", "value": "チャットまたはメールでヒアリング" }
+    ]
   },
   "aboutPage": {
     "title": "私たちについて",

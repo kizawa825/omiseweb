@@ -17,8 +17,13 @@
     ],
     "supportedLanguages": "支持语言",
     "languages": ["日语", "English", "中文", "ภาษาไทย"],
+    "highlights": [
+      { "label": "成果与信赖", "value": "120", "accent": "+", "description": "全球店主信赖的发布伙伴" },
+      { "label": "支持", "value": "Multi-lang", "description": "提供母语顾问与持续支持" }
+    ],
     "contact": "联系我们",
     "contactButton": "选择方案",
+    "contactHours": "周一至周五 10:00-18:00（日本时间）",
     "copyright": "© 2025 Omiseweb. All rights reserved."
   },
   "hero": {
@@ -30,10 +35,29 @@
       "行业15年的实绩"
     ],
     "cta_main": "选择方案并开始",
-    "cta_sub": "查看价格方案"
+    "cta_sub": "查看价格方案",
+    "trustMetrics": [
+      { "label": "回头率", "value": "97%" },
+      { "label": "预约量提升", "value": "+168%" },
+      { "label": "制作周期", "value": "4 Weeks" }
+    ],
+    "beforeAfter": {
+      "label": "Before → After",
+      "description": "我们设计集客与多语言导流，让体验直接转化为营收。"
+    },
+    "insightCard": {
+      "label": "Insight",
+      "description": "日本设计师与全球营销团队深入挖掘文化背景。"
+    },
+    "resultCard": {
+      "label": "Result",
+      "description": "上线次月预约量提升1.5倍，配合口碑导流与SEO/MEO持续见效。"
+    }
   },
   "problem": {
     "title": "您是否遇到过这些问题？",
+    "description": "为了打造能够多语言传达您热情、又能打动日本顾客的体验，我们首先从数据中梳理出核心课题。",
+    "insight": "这些课题并非彼此独立，而是串联成同一个故事。因此，连接品牌体验、用户动线与语言支持尤为重要。",
     "problems": [
       { "icon": "language", "text": "担心与日本制作公司的日语沟通" },
       { "icon": "users", "text": "店铺的魅力无法传达，新顾客没有增加" },
@@ -113,7 +137,8 @@
         "role": "中餐厅老板",
         "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop"
       }
-    ]
+    ],
+    "emptyMessage": "客户评价即将上线。"
   },
   "process": {
     "title": "从咨询到上线，简单快捷",
@@ -127,16 +152,28 @@
     ],
     "plans": {
       "title": "仅限餐厅・美容沙龙・放松沙龙・按摩店的方案",
+      "description": "可依据业务成熟度组合最合适的方案。",
       "items": [
         { "name": "Start", "price": "月付5,000日元起" },
         { "name": "Standard", "price": "月付10,000日元起" },
         { "name": "Premium", "price": "月付30,000日元起" }
       ]
-    }
+    },
+    "timeline": "从启动到上线平均4周，发布后我们仍会陪伴进行分析与优化。"
   },
   "faq": {
     "title": "常见问题",
     "subtitle": "在这里解决您的疑问与不安。",
+    "support": {
+      "label": "专属礼宾支持",
+      "email": "info@omiseweb.com",
+      "hours": "周一至周五 10:00 - 18:00（日本时间）/ 提供多语言服务",
+      "cta": "预约免费咨询"
+    },
+    "infoCards": [
+      { "label": "支持语言", "value": "日语 / 英语 / 中文 / 泰语" },
+      { "label": "平均响应时间", "value": "24小时内" }
+    ],
     "faqs": [
       { "q": "真的没有额外费用吗？", "a": "是的，除了签约时报价单上列明的费用外，不会产生任何其他费用。但是，如果客户因自身原因希望后续增加功能，我们将另行报价。" },
       { "q": "制作周期是多久？", "a": "根据方案、网站规模以及您提供材料的准备情况而有所不同，但标准方案通常需要大约1到1.5个月。" },
@@ -148,7 +185,12 @@
     "title": "现在，就通过网站将您业务的真正价值\n传达给日本的粉丝吧！",
     "subtitle": "我们将帮助您跨越语言、文化和数字的障碍。",
     "buttonText": "立即免费咨询",
-    "notice": "我们将在您咨询后24小时内用您希望的语言与您联系。我们绝不进行强行推销。"
+    "notice": "我们将在您咨询后24小时内用您希望的语言与您联系。我们绝不进行强行推销。",
+    "infoCards": [
+      { "label": "支持语言", "value": "日语 / 英语 / 中文 / 泰语" },
+      { "label": "响应", "value": "专业团队 24 小时内回复" },
+      { "label": "下一步", "value": "通过聊天或邮件进行深入沟通" }
+    ]
   },
   "aboutPage": {
     "title": "关于我们",
