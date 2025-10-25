@@ -213,8 +213,8 @@
           "monthly": "5,000"
         },
         "yearly": {
-          "total": "60,000",
-          "savings": "20%OFF"
+          "total": "48,000",
+          "savings": "20%OFF（¥12,000 OFF）"
         },
         "currency": "日元",
         "description": "月付：初期费用25,000日元 + 月费5,000日元\n年付：60,000日元（初期费用免费・月费20%OFF）",
@@ -238,8 +238,8 @@
           "monthly": "10,000"
         },
         "yearly": {
-          "total": "120,000",
-          "savings": "20%OFF"
+          "total": "96,000",
+          "savings": "20%OFF（¥24,000 OFF）"
         },
         "currency": "日元",
         "description": "月付：初期费用50,000日元 + 月费10,000日元\n年付：120,000日元（初期费用免费・月费20%OFF）",
@@ -263,8 +263,8 @@
           "monthly": "30,000"
         },
         "yearly": {
-          "total": "360,000",
-          "savings": "20%OFF"
+          "total": "288,000",
+          "savings": "20%OFF（¥72,000 OFF）"
         },
         "currency": "日元",
         "description": "月付：初期费用100,000日元 + 月费30,000日元\n年付：360,000日元（初期费用免费・月费20%OFF）",
