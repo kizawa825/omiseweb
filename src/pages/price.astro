@@ -55,10 +55,6 @@ const pageContent = content.pricePage;
             
             <!-- 月払い価格表示 -->
             <div id={`${plan.name.toLowerCase()}-monthly`} class="pricing-display">
-              <div class="mt-2 text-neutral-600 text-sm h-12">
-                <p class="font-medium">初期費用: ¥{plan.monthly.initial}</p>
-                <p class="font-medium">月額: ¥{plan.monthly.monthly}</p>
-              </div>
               <div class="mt-6">
                 <span class="text-3xl font-extrabold text-neutral-900">¥{plan.monthly.monthly}</span>
                 <span class="text-lg font-medium text-neutral-500 ml-1">/月</span>
@@ -70,7 +66,6 @@ const pageContent = content.pricePage;
             <div id={`${plan.name.toLowerCase()}-yearly`} class="pricing-display hidden">
               <div class="mt-2 text-neutral-600 text-sm h-12">
                 <p class="font-medium text-green-600">初期費用無料</p>
-                <p class="font-medium">年払い: ¥{plan.yearly.total}</p>
               </div>
               <div class="mt-6">
                 <span class="text-4xl font-extrabold text-neutral-900">¥{plan.yearly.total}</span>
