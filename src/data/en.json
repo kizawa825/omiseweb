@@ -18,28 +18,31 @@
     "suppottedLanguages":"Supported Languages",
     "languages":["日本語","English","中文","ภาษาไทย"],
     "contact": "Contact",
-    "contactButton": "Contact",
+    "contactButton": "Choose Plan",
     "copyright": "© 2025 Omiseweb. All rights reserved."
   },
   "hero": {
-    "catchphrase": "We deliver your wonderful shop to fans in Japan.",
-    "subcopy": "For foreign business owners in Japan.\nHigh-quality, low-cost website creation service for restaurants and salons only.",
+    "catchphrase": "High-quality, low-cost website creation service
+for foreign business owners in Japan",
+    "subcopy": "Restaurant and salon only.
+Start from ¥5,000/month
+Professional quality website creation",
     "features": [
       "Overwhelmingly Fast Loading",
       "High Quality Low Cost Support",
       "15 Years of Industry Customer Acquisition"
     ],
-    "cta_main": "Get a Free Consultation (in your language)",
+    "cta_main": "Choose Plan and Start",
     "cta_sub": "See Pricing Plans"
   },
   "problem": {
-    "title": "Do you have these problems with your website?",
+    "title": "Do you have these problems?",
     "problems": [
-      { "icon": "language", "text": "Anxious about communicating in Japanese with Japanese production companies..." },
-      { "icon": "users", "text": "The charm of my shop isn't conveyed, and I'm not getting new customers..." },
-      { "icon": "palette", "text": "My site is heavy and slow to load..." },
-      { "icon": "money", "text": "A professional website is too expensive to afford..." },
-      { "icon": "question", "text": "I have no web expertise and don't know where to start..." }
+      { "icon": "language", "text": "Anxious about communicating in Japanese with Japanese production companies" },
+      { "icon": "users", "text": "The charm of my shop isn't conveyed, and I'm not getting new customers" },
+      { "icon": "palette", "text": "My site is heavy and slow to load" },
+      { "icon": "money", "text": "A professional website is too expensive to afford" },
+      { "icon": "question", "text": "I have no web expertise and don't know where to start" }
     ]
   },
   "solution": {
@@ -213,11 +216,11 @@
           "monthly": "5,000"
         },
         "yearly": {
-          "total": "50,000",
+          "total": "60,000",
           "savings": "20% OFF"
         },
         "currency": "JPY",
-        "description": "Monthly: Initial cost ¥25,000 + Monthly ¥5,000\nYearly: ¥50,000 (No initial cost + 20% OFF monthly)",
+        "description": "Monthly: Initial cost ¥25,000 + Monthly ¥5,000\nYearly: ¥60,000 (No initial cost + 20% OFF monthly)",
         "features": [
           "3 pages",
           "High-quality template",
@@ -229,7 +232,7 @@
           "Support (email & chat)"
         ],
         "recommended": false,
-        "cta": "Consult with this plan"
+        "cta": "Choose This Plan"
       },
       {
         "name": "Standard",
@@ -238,11 +241,11 @@
           "monthly": "10,000"
         },
         "yearly": {
-          "total": "100,000",
+          "total": "120,000",
           "savings": "20% OFF"
         },
         "currency": "JPY",
-        "description": "Monthly: Initial cost ¥50,000 + Monthly ¥10,000\nYearly: ¥100,000 (No initial cost + 20% OFF monthly)",
+        "description": "Monthly: Initial cost ¥50,000 + Monthly ¥10,000\nYearly: ¥120,000 (No initial cost + 20% OFF monthly)",
         "features": [
           "6 pages",
           "Fully original",
@@ -254,7 +257,7 @@
           "Support (email & chat)"
         ],
         "recommended": true,
-        "cta": "Consult with this plan"
+        "cta": "Choose This Plan"
       },
       {
         "name": "Premium",
@@ -263,11 +266,11 @@
           "monthly": "30,000"
         },
         "yearly": {
-          "total": "288,000",
+          "total": "360,000",
           "savings": "20% OFF"
         },
         "currency": "JPY",
-        "description": "Monthly: Initial cost ¥100,000 + Monthly ¥30,000\nYearly: ¥288,000 (No initial cost + 20% OFF monthly)",
+        "description": "Monthly: Initial cost ¥100,000 + Monthly ¥30,000\nYearly: ¥360,000 (No initial cost + 20% OFF monthly)",
         "features": [
           "9 pages",
           "Strategic original",
@@ -279,7 +282,7 @@
           "Support (priority email & chat)"
         ],
         "recommended": false,
-        "cta": "Consult with this plan"
+        "cta": "Choose This Plan"
       }
     ],
     "featureComparison": {

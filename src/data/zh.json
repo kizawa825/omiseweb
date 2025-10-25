@@ -18,28 +18,31 @@
     "supportedLanguages": "支持语言",
     "languages": ["日本語", "English", "中文", "ภาษาไทย"],
     "contact": "联系我们",
-    "contactButton": "免费咨询",
+    "contactButton": "选择方案",
     "copyright": "© 2025 Omiseweb. All rights reserved."
   },
   "hero": {
-    "catchphrase": "将您出色的店铺，呈现给日本的粉丝。",
-    "subcopy": "致在日本经营业务的外国店主。\n仅限餐厅和沙龙的高品质低价格网站制作服务。",
+    "catchphrase": "为在日本经营业务的外国店主提供
+高品质低价格的网站制作服务",
+    "subcopy": "仅限餐厅和沙龙
+从月费5,000日元开始
+专业品质的网站制作",
     "features": [
       "压倒性的高速显示",
       "高品质低价格支持",
       "行业15年的集客力"
     ],
-    "cta_main": "免费咨询 (用您的母语)",
+    "cta_main": "选择方案并开始",
     "cta_sub": "查看价格方案"
   },
   "problem": {
-    "title": "您是否在网站方面遇到过这些烦恼？",
+    "title": "您是否遇到过这些问题？",
     "problems": [
-      { "icon": "language", "text": "担心与日本制作公司的日语沟通..." },
-      { "icon": "users", "text": "店铺的魅力无法传达，新顾客没有增加..." },
-      { "icon": "palette", "text": "网站很重，加载很慢..." },
-      { "icon": "money", "text": "专业的网站制作费用太高，难以负担..." },
-      { "icon": "question", "text": "没有网络专业知识，不知从何下手..." }
+      { "icon": "language", "text": "担心与日本制作公司的日语沟通" },
+      { "icon": "users", "text": "店铺的魅力无法传达，新顾客没有增加" },
+      { "icon": "palette", "text": "网站很重，加载很慢" },
+      { "icon": "money", "text": "专业的网站制作费用太高，难以负担" },
+      { "icon": "question", "text": "没有网络专业知识，不知从何下手" }
     ]
   },
   "solution": {
@@ -213,11 +216,11 @@
           "monthly": "5,000"
         },
         "yearly": {
-          "total": "50,000",
+          "total": "60,000",
           "savings": "20%OFF"
         },
         "currency": "日元",
-        "description": "月付：初期费用25,000日元 + 月费5,000日元\n年付：50,000日元（初期费用免费・月费20%OFF）",
+        "description": "月付：初期费用25,000日元 + 月费5,000日元\n年付：60,000日元（初期费用免费・月费20%OFF）",
         "features": [
           "3页",
           "高品质模板",
@@ -229,7 +232,7 @@
           "支持（邮件・聊天）"
         ],
         "recommended": false,
-        "cta": "咨询此方案"
+        "cta": "选择此方案"
       },
       {
         "name": "Standard",
@@ -238,11 +241,11 @@
           "monthly": "10,000"
         },
         "yearly": {
-          "total": "100,000",
+          "total": "120,000",
           "savings": "20%OFF"
         },
         "currency": "日元",
-        "description": "月付：初期费用50,000日元 + 月费10,000日元\n年付：100,000日元（初期费用免费・月费20%OFF）",
+        "description": "月付：初期费用50,000日元 + 月费10,000日元\n年付：120,000日元（初期费用免费・月费20%OFF）",
         "features": [
           "6页",
           "完全原创",
@@ -254,7 +257,7 @@
           "支持（邮件・聊天）"
         ],
         "recommended": true,
-        "cta": "咨询此方案"
+        "cta": "选择此方案"
       },
       {
         "name": "Premium",
@@ -263,11 +266,11 @@
           "monthly": "30,000"
         },
         "yearly": {
-          "total": "288,000",
+          "total": "360,000",
           "savings": "20%OFF"
         },
         "currency": "日元",
-        "description": "月付：初期费用100,000日元 + 月费30,000日元\n年付：288,000日元（初期费用免费・月费20%OFF）",
+        "description": "月付：初期费用100,000日元 + 月费30,000日元\n年付：360,000日元（初期费用免费・月费20%OFF）",
         "features": [
           "9页",
           "战略性原创",
@@ -279,7 +282,7 @@
           "支持（优先邮件・聊天）"
         ],
         "recommended": false,
-        "cta": "咨询此方案"
+        "cta": "选择此方案"
       }
     ],
     "featureComparison": {
