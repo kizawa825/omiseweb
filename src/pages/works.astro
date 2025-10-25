@@ -3,6 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import Cta from '../components/Cta.astro';
 import content from '../data/jp.json';
 const pageContent = content.worksPage;
+const detailLinks: Record<string, string> = {
+  '中華レストラン「龍的厨房」様': '/works/ryuteki-kitchen',
+};
 ---
 
 <Layout
@@ -25,22 +28,40 @@ const pageContent = content.worksPage;
   <section class="py-20 sm:py-24">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-        {pageContent.cases.map(work => (
-          <div class="group">
-            <div class="overflow-hidden rounded-xl shadow-lg">
-              <img src={work.image} alt={work.name} class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
-            </div>
-            <div class="p-6 bg-white">
-              <p class="text-sm font-semibold text-indigo-600">{work.category}</p>
-              <h2 class="mt-2 text-2xl font-bold text-slate-900">{work.name}</h2>
-              <p class="mt-3 text-slate-600">{work.description}</p>
-              <div class="mt-6 border-t pt-6">
-                 <p class="text-sm text-slate-600"><strong class="font-semibold text-amber-600">Before:</strong> {work.before}</p>
-                 <p class="mt-2 text-sm text-slate-600"><strong class="font-semibold text-green-600">After:</strong> {work.after}</p>
+        {pageContent.cases.map(work => {
+          const href = detailLinks[work.name];
+          return href ? (
+            <a href={href} class="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-4 focus-visible:ring-offset-white rounded-2xl">
+              <div class="overflow-hidden rounded-xl shadow-lg">
+                <img src={work.image} alt={work.name} class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
+              </div>
+              <div class="p-6 bg-white rounded-b-xl">
+                <p class="text-sm font-semibold text-indigo-600">{work.category}</p>
+                <h2 class="mt-2 text-2xl font-bold text-slate-900">{work.name}</h2>
+                <p class="mt-3 text-slate-600">{work.description}</p>
+                <div class="mt-6 border-t pt-6">
+                  <p class="text-sm text-slate-600"><strong class="font-semibold text-amber-600">Before:</strong> {work.before}</p>
+                  <p class="mt-2 text-sm text-slate-600"><strong class="font-semibold text-green-600">After:</strong> {work.after}</p>
+                </div>
+              </div>
+            </a>
+          ) : (
+            <div class="group">
+              <div class="overflow-hidden rounded-xl shadow-lg">
+                <img src={work.image} alt={work.name} class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
+              </div>
+              <div class="p-6 bg-white">
+                <p class="text-sm font-semibold text-indigo-600">{work.category}</p>
+                <h2 class="mt-2 text-2xl font-bold text-slate-900">{work.name}</h2>
+                <p class="mt-3 text-slate-600">{work.description}</p>
+                <div class="mt-6 border-t pt-6">
+                  <p class="text-sm text-slate-600"><strong class="font-semibold text-amber-600">Before:</strong> {work.before}</p>
+                  <p class="mt-2 text-sm text-slate-600"><strong class="font-semibold text-green-600">After:</strong> {work.after}</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   </section>

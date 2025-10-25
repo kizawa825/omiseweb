@@ -1,0 +1,344 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import content from '../../data/jp.json';
+
+const pageTitle = '中華レストラン「龍的厨房」制作事例 | Omiseweb';
+const pageDescription =
+  '伝統とモダンを融合させた中華レストラン「龍的厨房」様の制作事例。ビジュアルメインでシズル感を演出し、オンライン予約導線を最適化したプロジェクトの詳細をご紹介します。';
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  headerContent={content.header}
+  footerContent={content.footer}
+>
+  <article class="bg-slate-900 text-white">
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-red-900/70 via-slate-900 to-black"></div>
+      <img
+        src="https://placehold.co/1600x900/190b0b/ffffff?text=%E9%BE%8D%E7%9A%84%E5%8E%A8%E6%88%BF+Hero+Visual"
+        alt="龍的厨房のメインビジュアル"
+        class="absolute inset-0 h-full w-full object-cover opacity-70"
+      />
+      <div class="relative max-w-6xl mx-auto px-6 py-28 lg:py-36">
+        <p class="text-sm uppercase tracking-[0.4em] text-amber-300/80">Case Study</p>
+        <h1 class="mt-6 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+          中華レストラン「龍的厨房」様<br />伝統×モダンの美味体験をデザイン
+        </h1>
+        <p class="mt-6 max-w-2xl text-lg text-slate-200">
+          老舗の味わいと現代的な空間を両立した店舗体験を、視覚的なストーリーテリングで表現。
+          香りまで届くようなシズル感と洗練されたトーンで、新たな顧客層へブランドを再構築しました。
+        </p>
+        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
+            <p class="text-xs uppercase tracking-[0.3em] text-amber-200/80">業種</p>
+            <p class="mt-3 text-xl font-semibold">高級中華レストラン</p>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
+            <p class="text-xs uppercase tracking-[0.3em] text-amber-200/80">施策</p>
+            <p class="mt-3 text-xl font-semibold">サイトリニューアル / 撮影ディレクション / 予約導線設計</p>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
+            <p class="text-xs uppercase tracking-[0.3em] text-amber-200/80">成果</p>
+            <p class="mt-3 text-xl font-semibold">Web予約 1.5倍 / 20〜30代の新規顧客比率アップ</p>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
+            <p class="text-xs uppercase tracking-[0.3em] text-amber-200/80">期間</p>
+            <p class="mt-3 text-xl font-semibold">制作 8週間</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gradient-to-b from-slate-900 to-black">
+      <div class="max-w-6xl mx-auto px-6 py-20 lg:py-28">
+        <div class="grid gap-10 lg:grid-cols-[1.2fr_1fr] items-start">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-semibold">
+              Before → After
+              <span class="block text-base font-normal text-amber-200/80 mt-3">
+                オンライン予約とブランド世界観を再構築
+              </span>
+            </h2>
+            <div class="mt-8 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur">
+              <p class="text-sm font-semibold text-amber-300/90">Before</p>
+              <p class="mt-3 text-slate-100">
+                旧サイトは情報量が多い一方でビジュアルが乏しく、電話予約のみ。特別感が伝わらず、若年層の来店が伸び悩んでいました。
+              </p>
+            </div>
+            <div class="mt-6 rounded-3xl border border-amber-300/30 bg-amber-500/10 p-8 backdrop-blur">
+              <p class="text-sm font-semibold text-amber-200">After</p>
+              <p class="mt-3 text-slate-50">
+                香りや音まで想像させるビジュアルを中心に、料理カテゴリー別のギャラリーと時間帯に合わせたおすすめメニューを配置。
+                オンライン予約の導線を明確化し、予約数が1.5倍へと向上しました。
+              </p>
+            </div>
+          </div>
+          <div class="grid gap-6">
+            <img
+              src="https://placehold.co/900x600/2b0b0b/ffffff?text=Signature+Dish"
+              alt="看板メニューのイメージ"
+              class="h-60 w-full rounded-3xl object-cover shadow-2xl shadow-red-950/50"
+            />
+            <img
+              src="https://placehold.co/900x600/361212/ffffff?text=Dining+Space"
+              alt="モダンな店内写真のイメージ"
+              class="h-60 w-full rounded-3xl object-cover shadow-2xl shadow-red-950/50"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-black">
+      <div class="max-w-6xl mx-auto px-6 py-20 lg:py-24">
+        <h2 class="text-3xl md:text-4xl font-semibold">デザインコンセプト</h2>
+        <p class="mt-4 text-slate-200">
+          「龍が立ち上る瞬間のエネルギー」をモチーフに、赤と黒を基調にしたグラデーション、余白を活かした構図、光沢感のある質感を意識。
+          伝統的な中国文様をモダンにレイヤーし、料理の湯気やソースの艶を連想させるマイクロアニメーションを設計しました。
+        </p>
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+            <p class="text-sm font-semibold text-amber-300">Color Story</p>
+            <p class="mt-3 text-slate-100">
+              深紅（#7F1D1D）と墨色（#0F172A）を基調に、金のアクセントで高級感を演出。料理写真の温かみを引き立てる色彩設計。
+            </p>
+          </div>
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+            <p class="text-sm font-semibold text-amber-300">Typography</p>
+            <p class="mt-3 text-slate-100">
+              漢字の力強さを活かすために明朝体をベースに、英字はモダンSansでコントラストを形成。料理名は縦書き表現で独自性を添えました。
+            </p>
+          </div>
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+            <p class="text-sm font-semibold text-amber-300">Interaction</p>
+            <p class="mt-3 text-slate-100">
+              ホバー時に湯気が立ちのぼるようなフェードアニメーション、スクロールで香辛料が舞うようなパーティクル演出を用意（後日実装予定）。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-slate-950">
+      <div class="max-w-6xl mx-auto px-6 py-20 lg:py-24">
+        <div class="flex flex-col gap-10 lg:flex-row lg:items-center">
+          <div class="lg:w-2/5 space-y-5">
+            <h2 class="text-3xl md:text-4xl font-semibold">ビジュアルストーリーテリング</h2>
+            <p class="text-slate-200">
+              コース料理の流れに合わせてページを構成。季節限定メニュー、点心、メイン、デザートまで、味の温度感を想像させる写真を連動させました。
+            </p>
+            <ul class="space-y-4 text-slate-100">
+              <li class="flex gap-3">
+                <span class="mt-1 h-2 w-2 rounded-full bg-amber-400"></span>
+                シズル感を最大化するためのクローズアップカットと素材のディテール撮影を前提にしたレイアウト
+              </li>
+              <li class="flex gap-3">
+                <span class="mt-1 h-2 w-2 rounded-full bg-amber-400"></span>
+                スクロールで料理が湧き上がるように見せる、上下段構成のギャラリーと余白の緩急
+              </li>
+              <li class="flex gap-3">
+                <span class="mt-1 h-2 w-2 rounded-full bg-amber-400"></span>
+                食事風景と空間写真を交互に配置し、五感で感じる体験を伝えるシナリオ
+              </li>
+            </ul>
+          </div>
+          <div class="lg:w-3/5">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <img
+                src="https://placehold.co/900x1200/3b0a0a/ffffff?text=Chef%27s+Table"
+                alt="料理人のイメージ"
+                class="h-80 w-full rounded-3xl object-cover shadow-2xl shadow-red-900/50"
+              />
+              <div class="grid gap-4">
+                <img
+                  src="https://placehold.co/900x600/471313/ffffff?text=Course+Presentation"
+                  alt="コース料理の提供シーン"
+                  class="h-48 w-full rounded-3xl object-cover shadow-2xl shadow-red-900/50"
+                />
+                <img
+                  src="https://placehold.co/900x600/2a0909/ffffff?text=Dim+Sum+Detail"
+                  alt="点心のディテール"
+                  class="h-48 w-full rounded-3xl object-cover shadow-2xl shadow-red-900/50"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gradient-to-br from-black via-slate-950 to-slate-900">
+      <div class="max-w-6xl mx-auto px-6 py-20 lg:py-24">
+        <div class="grid gap-12 lg:grid-cols-2">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-semibold">予約導線とコンバージョン設計</h2>
+            <p class="mt-4 text-slate-200">
+              来店意欲が高まるタイミングを逃さないよう、ページ全体にマイクロコンバージョンを配置。
+              予約方法の比較表、即時予約フォーム、WeChat・電話のバックアップ導線を組み合わせました。
+            </p>
+            <div class="mt-6 grid gap-5 md:grid-cols-2">
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+                <p class="text-sm font-semibold text-amber-300">即時予約フォーム</p>
+                <p class="mt-3 text-slate-100">
+                  席数・コース・アレルギー情報を1画面で登録可能。レビュー導線にも遷移し、リピーター獲得を狙います。
+                </p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+                <p class="text-sm font-semibold text-amber-300">時間帯別CTA</p>
+                <p class="mt-3 text-slate-100">
+                  ランチ・ディナー・個室利用でボタンカラーと文言を切り替え、ターゲットに合わせた訴求を実施しました。
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="rounded-[32px] border border-white/10 bg-white/5 p-8 backdrop-blur">
+            <div class="flex items-center justify-between text-sm text-amber-200">
+              <span>予約導線の成果</span>
+              <span>Results</span>
+            </div>
+            <div class="mt-8 space-y-6">
+              <div class="flex items-start justify-between gap-6">
+                <p class="text-slate-200">オンライン予約比率</p>
+                <p class="text-3xl font-semibold text-amber-300">+52%</p>
+              </div>
+              <div class="flex items-start justify-between gap-6">
+                <p class="text-slate-200">20〜30代の新規顧客</p>
+                <p class="text-3xl font-semibold text-amber-300">1.5倍</p>
+              </div>
+              <div class="flex items-start justify-between gap-6">
+                <p class="text-slate-200">予約完了までの離脱率</p>
+                <p class="text-3xl font-semibold text-amber-300">-38%</p>
+              </div>
+              <div class="flex items-start justify-between gap-6">
+                <p class="text-slate-200">レビュー投稿数</p>
+                <p class="text-3xl font-semibold text-amber-300">2.2倍</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-black">
+      <div class="max-w-6xl mx-auto px-6 py-20 lg:py-24">
+        <div class="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-semibold">レスポンシブ対応とUIシステム</h2>
+            <p class="mt-4 text-slate-200">
+              海外観光客のモバイルアクセスにも配慮し、スマホでは動画と写真がフルスクリーンで切り替わるカルーセルを設計。
+              デスクトップではコース内容が一覧で比較できるようにし、表示環境に応じて最適な情報量を提供しています。
+            </p>
+            <ul class="mt-8 space-y-4 text-slate-100">
+              <li class="flex gap-3">
+                <span class="mt-1 h-2 w-2 rounded-full bg-amber-400"></span>
+                グローバルナビはスクロールで背景が透過→塗りつぶしに切り替わり、視認性と没入感を両立
+              </li>
+              <li class="flex gap-3">
+                <span class="mt-1 h-2 w-2 rounded-full bg-amber-400"></span>
+                テーブルレイアウトはモバイルでカード化し、予約ボタンを常時表示する固定CTAを実装予定
+              </li>
+              <li class="flex gap-3">
+                <span class="mt-1 h-2 w-2 rounded-full bg-amber-400"></span>
+                多言語対応に備え、漢字・英字の組み合わせでも崩れないルビ・翻訳スペースを確保
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-4 sm:flex-row lg:flex-col">
+            <img
+              src="https://placehold.co/420x780/261010/ffffff?text=Mobile+View"
+              alt="スマートフォンでの表示イメージ"
+              class="w-full max-w-xs rounded-3xl border border-white/10 object-cover shadow-2xl shadow-red-900/50"
+            />
+            <img
+              src="https://placehold.co/900x560/3a1010/ffffff?text=Desktop+Layout"
+              alt="デスクトップでの表示イメージ"
+              class="w-full max-w-sm rounded-3xl border border-white/10 object-cover shadow-2xl shadow-red-900/50"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gradient-to-b from-slate-900 to-slate-950">
+      <div class="max-w-6xl mx-auto px-6 py-20 lg:py-24">
+        <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-semibold">制作フロー</h2>
+            <ol class="mt-6 space-y-5">
+              <li class="rounded-3xl border border-white/10 bg-white/5 px-6 py-5 backdrop-blur">
+                <p class="text-sm font-semibold text-amber-300">01 / リサーチ・体験設計</p>
+                <p class="mt-2 text-slate-100">
+                  来店体験のヒアリング、競合調査、料理・空間撮影の事前ディレクションを実施。
+                </p>
+              </li>
+              <li class="rounded-3xl border border-white/10 bg-white/5 px-6 py-5 backdrop-blur">
+                <p class="text-sm font-semibold text-amber-300">02 / ビジュアルコンセプト開発</p>
+                <p class="mt-2 text-slate-100">
+                  シズル感を最大化するトーン＆マナー、写真のアングル、動画のカット割りを定義。
+                </p>
+              </li>
+              <li class="rounded-3xl border border-white/10 bg-white/5 px-6 py-5 backdrop-blur">
+                <p class="text-sm font-semibold text-amber-300">03 / デザイン・実装</p>
+                <p class="mt-2 text-slate-100">
+                  撮影素材を組み込みながら、UIコンポーネントと動きのあるエフェクトを実装。
+                </p>
+              </li>
+              <li class="rounded-3xl border border-white/10 bg-white/5 px-6 py-5 backdrop-blur">
+                <p class="text-sm font-semibold text-amber-300">04 / 公開・運用設計</p>
+                <p class="mt-2 text-slate-100">
+                  SEO/MEOキーワード設定、レビュー導線の整備、定期更新シナリオの作成を支援。
+                </p>
+              </li>
+            </ol>
+          </div>
+          <div class="rounded-[32px] border border-amber-300/40 bg-amber-500/10 p-10 backdrop-blur">
+            <p class="text-sm uppercase tracking-[0.4em] text-amber-200/90">Owner's Voice</p>
+            <blockquote class="mt-6 space-y-4 text-lg text-slate-100">
+              <p>
+                「香りまで伝わるような写真構成に感動しました。WeChatからの問い合わせもスムーズになり、
+                若い日本人のお客様の予約が目に見えて増えています。」
+              </p>
+              <footer class="text-sm text-amber-100/80">
+                龍的厨房 オーナー 李 様
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-black">
+      <div class="max-w-6xl mx-auto px-6 py-20 lg:py-24 text-center">
+        <p class="text-sm uppercase tracking-[0.4em] text-amber-200/80">Next Project</p>
+        <h2 class="mt-4 text-3xl md:text-4xl font-semibold text-white">
+          アジア料理の魅力を引き出すサイト制作なら、お任せください。
+        </h2>
+        <p class="mt-4 text-slate-200">
+          ビジュアル撮影から予約導線の整備まで、あなたのお店の個性を最大限に引き出します。
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <a
+            href="/contact"
+            class="inline-flex items-center rounded-full bg-amber-500 px-8 py-3 text-base font-semibold text-black transition hover:bg-amber-400"
+          >
+            制作の相談をする
+          </a>
+          <a
+            href="/price"
+            class="inline-flex items-center rounded-full border border-white/20 px-8 py-3 text-base font-semibold text-white transition hover:border-amber-400 hover:text-amber-200"
+          >
+            料金プランを見る
+          </a>
+          <a
+            href="/works"
+            class="inline-flex items-center rounded-full border border-white/20 px-8 py-3 text-base font-semibold text-white transition hover:border-amber-400 hover:text-amber-200"
+          >
+            他の制作事例へ戻る
+          </a>
+        </div>
+      </div>
+    </section>
+  </article>
+</Layout>
