@@ -24,25 +24,61 @@ const pageContent = content.pricePage;
   <!-- Pricing Cards Section -->
   <section class="py-20 sm:py-24">
     <div class="max-w-7xl mx-auto px-6">
+      <!-- Payment Method Toggle -->
+      <div class="text-center mb-12">
+        <div class="inline-flex bg-slate-100 rounded-lg p-1">
+          <button id="monthly-toggle" class="px-6 py-2 rounded-md font-semibold text-sm transition-all duration-200 bg-white text-slate-900 shadow-sm">
+            Monthly
+          </button>
+          <button id="yearly-toggle" class="px-6 py-2 rounded-md font-semibold text-sm transition-all duration-200 text-slate-600 hover:text-slate-900">
+            Yearly
+          </button>
+        </div>
+        <p class="mt-3 text-sm text-slate-600">20% OFF + No initial cost with yearly payment</p>
+      </div>
+
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
         {pageContent.plans.map(plan => (
           <div class={`flex flex-col border rounded-xl p-8 ${plan.recommended ? 'border-indigo-500 ring-2 ring-indigo-500' : 'border-slate-200'}`}>
             {plan.recommended && (
               <div class="text-center mb-4">
-                <span class="bg-indigo-100 text-indigo-700 text-sm font-semibold px-4 py-1 rounded-full">一番人気</span>
+                <span class="bg-indigo-100 text-indigo-700 text-sm font-semibold px-4 py-1 rounded-full">Most Popular</span>
               </div>
             )}
             <h2 class="text-2xl font-bold text-slate-900">{plan.name}</h2>
-            <p class="mt-2 text-slate-600 text-sm h-12">{plan.description}</p>
-            <div class="mt-6">
-              <span class="text-4xl font-extrabold text-slate-900">{plan.price}</span>
-              <span class="text-lg font-medium text-slate-500 ml-1">{plan.currency}</span>
+            
+            <!-- Monthly Pricing Display -->
+            <div id={`${plan.name.toLowerCase()}-monthly`} class="pricing-display">
+              <div class="mt-2 text-slate-600 text-sm h-12">
+                <p class="font-medium">Initial cost: ¥{plan.monthly.initial}</p>
+                <p class="font-medium">Monthly: ¥{plan.monthly.monthly}</p>
+              </div>
+              <div class="mt-6">
+                <span class="text-3xl font-extrabold text-slate-900">¥{plan.monthly.monthly}</span>
+                <span class="text-lg font-medium text-slate-500 ml-1">/month</span>
+                <p class="text-sm text-slate-500 mt-1">+ Initial cost ¥{plan.monthly.initial}</p>
+              </div>
             </div>
+
+            <!-- Yearly Pricing Display -->
+            <div id={`${plan.name.toLowerCase()}-yearly`} class="pricing-display hidden">
+              <div class="mt-2 text-slate-600 text-sm h-12">
+                <p class="font-medium text-green-600">No initial cost</p>
+                <p class="font-medium">Yearly: ¥{plan.yearly.total}</p>
+              </div>
+              <div class="mt-6">
+                <span class="text-4xl font-extrabold text-slate-900">¥{plan.yearly.total}</span>
+                <span class="text-lg font-medium text-slate-500 ml-1">/year</span>
+                <div class="mt-2">
+                  <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">{plan.yearly.savings}</span>
+                </div>
+              </div>
+            </div>
+
             <ul class="mt-8 space-y-4 text-slate-600 flex-grow">
               {plan.features.map(feature => (
                 <li class="flex items-start">
                   <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
-      
                   <span>{feature}</span>
                 </li>
               ))}
@@ -57,6 +93,36 @@ const pageContent = content.pricePage;
       </div>
     </div>
   </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const monthlyToggle = document.getElementById('monthly-toggle');
+      const yearlyToggle = document.getElementById('yearly-toggle');
+      
+      const monthlyDisplays = document.querySelectorAll('[id$="-monthly"]');
+      const yearlyDisplays = document.querySelectorAll('[id$="-yearly"]');
+
+      monthlyToggle.addEventListener('click', function() {
+        monthlyToggle.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+        monthlyToggle.classList.remove('text-slate-600');
+        yearlyToggle.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+        yearlyToggle.classList.add('text-slate-600');
+        
+        monthlyDisplays.forEach(display => display.classList.remove('hidden'));
+        yearlyDisplays.forEach(display => display.classList.add('hidden'));
+      });
+
+      yearlyToggle.addEventListener('click', function() {
+        yearlyToggle.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+        yearlyToggle.classList.remove('text-slate-600');
+        monthlyToggle.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+        monthlyToggle.classList.add('text-slate-600');
+        
+        yearlyDisplays.forEach(display => display.classList.remove('hidden'));
+        monthlyDisplays.forEach(display => display.classList.add('hidden'));
+      });
+    });
+  </script>
 
   <!-- Feature Comparison Table -->
   <section class="py-20 sm:py-24 bg-slate-50">

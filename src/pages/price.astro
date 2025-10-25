@@ -23,6 +23,19 @@ const pageContent = content.pricePage;
 
   <section class="py-20 sm:py-24 bg-neutral-50">
     <div class="max-w-7xl mx-auto px-6">
+      <!-- 支払い方法切り替えボタン -->
+      <div class="text-center mb-12">
+        <div class="inline-flex bg-neutral-100 rounded-lg p-1">
+          <button id="monthly-toggle" class="px-6 py-2 rounded-md font-semibold text-sm transition-all duration-200 bg-white text-neutral-900 shadow-sm">
+            月払い
+          </button>
+          <button id="yearly-toggle" class="px-6 py-2 rounded-md font-semibold text-sm transition-all duration-200 text-neutral-600 hover:text-neutral-900">
+            年払い
+          </button>
+        </div>
+        <p class="mt-3 text-sm text-neutral-600">年払いで20%OFF + 初期費用無料</p>
+      </div>
+
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-stretch">
         
         {pageContent.plans.map(plan => (
@@ -39,11 +52,35 @@ const pageContent = content.pricePage;
               </div>
             )}
             <h2 class="text-2xl font-bold text-neutral-900">{plan.name}</h2>
-            <p class="mt-2 text-neutral-600 text-sm h-12">{plan.description}</p>
-            <div class="mt-6">
-              <span class="text-4xl font-extrabold text-neutral-900">{plan.price}</span>
-              <span class="text-lg font-medium text-neutral-500 ml-1">{plan.currency}</span>
+            
+            <!-- 月払い価格表示 -->
+            <div id={`${plan.name.toLowerCase()}-monthly`} class="pricing-display">
+              <div class="mt-2 text-neutral-600 text-sm h-12">
+                <p class="font-medium">初期費用: ¥{plan.monthly.initial}</p>
+                <p class="font-medium">月額: ¥{plan.monthly.monthly}</p>
+              </div>
+              <div class="mt-6">
+                <span class="text-3xl font-extrabold text-neutral-900">¥{plan.monthly.monthly}</span>
+                <span class="text-lg font-medium text-neutral-500 ml-1">/月</span>
+                <p class="text-sm text-neutral-500 mt-1">+ 初期費用¥{plan.monthly.initial}</p>
+              </div>
             </div>
+
+            <!-- 年払い価格表示 -->
+            <div id={`${plan.name.toLowerCase()}-yearly`} class="pricing-display hidden">
+              <div class="mt-2 text-neutral-600 text-sm h-12">
+                <p class="font-medium text-green-600">初期費用無料</p>
+                <p class="font-medium">年払い: ¥{plan.yearly.total}</p>
+              </div>
+              <div class="mt-6">
+                <span class="text-4xl font-extrabold text-neutral-900">¥{plan.yearly.total}</span>
+                <span class="text-lg font-medium text-neutral-500 ml-1">/年</span>
+                <div class="mt-2">
+                  <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">{plan.yearly.savings}</span>
+                </div>
+              </div>
+            </div>
+
             <ul class="mt-8 space-y-4 text-neutral-600 flex-grow">
               {plan.features.map(feature => (
                 <li class="flex items-start">
@@ -68,6 +105,36 @@ const pageContent = content.pricePage;
       </div>
     </div>
   </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const monthlyToggle = document.getElementById('monthly-toggle');
+      const yearlyToggle = document.getElementById('yearly-toggle');
+      
+      const monthlyDisplays = document.querySelectorAll('[id$="-monthly"]');
+      const yearlyDisplays = document.querySelectorAll('[id$="-yearly"]');
+
+      monthlyToggle.addEventListener('click', function() {
+        monthlyToggle.classList.add('bg-white', 'text-neutral-900', 'shadow-sm');
+        monthlyToggle.classList.remove('text-neutral-600');
+        yearlyToggle.classList.remove('bg-white', 'text-neutral-900', 'shadow-sm');
+        yearlyToggle.classList.add('text-neutral-600');
+        
+        monthlyDisplays.forEach(display => display.classList.remove('hidden'));
+        yearlyDisplays.forEach(display => display.classList.add('hidden'));
+      });
+
+      yearlyToggle.addEventListener('click', function() {
+        yearlyToggle.classList.add('bg-white', 'text-neutral-900', 'shadow-sm');
+        yearlyToggle.classList.remove('text-neutral-600');
+        monthlyToggle.classList.remove('bg-white', 'text-neutral-900', 'shadow-sm');
+        monthlyToggle.classList.add('text-neutral-600');
+        
+        yearlyDisplays.forEach(display => display.classList.remove('hidden'));
+        monthlyDisplays.forEach(display => display.classList.add('hidden'));
+      });
+    });
+  </script>
 
   <section class="py-20 sm:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6">
