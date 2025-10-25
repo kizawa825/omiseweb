@@ -27,7 +27,7 @@
     "features": [
       "Overwhelmingly Fast Loading",
       "High Quality Low Cost Support",
-      "15 Years of Industry Customer Acquisition"
+      "15 Years of Proven Results"
     ],
     "cta_main": "Choose Plan and Start",
     "cta_sub": "See Pricing Plans"
@@ -35,11 +35,11 @@
   "problem": {
     "title": "Do you have these problems?",
     "problems": [
-      { "icon": "language", "text": "Anxious about communicating in Japanese with Japanese production companies" },
-      { "icon": "users", "text": "The charm of my shop isn't conveyed, and I'm not getting new customers" },
-      { "icon": "palette", "text": "My site is heavy and slow to load" },
-      { "icon": "money", "text": "A professional website is too expensive to afford" },
-      { "icon": "question", "text": "I have no web expertise and don't know where to start" }
+      { "icon": "language", "text": "Anxious about communicating in Japanese with production companies" },
+      { "icon": "users", "text": "Shop's charm isn't conveyed, not getting new customers" },
+      { "icon": "palette", "text": "Site is heavy and slow to load" },
+      { "icon": "money", "text": "Professional website is too expensive" },
+      { "icon": "question", "text": "No web expertise, don't know where to start" }
     ]
   },
   "solution": {
@@ -49,25 +49,25 @@
       {
         "title": "Created by Japanese who know Japan well",
         "subtitle": "Love Chinese, Thai, and Western restaurants",
-        "description": "We have Japanese creators who know Japan well. We love Chinese, Thai, and Western restaurants, and also visit massage and salons, so we create with people who understand localization and shops.",
+        "description": "Japanese creators who know Japan well. We love Chinese, Thai, and Western restaurants, and also visit massage and salons. Created by people who understand localization and shops.",
         "image": "https://placehold.co/600x400/312e81/ffffff?text=Localization"
       },
       {
         "title": "Overwhelmingly Fast Loading",
-        "subtitle": "Haven't you been frustrated by sites that take forever to load?",
-        "description": "We utilize the latest technology to achieve overwhelmingly fast loading. We provide optimized sites so customers can browse without stress.",
+        "subtitle": "Haven't you been frustrated by slow-loading sites?",
+        "description": "Latest technology for ultra-fast loading. We provide optimized sites so customers can browse without stress.",
         "image": "https://placehold.co/600x400/312e81/ffffff?text=Fast+Loading"
       },
       {
         "title": "High Quality Low Cost Support for Owners",
-        "subtitle": "Creating responsive HP with latest design",
-        "description": "By offering online payment (Stripe) only and primarily email and chat support, we provide at a lower cost. We create responsive HP with the latest design, achieving high-quality service at low cost.",
+        "subtitle": "Latest responsive design",
+        "description": "Online payment and email/chat support focus allows lower costs. We create responsive sites with latest design, delivering high-quality service at low cost.",
         "image": "https://placehold.co/600x400/312e81/ffffff?text=High+Quality+Low+Cost"
       },
       {
-        "title": "More Reservations! 15 Years of Industry Customer Acquisition",
-        "subtitle": "SEO/MEO measures by 15-year industry professionals",
-        "description": "Customer acquisition truly begins after the website is launched. We implement MEO measures to get your shop found on Google Maps and SEO measures to be found in searches by 15-year industry professionals. We attract customers interested in your shop.",
+        "title": "More Reservations! 15 Years of Proven Results",
+        "subtitle": "SEO/MEO measures by professionals",
+        "description": "Customer acquisition truly begins after website launch. We implement MEO measures for Google Maps and SEO measures for search engines by 15-year professionals. We attract customers interested in your shop.",
         "image": "https://placehold.co/600x400/312e81/ffffff?text=Customer+Attraction"
       }
     ]
@@ -80,20 +80,20 @@
       {
         "name": "Chinese Restaurant 'Ryuteki Kitchen'",
         "image": "https://placehold.co/800x600/312e81/ffffff?text=Ryuteki+Kitchen",
-        "before": "The old site didn't convey its charm, and reservations were phone-only.",
-        "after": "With a design refresh and web reservations, new customers and bookings increased 1.5x!"
+        "before": "Old site didn't convey charm, phone reservations only",
+        "after": "With design refresh and web reservations, new customers increased 1.5x!"
       },
       {
         "name": "Thai Massage 'Siam Healing'",
         "image": "https://placehold.co/800x600/312e81/ffffff?text=Siam+Healing",
-        "before": "Information was outdated and hard to see on smartphones, struggling to attract new clients.",
-        "after": "Achieved a 200% month-over-month increase in new web bookings with mobile optimization!"
+        "before": "Information outdated, hard to see on smartphones",
+        "after": "Achieved 200% month-over-month increase in web bookings with mobile optimization!"
       },
       {
         "name": "Korean Style Cafe 'Seoul Cafe'",
         "image": "https://placehold.co/800x600/312e81/ffffff?text=Seoul+Cafe",
-        "before": "Only had Instagram, lacking credibility without an official website.",
-        "after": "Strengthened branding by launching an official site, leading to more media inquiries!"
+        "before": "Only had Instagram, lacking credibility",
+        "after": "Strengthened branding by launching official site, more media inquiries!"
       }
     ]
   },
@@ -102,13 +102,13 @@
     "subtitle": "We value the relationship of trust with our customers.",
     "voices": [
       {
-        "quote": "I was able to convey my requests in detail in Thai, so we achieved the ideal atmosphere for my salon. I'm so happy that bookings from the web have also increased!",
+        "quote": "I was able to convey requests in detail in Thai, achieving the ideal atmosphere for my salon. So happy that bookings from the web have also increased!",
         "name": "Ariya S.",
         "role": "Thai Salon Owner",
         "image": "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop"
       },
       {
-        "quote": "I'm amazed they can create such an original design at this price. We can now receive inquiries from WeChat, which helps us appeal to the Chinese community.",
+        "quote": "Amazed they can create such original design at this price. Now we can receive inquiries from WeChat, helping us appeal to Chinese community.",
         "name": "Li Wei",
         "role": "Chinese Restaurant Owner",
         "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop"
@@ -117,16 +117,16 @@
   },
   "process": {
     "title": "Simple & Speedy, from Consultation to Launch",
-    "subtitle": "You can request with confidence thanks to our transparent pricing.",
+    "subtitle": "You can request with confidence thanks to transparent pricing.",
     "buttonText": "See detailed pricing",
     "steps": [
       { "name": "Choose a Plan", "description": "Customer selects a plan" },
       { "name": "Add Options (Optional)", "description": "Add optional services as needed" },
-      { "name": "Make Payment", "description": "Pay with online payment (Stripe)" },
+      { "name": "Make Payment", "description": "Pay with online payment" },
       { "name": "Hearing & Production Start", "description": "After hearing via chat, production begins" }
     ],
     "plans": {
-      "title": "Restaurant, Esthetic Salon, Relaxation Salon, Massage Shop Only Plans",
+      "title": "Restaurant, Esthetic Salon, Relaxation Salon, Massage Shop Only",
       "items": [
         { "name": "Start", "price": "From ¥5,000/month" },
         { "name": "Standard", "price": "From ¥10,000/month" },
@@ -138,10 +138,10 @@
     "title": "Frequently Asked Questions",
     "subtitle": "Your questions and concerns, answered here.",
     "faqs": [
-      { "q": "Are there really no extra charges?", "a": "That's right, no fees other than the estimate provided at the time of contract will be incurred. However, if you wish to add features later for your own reasons, a separate estimate will be provided." },
-      { "q": "How long does production take?", "a": "It varies depending on the plan, site scale, and preparation of materials, but a standard plan typically takes about 1 to 1.5 months." },
-      { "q": "Can I update it even if I'm not good with computers?", "a": "Yes, rest assured. For areas you'll update yourself, like blogs or announcements, we implement a system that's as easy to use as a smartphone app." },
-      { "q": "Is there support after the site launch?", "a": "Yes, all plans come with one month of free support after launch. This covers questions about how to operate it and minor corrections. If you wish for continued support beyond that, we offer separate maintenance plans." }
+      { "q": "Are there really no extra charges?", "a": "No fees other than the estimate at contract time. However, if you wish to add features later, a separate estimate will be provided." },
+      { "q": "How long does production take?", "a": "Standard plan typically takes about 1 to 1.5 months." },
+      { "q": "Can I update it even if I'm not good with computers?", "a": "Yes. For areas you'll update, we implement a system as easy to use as a smartphone app." },
+      { "q": "Is there support after the site launch?", "a": "Yes, all plans come with one month of free support after launch. Covers questions about operation and minor corrections." }
     ]
   },
   "cta": {
@@ -156,48 +156,48 @@
     "sections": [
       {
         "title": "Our Mission",
-        "content": "Our mission is to lead the businesses of foreign owners to success with the power of digital, especially for those who have wonderful services or products but face challenges in online communication. Through soulful, original websites—not templates—we deliver the true value of your shop to fans in Japan."
+        "content": "Lead businesses of foreign owners to success with the power of digital, especially those with wonderful services or products but facing online communication challenges. Through soulful, original websites—not templates—we deliver the true value of your shop to fans in Japan."
       },
       {
         "title": "Why Choose Us?",
-        "content": "Our founder has personal experience in international business and deeply understands the importance and difficulties of cross-cultural communication. That's why we prioritize not just technical support, but also careful consultation in your native language. We take the passion for your business, understand its cultural context, and express it in a way that is optimized for the Japanese market."
+        "content": "Our founder has personal experience in international business and deeply understands the importance and difficulties of cross-cultural communication. We prioritize careful consultation in your native language, not just technical support. We understand your passion for business, its cultural context, and express it optimized for the Japanese market."
       }
     ]
   },
   "worksPage": {
     "title": "Our Works",
-    "description": "Here are some of the success stories we have created for our clients' businesses. See the quality of our design and the results it has produced.",
+    "description": "Here are some success stories we created for our clients' businesses. See the quality of our design and the results it produced.",
     "cases": [
       {
         "name": "Chinese Restaurant 'Ryuteki Kitchen'",
         "category": "Restaurant Website",
         "image": "https://placehold.co/800x600/312e81/ffffff?text=Ryuteki+Kitchen",
-        "description": "To convey the charm of a restaurant that fuses traditional taste with a modern space, we focused on a luxurious design and appetizing photos. An online reservation system was also introduced.",
-        "before": "The old site didn't convey its charm, and reservations were phone-only.",
-        "after": "With a design refresh and web reservations, new customers in their 20s-30s and bookings increased 1.5x!"
+        "description": "To convey the charm of a restaurant fusing traditional taste with modern space, we focused on luxurious design and appetizing photos. An online reservation system was also introduced.",
+        "before": "Old site didn't convey charm, phone reservations only",
+        "after": "With design refresh and web reservations, new customers in their 20s-30s and bookings increased 1.5x!"
       },
       {
         "name": "Thai Massage 'Siam Healing'",
         "category": "Salon Website",
         "image": "https://placehold.co/800x600/312e81/ffffff?text=Siam+Healing",
-        "description": "To convey a healing space and authentic treatments, we used a calm color palette and relaxing images. The treatment menu is presented clearly to smoothly guide users to web reservations.",
-        "before": "Information was outdated and hard to see on smartphones, struggling to attract new clients.",
-        "after": "Achieved a 200% month-over-month increase in new web bookings with mobile optimization!"
+        "description": "To convey healing space and authentic treatments, we used calm colors and relaxing images. Treatment menu is presented clearly to smoothly guide users to web reservations.",
+        "before": "Information outdated, hard to see on smartphones",
+        "after": "Achieved 200% month-over-month increase in new web bookings with mobile optimization!"
       },
       {
         "name": "Korean Style Cafe 'Seoul Cafe'",
         "category": "Cafe Website",
         "image": "https://placehold.co/800x600/312e81/ffffff?text=Seoul+Cafe",
-        "description": "Expressed the cuteness of the Instagrammable menu and space. To appeal to a young female target, we incorporated a pop design and video content to establish a brand image.",
-        "before": "Only had Instagram, lacking credibility without an official website.",
-        "after": "Strengthened branding by launching an official site, leading to more media inquiries!"
+        "description": "Expressed the cuteness of Instagrammable menu and space. To appeal to young female target, we incorporated pop design and video content to establish brand image.",
+        "before": "Only had Instagram, lacking credibility without official website",
+        "after": "Strengthened branding by launching official site, leading to more media inquiries!"
       },
       {
         "name": "International School",
         "category": "Educational Website",
         "image": "https://placehold.co/800x600/312e81/ffffff?text=Global+Kids",
-        "description": "We focused on clearly communicating the educational philosophy and curriculum features to parents. In addition to multilingual support, we built a system for frequent updates of student testimonials and event information.",
-        "before": "Information was scattered, making it difficult for prospective students to find what they needed.",
+        "description": "We focused on clearly communicating educational philosophy and curriculum features to parents. In addition to multilingual support, we built a system for frequent updates of student testimonials and event information.",
+        "before": "Information scattered, making it difficult to find what was needed",
         "after": "By reorganizing the site structure and improving the inquiry form, applications for information sessions doubled."
       }
     ]
